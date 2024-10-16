@@ -8,6 +8,6 @@ public interface IDIYManagementAPI
     [Get("/diyavonden/{id}")]
     Task<DIYAvond> GetDIYAvondById([AliasAs("id")] string diyAvondId);
 
-    //[Post("/diyavonden")]
-    //Task RegisterDIYAvond(RegisterDIYAvond command);
+    [Post("/diyavonden")]
+    Task RegisterDIYAvond(RegisterDIYAvond command);
 }
