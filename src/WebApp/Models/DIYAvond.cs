@@ -10,6 +10,6 @@
         public string EndTime { get; set; }
         public string Location { get; set; }
         public string MaxRegistrations { get; set; }
-        public string Registrations { get; set; }   
+        public string Registrations { get; set; }
     }
 }

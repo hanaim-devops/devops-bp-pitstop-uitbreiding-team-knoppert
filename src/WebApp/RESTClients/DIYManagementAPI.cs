@@ -25,4 +25,9 @@ public class DIYManagementAPI : IDIYManagementAPI
     {
         return await _restClient.GetDIYAvonden();
     }
+
+    public Task<DIYRegistration> GetRegistrationsForDIYAvond(string diyAvondId)
+    {
+        throw new NotImplementedException();
+    }
 }

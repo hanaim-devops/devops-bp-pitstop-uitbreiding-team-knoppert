@@ -1,6 +1,42 @@
-﻿namespace Pitstop.WebApp.Views.DIYManagement
-{
-    public class Details
-    {
-    }
+﻿@model Pitstop.WebApp.ViewModels.DIYManagementDetailsViewModel
+@{
+    ViewData["Title"] = "DIY Details";
 }
+<h3 id="PageTitle">DIY Management - details</h3>
+<table class="table">
+    <tbody>
+        <tr>
+            <td width="150">Name :</td>
+            <td><b>@Model.DIYAvond.Name</b></td>
+        </tr>
+        <tr>
+            <td>Description :</td>
+            <td><b>@Model.DIYAvond.Description</b></td>
+        </tr>
+        <tr>
+            <td width="150">Date :</td>
+            <td><b>@Model.DIYAvond.Date</b></td>
+        </tr>
+        <tr>
+            <td width="150">Start time :</td>
+            <td><b>@Model.DIYAvond.StartTime</b></td>
+        </tr>
+        <tr>
+            <td width="150">End time :</td>
+            <td><b>@Model.DIYAvond.EndTime</b></td>
+        </tr>
+        <tr>
+            <td width="150">Location :</td>
+            <td><b>@Model.DIYAvond.Location</b></td>
+        </tr>
+        <tr>
+            <td width="150">Max registrations :</td>
+            <td><b>@Model.DIYAvond.MaxRegistrations</b></td>
+        </tr>
+        <tr>
+            <td width="150">Registrations :</td>
+            <td><b>@Model.DIYAvond.Registrations</b></td>
+        </tr>
+    </tbody>
+</table>
+<span><a id="BackButton" asp-action="Index" asp-controller="CustomerManagement" class="btn btn-default">Back</a></span>
