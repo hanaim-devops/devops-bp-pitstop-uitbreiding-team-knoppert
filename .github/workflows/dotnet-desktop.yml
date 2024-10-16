@@ -19,6 +19,6 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore src/WorkshopManagement.UnitTests/WorkshopManagement.UnitTests.csproj
       - name: Build the solution
-        run: dotnet build src/WorkshopManagement.sln --configuration Release
+        run: dotnet build src/pitstop.sln --configuration Release
       - name: Run unit tests
         run: dotnet test src/WorkshopManagement.UnitTests/WorkshopManagement.UnitTests.csproj --verbosity normal
