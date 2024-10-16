@@ -50,4 +50,5 @@ kubectl apply \
     -f ../customermanagementapi-svc.yaml \
     -f ../vehiclemanagementapi$MESHPOSTFIX.yaml \
     -f ../workshopmanagementapi$MESHPOSTFIX.yaml \
-    -f ../webapp$MESHPOSTFIX.yaml
+    -f ../webapp$MESHPOSTFIX.yaml \
+    -f https://raw.githubusercontent.com/keycloak/keycloak-quickstarts/latest/kubernetes/keycloak.yaml --namespace=pitstop
