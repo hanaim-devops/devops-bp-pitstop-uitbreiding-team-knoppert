@@ -14,6 +14,7 @@ Ik ben Infrastructure specialist omdat ik de taak heb om HPA te implementeren. O
 Competenties: *DevOps-2 Orchestration, Containerization*
  
 - HPA Implementeren: https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/17
+- Basis app opzetten: https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/22/files
 
 ## 3. Bijdrage versiebeheer, CI/CD pipeline en/of monitoring
 
@@ -47,11 +48,14 @@ Competenties: *DevOps-6 Onderzoek*
 Competenties: *DevOps-1 - Continuous Delivery*, *Agile*
 
 - Ik heb het initiatief genomen om de cluster info alvast op te vragen, omdat wij er anders straks misschien op moesten wachten.
-  
+- 
+
 ## 8. Leerervaringen
 
 Competenties: *DevOps-7 - Attitude*
 
+- Doorzetten: Ik geef niet direct op als het niet lukt.
+- Creativiteit: IK vind creative oplossingen voor problemen.
 - Beter communiceren: Ik had een issue opgepakt zonder te overleggen, dit had ik beter wel kunnen doen.
 - Om hulp vragen: Ik wil dingen vaak zelf oplossen, maar soms is het beter om hulp te vragen van anderen.
 
@@ -59,4 +63,4 @@ Competenties: *DevOps-7 - Attitude*
 
 Competenties: *DevOps-7 - Attitude*
 
-- De tijd is vrij kort, eigenlijk te kort om alles goed te doen. Verder was het een leerzaam project en heb ik het naar mijn zin gehad.
+- De tijd is vrij kort, eigenlijk te kort om alles goed te doen. Verder was het een leerzaam project en heb ik het naar mijn zin gehad. Ik neem het opzetten van infrastructuur mee naar mijn afstuderen.
