@@ -5,8 +5,8 @@ namespace DIYManagementAPI.Services
 {
     public class DiyTestModelService
     {
-        private readonly DiyTestModelDAO _dao;
-        public DiyTestModelService(DiyTestModelDAO dao)
+        private readonly DYIDAO _dao;
+        public DiyTestModelService(DYIDAO dao)
         {
             _dao = dao;
         }

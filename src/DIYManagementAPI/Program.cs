@@ -4,6 +4,7 @@ using DIYManagementAPI.Services;
 using DIYManagementAPI.Models;
 using Serilog;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,13 +17,18 @@ builder.Host.UseSerilog((context, logContext) =>
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+// Heeft met oneidigen loops door many to many reltaties te maken. zie ADR
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<DiyTestModelService>();
-builder.Services.AddScoped<DiyTestModelDAO>();
+builder.Services.AddScoped<DYIService>();
+builder.Services.AddScoped<DYIDAO>();
 
 var connectionString = builder.Configuration.GetConnectionString("DIYManagementCN");
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connectionString));

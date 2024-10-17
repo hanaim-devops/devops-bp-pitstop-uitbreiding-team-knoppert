@@ -27,6 +27,24 @@
         }, View("Offline", new DIYManagementOfflineViewModel()));
     }
 
+    [HttpGet]
+    public async Task<IActionResult> New()
+    {
+        var reparateurs = await _DIYManagamentAPI.GetReparateursAsync();
+
+        var model = new DIYNewViewModel
+        {
+            DIYNAvond = new DIYAvond(),
+            Reparateurs = reparateurs.Select(r => new SelectListItem
+            {
+                Value = r.Id.ToString(),
+                Text = r.Name
+            })
+        };
+        return View(model);
+    }
+
+
     public IActionResult Error()
     {
         return View();

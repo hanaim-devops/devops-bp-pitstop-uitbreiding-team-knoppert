@@ -24,22 +24,21 @@
     </div>
     <div class="form-group">
         <label asp-for="DIYNAvond.StartDate"></label>
-        <input asp-for="DIYNAvond.StartDate" type="text" class="form-control" />
+        <input asp-for="DIYNAvond.StartDate" type="date" class="form-control" />
         <span asp-validation-for="DIYNAvond.StartDate" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="DIYNAvond.EndDate"></label>
-        <input asp-for="DIYNAvond.EndDate" type="text" class="form-control" />
+        <input asp-for="DIYNAvond.EndDate" type="date" class="form-control" />
         <span asp-validation-for="DIYNAvond.EndDate" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        @* Ik heb echt geen idee wat die Id moet zijn, moet ik mee gaan experimenteren *@
-        <label asp-for="DIYNAvond.Id"></label>
-        <select asp-for="SelectedReparateursId" asp-items="Model.Reparateurs" class="form-control"></select>
-        <span asp-validation-for="SelectedReparateursId" class="text-danger"></span>
+        <label asp-for="SelectedReparateursIds"></label>
+        <select asp-for="SelectedReparateursIds" asp-items="Model.Reparateurs" class="form-control" multiple="multiple"></select>
+        <span asp-validation-for="SelectedReparateursIds" class="text-danger"></span>
     </div>
   
     <span><button id="SubmitButton" type="submit" class="btn btn-default">Plan evening</button></span>
-    <span><a id="CancelButton" asp-action="Index" asp-controller="DIYManager" class="btn btn-default">Cancel</a></span>
+    <span><a id="CancelButton" asp-action="Index" asp-controller="DIYManagement" class="btn btn-default">Cancel</a></span>
 </form>

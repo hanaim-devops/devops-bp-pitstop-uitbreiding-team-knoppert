@@ -10,6 +10,10 @@ namespace DIYManagementAPI.Models
         }
 
         public DbSet<DiyTestModel> DiyTestModels { get; set; }
+        public DbSet<DIYAvondModel> DIYAvondModels { get; set; }
+        public DbSet<Reparateur> Reparateurs { get; set; }
+
+
 
         public void MigrateDB()
         {

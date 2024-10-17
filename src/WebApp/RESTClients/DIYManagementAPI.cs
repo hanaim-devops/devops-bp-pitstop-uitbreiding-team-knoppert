@@ -6,7 +6,7 @@ public class DIYManagementAPI : IDIYManagementAPI
 
     public DIYManagementAPI(IConfiguration config, HttpClient httpClient)
     {
-        string apiHostAndPort = config.GetSection("APIServiceLocations").GetValue<string>("CustomerManagementAPI");
+        string apiHostAndPort = config.GetSection("APIServiceLocations").GetValue<string>("DIYManagementAPI");
         httpClient.BaseAddress = new Uri($"http://{apiHostAndPort}/api");
         _restClient = RestService.For<IDIYManagementAPI>(
             httpClient,
@@ -29,5 +29,10 @@ public class DIYManagementAPI : IDIYManagementAPI
     public async Task RegisterDIYAvond(RegisterDIYAvond command)
     {
         await _restClient.RegisterDIYAvond(command);
+    }
+
+    public async Task<List<string>> GetReparateursAsync()
+    {
+        return await _restClient.GetReparateursAsync();
     }
 }

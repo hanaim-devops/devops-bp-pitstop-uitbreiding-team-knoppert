@@ -4,6 +4,7 @@ using DIYManagementAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DIYManagementAPI.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20241016165758_addDIYAvondmodel")]
+    partial class addDIYAvondmodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,21 +24,6 @@ namespace DIYManagementAPI.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("DIYAvondModelReparateur", b =>
-                {
-                    b.Property<int>("DIYAvondenId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ReparateursId")
-                        .HasColumnType("int");
-
-                    b.HasKey("DIYAvondenId", "ReparateursId");
-
-                    b.HasIndex("ReparateursId");
-
-                    b.ToTable("DIYAvondModelReparateur");
-                });
 
             modelBuilder.Entity("DIYManagementAPI.Models.DIYAvondModel", b =>
                 {
@@ -45,8 +33,8 @@ namespace DIYManagementAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
+                    b.Property<TimeSpan>("EndDate")
+                        .HasColumnType("time");
 
                     b.Property<TimeSpan>("EndTime")
                         .HasColumnType("time");
@@ -89,38 +77,6 @@ namespace DIYManagementAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("DiyTestModels");
-                });
-
-            modelBuilder.Entity("DIYManagementAPI.Models.Reparateur", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Reparateurs");
-                });
-
-            modelBuilder.Entity("DIYAvondModelReparateur", b =>
-                {
-                    b.HasOne("DIYManagementAPI.Models.DIYAvondModel", null)
-                        .WithMany()
-                        .HasForeignKey("DIYAvondenId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DIYManagementAPI.Models.Reparateur", null)
-                        .WithMany()
-                        .HasForeignKey("ReparateursId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

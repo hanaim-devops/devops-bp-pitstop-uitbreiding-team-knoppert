@@ -2,12 +2,15 @@
 
 public interface IDIYManagementAPI
 {
-    [Get("/diyavonden")]
+    [Get("/diy")]
     Task<List<DIYAvond>> GetDIYAvonden();
 
     [Get("/diyavonden/{id}")]
     Task<DIYAvond> GetDIYAvondById([AliasAs("id")] string diyAvondId);
 
-    [Post("/diyavonden")]
+    [Post("/diy")]
     Task RegisterDIYAvond(RegisterDIYAvond command);
+
+    [Get("/reperateur")]
+    Task<List<Reparateur>> GetReparateursAsync();
 }
