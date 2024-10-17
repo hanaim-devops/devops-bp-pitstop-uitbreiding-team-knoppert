@@ -32,8 +32,8 @@ Competenties: *Nieuwsgierige houding*
 
 Competenties: *DevOps-7 - Attitude*, *DevOps-4 DevSecOps*
 
-- Review 1:
-- Review 2: 
+- Review 1: https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/35/files
+- Review 2: https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/34/files
 - Security:
  
 ## 6. Bijdrage documentatie
