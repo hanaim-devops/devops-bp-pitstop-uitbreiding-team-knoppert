@@ -25,4 +25,9 @@ public class DIYManagementAPI : IDIYManagementAPI
     {
         return await _restClient.GetDIYAvonden();
     }
+
+    public async Task<List<DIYRegistration>> GetRegistrationsForDIYAvond(string diyAvondId)
+    {
+        return await _restClient.GetRegistrationsForDIYAvond(diyAvondId);
+    }
 }
