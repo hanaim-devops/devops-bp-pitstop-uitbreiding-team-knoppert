@@ -1,6 +1,5 @@
 ﻿namespace PitStop.Controllers;
 
-[Microsoft.AspNetCore.Authorization.Authorize]
 public class HomeController : Controller
 {
     [HttpGet]

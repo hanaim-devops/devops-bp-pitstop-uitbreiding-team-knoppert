@@ -1,55 +1,70 @@
-﻿using Keycloak.AuthServices.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿﻿using Keycloak.AuthServices.Authentication;
+using Keycloak.AuthServices.Authorization;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Set up logging
-builder.Host.UseSerilog((context, logContext) => 
-    logContext
-        .ReadFrom.Configuration(builder.Configuration)
-        .Enrich.WithMachineName()
-);
+builder.Services.Configure<CookiePolicyOptions>(options =>
+{
+    options.CheckConsentNeeded = context => true;
+    options.MinimumSameSitePolicy = SameSiteMode.Unspecified;
+});
 
-builder.Services.AddKeycloakWebApiAuthentication(builder.Configuration);
+builder
+    .Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+    .AddKeycloakWebApp(
+        builder.Configuration.GetSection(KeycloakAuthenticationOptions.Section),
+        configureOpenIdConnectOptions: options =>
+        {
+            // we need this for front-channel sign-out
+            options.SaveTokens = true;
+            options.ResponseType = OpenIdConnectResponseType.Code;
+            options.Events = new OpenIdConnectEvents
+            {
+                OnSignedOutCallbackRedirect = context =>
+                {
+                    context.Response.Redirect("/Home/Public");
+                    context.HandleResponse();
 
-builder.Services.AddAuthorization();
+                    return Task.CompletedTask;
+                }
+            };
+        }
+    );
 
-// Add framework services
-builder.Services
-    .AddMvc(options => options.EnableEndpointRouting = false)
-    .AddNewtonsoftJson();
+builder
+    .Services.AddKeycloakAuthorization(builder.Configuration)
+    .AddAuthorizationBuilder()
+    .AddPolicy("PrivacyAccess", policy => policy.RequireRealmRoles("Admin"));
 
-// Add health checks
-builder.Services.AddHealthChecks();
+builder.Services.AddControllersWithViews();
 
-// Add custom services
-builder.Services.AddHttpClient<ICustomerManagementAPI, CustomerManagementAPI>();
-builder.Services.AddHttpClient<IVehicleManagementAPI, VehicleManagementAPI>();
-builder.Services.AddHttpClient<IWorkshopManagementAPI, WorkshopManagementAPI>();
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
-    app.UseBrowserLink();
 }
 else
 {
-    app.UseHsts();
     app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
 }
 
-app.UseMvc();
+app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseCookiePolicy();
 
-app.UseHealthChecks("/hc");
+app.UseRouting();
 
-app.UseMvc(routes =>
-{
-    routes.MapRoute(
-        name: "default",
-        template: "{controller=Home}/{action=Index}/{id?}");
-});
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}")
+    .RequireAuthorization();
+app.MapRazorPages();
 
 app.Run();
