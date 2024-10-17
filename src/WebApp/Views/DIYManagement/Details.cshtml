@@ -39,4 +39,21 @@
         </tr>
     </tbody>
 </table>
-<span><a id="BackButton" asp-action="Index" asp-controller="CustomerManagement" class="btn btn-default">Back</a></span>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name customer</th>
+            <th>Reparation(s)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var diyRegistration in Model.DIYRegistrations)
+        {
+            <tr>
+                <td>@diyRegistration.CustomerName</td>
+                <td>@diyRegistration.Reparations</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<span><a id="BackButton" asp-action="Index" asp-controller="DIYManagement" class="btn btn-default">Back</a></span>
