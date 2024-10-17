@@ -22,22 +22,7 @@ namespace DIYManagementAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("DIYAvondModelReparateur", b =>
-                {
-                    b.Property<int>("DIYAvondenId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ReparateursId")
-                        .HasColumnType("int");
-
-                    b.HasKey("DIYAvondenId", "ReparateursId");
-
-                    b.HasIndex("ReparateursId");
-
-                    b.ToTable("DIYAvondModelReparateur");
-                });
-
-            modelBuilder.Entity("DIYManagementAPI.Models.DIYAvondModel", b =>
+            modelBuilder.Entity("DIYManagementAPI.Models.DIYEveningModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -48,18 +33,16 @@ namespace DIYManagementAPI.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<TimeSpan>("EndTime")
-                        .HasColumnType("time");
-
                     b.Property<string>("ExtraInfo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mechanic")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<TimeSpan>("StartTime")
-                        .HasColumnType("time");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -67,60 +50,7 @@ namespace DIYManagementAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("DIYAvondModels");
-                });
-
-            modelBuilder.Entity("DIYManagementAPI.Models.DiyTestModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("DiyTestModels");
-                });
-
-            modelBuilder.Entity("DIYManagementAPI.Models.Reparateur", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Reparateurs");
-                });
-
-            modelBuilder.Entity("DIYAvondModelReparateur", b =>
-                {
-                    b.HasOne("DIYManagementAPI.Models.DIYAvondModel", null)
-                        .WithMany()
-                        .HasForeignKey("DIYAvondenId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DIYManagementAPI.Models.Reparateur", null)
-                        .WithMany()
-                        .HasForeignKey("ReparateursId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.ToTable("DIYEveningModels");
                 });
 #pragma warning restore 612, 618
         }

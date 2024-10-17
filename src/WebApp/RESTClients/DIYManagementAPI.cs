@@ -16,23 +16,19 @@ public class DIYManagementAPI : IDIYManagementAPI
             });
     }
 
-    public Task<DIYAvond> GetDIYAvondById([AliasAs("id")] string diyAvondId)
+    public Task<DIYEvening> GetDIYEveningById([AliasAs("id")] string diyEveningId)
     {
         throw new NotImplementedException();
     }
 
-    public async Task<List<DIYAvond>> GetDIYAvonden()
+    public async Task<List<DIYEvening>> GetDIYEvening()
     {
-        return await _restClient.GetDIYAvonden();
+        return await _restClient.GetDIYEvening();
     }
 
-    public async Task RegisterDIYAvond(RegisterDIYAvond command)
+    public async Task RegisterDIYEvening(RegisterDIYEvening cmd)
     {
-        await _restClient.RegisterDIYAvond(command);
+        await _restClient.RegisterDIYEvening(cmd);
     }
 
-    public async Task<List<string>> GetReparateursAsync()
-    {
-        return await _restClient.GetReparateursAsync();
-    }
 }

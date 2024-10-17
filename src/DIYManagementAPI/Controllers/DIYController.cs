@@ -17,48 +17,37 @@ namespace DIYManagementAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<DIYAvondModel>> CreateDIYAvond([FromBody] DIYAvondCreateDto dto)
+        public async Task<ActionResult<DIYEveningModel>> CreateDIYEvening([FromBody] DIYEveningCreateDto dto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var diyAvond = new DIYAvondModel
+            var diyEvening = new DIYEveningModel
             {
                 Title = dto.Title,
                 ExtraInfo = dto.ExtraInfo,
                 StartDate = dto.StartDate,
-                StartTime = dto.StartTime,
                 EndDate = dto.EndDate,
-                EndTime = dto.EndTime
+                Mechanic = dto.Mechanic
             };
 
-            var result = await _service.CreateDIYAvond(diyAvond, dto.ReparateurIds);
+            var result = await _service.CreateDIYEvening(diyEvening);
 
-            // Retourneer het resultaat; met ook nog een check voor zekerheid, maar omdat die nog niet bestaat; later
-            //return CreatedAtAction(nameof(GetDIYAvondById), new { id = result.Id }, result);
             return StatusCode(StatusCodes.Status201Created, result);
         }
 
-        // TODO: get all DIYAvondModels
+        // TODO: get all DIYEveningModels
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<DIYAvondModel>>> GetDIYAvonden()
+        public async Task<ActionResult<IEnumerable<DIYEveningModel>>> GetDIYEvening()
         {
-            //var result = await _service.GetDIYAvonden();
-            //return Ok(result);
-
-            var fakeResult = new List<DIYAvondModel>
-            {
-               new DIYAvondModel { Id = 1, Title = "Test 1", ExtraInfo = "This is a test", StartDate = DateTime.Now, StartTime = new TimeSpan(10, 0, 0), EndDate = DateTime.Now, EndTime = new TimeSpan(12, 0, 0) },
-               new DIYAvondModel { Id = 2, Title = "Test 2", ExtraInfo = "This is a test", StartDate = DateTime.Now, StartTime = new TimeSpan(10, 0, 0), EndDate = DateTime.Now, EndTime = new TimeSpan(12, 0, 0) },
-            };
-
-            return Ok(fakeResult);
+            var result = await _service.GetDIYEvenings();
+            return Ok(result);
         }
 
-            // TODO: get specific DIYAvondModel by id
-            // TODO: Annuleer meeting
-            // TODO: meld aan als klant
-        }
+        // TODO: get specific DIYAvondModel by id
+        // TODO: Annuleer meeting
+        // TODO: meld aan als klant
+    }
 }

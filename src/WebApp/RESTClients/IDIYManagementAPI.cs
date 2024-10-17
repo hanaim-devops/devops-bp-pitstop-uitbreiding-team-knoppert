@@ -3,14 +3,13 @@
 public interface IDIYManagementAPI
 {
     [Get("/diy")]
-    Task<List<DIYAvond>> GetDIYAvonden();
+    Task<List<DIYEvening>> GetDIYEvening();
 
-    [Get("/diyavonden/{id}")]
-    Task<DIYAvond> GetDIYAvondById([AliasAs("id")] string diyAvondId);
+    //TODO: get eveninging on id
+
+    [Get("/diyevening/{id}")]
+    Task<DIYEvening> GetDIYEveningById([AliasAs("id")] string diyEveningId);
 
     [Post("/diy")]
-    Task RegisterDIYAvond(RegisterDIYAvond command);
-
-    [Get("/reperateur")]
-    Task<List<Reparateur>> GetReparateursAsync();
+    Task RegisterDIYEvening(RegisterDIYEvening cmd);
 }

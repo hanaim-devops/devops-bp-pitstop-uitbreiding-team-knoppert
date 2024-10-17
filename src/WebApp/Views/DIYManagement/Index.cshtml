@@ -16,15 +16,15 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var diy in Model.DIYAvonden)
+        @foreach (var diy in Model.DIYEvening)
         {
             <tr class="clickable" onclick="location.href = '@(Url.Action("Details", "DIYManagement", new { id = diy.Id }))'">
                 <td>@diy.Title</td>
                 <td>@diy.ExtraInfo</td>
-                <td>@diy.StartDate + ": " @diy.StartTime</td>
-                <td>@diy.EndDate + ": " @diy.EndTime</td>
+                <td>@diy.StartDate</td>
+                <td>@diy.EndDate</td>
             </tr>
         }
     </tbody>
 </table>
-<a id="CreateDIYAvondButton" asp-action="New" asp-controller="DIYManagement" class="btn btn-default">Register DIYAvond</a>
+<a id="CreateDIYEveningButton" asp-action="New" asp-controller="DIYManagement" class="btn btn-default">Register DIYEvening</a>

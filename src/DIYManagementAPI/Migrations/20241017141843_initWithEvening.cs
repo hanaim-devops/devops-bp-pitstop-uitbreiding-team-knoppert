@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DIYManagementAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class addDIYAvondmodel : Migration
+    public partial class initWithEvening : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "DIYAvondModels",
+                name: "DIYEveningModels",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -20,13 +20,12 @@ namespace DIYManagementAPI.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ExtraInfo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    StartTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    EndDate = table.Column<TimeSpan>(type: "time", nullable: false),
-                    EndTime = table.Column<TimeSpan>(type: "time", nullable: false)
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Mechanic = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DIYAvondModels", x => x.Id);
+                    table.PrimaryKey("PK_DIYEveningModels", x => x.Id);
                 });
         }
 
@@ -34,7 +33,7 @@ namespace DIYManagementAPI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "DIYAvondModels");
+                name: "DIYEveningModels");
         }
     }
 }

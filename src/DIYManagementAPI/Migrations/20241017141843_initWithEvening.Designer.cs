@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DIYManagementAPI.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20241016165758_addDIYAvondmodel")]
-    partial class addDIYAvondmodel
+    [Migration("20241017141843_initWithEvening")]
+    partial class initWithEvening
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace DIYManagementAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("DIYManagementAPI.Models.DIYAvondModel", b =>
+            modelBuilder.Entity("DIYManagementAPI.Models.DIYEveningModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -33,21 +33,19 @@ namespace DIYManagementAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<TimeSpan>("EndDate")
-                        .HasColumnType("time");
-
-                    b.Property<TimeSpan>("EndTime")
-                        .HasColumnType("time");
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ExtraInfo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Mechanic")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<TimeSpan>("StartTime")
-                        .HasColumnType("time");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -55,28 +53,7 @@ namespace DIYManagementAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("DIYAvondModels");
-                });
-
-            modelBuilder.Entity("DIYManagementAPI.Models.DiyTestModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("DiyTestModels");
+                    b.ToTable("DIYEveningModels");
                 });
 #pragma warning restore 612, 618
         }

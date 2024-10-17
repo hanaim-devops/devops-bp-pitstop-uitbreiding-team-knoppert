@@ -26,7 +26,6 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<DiyTestModelService>();
 builder.Services.AddScoped<DYIService>();
 builder.Services.AddScoped<DYIDAO>();
 

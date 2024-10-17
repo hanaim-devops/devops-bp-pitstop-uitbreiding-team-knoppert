@@ -11,9 +11,14 @@ namespace DIYManagementAPI.Services
             _dao = dao;
         }
 
-        public async Task<DIYAvondModel> CreateDIYAvond(DIYAvondModel diyAvond, List<int> reparateurIds)
+        public async Task<DIYEveningModel> CreateDIYEvening(DIYEveningModel diyEvening)
         {
-            return await _dao.CreateDIYAvond(diyAvond, reparateurIds);
+            return await _dao.CreateDIYEvening(diyEvening);
+        }
+
+        public async Task<IEnumerable<DIYEveningModel>> GetDIYEvenings()
+        {
+            return await _dao.GetDIYEvenings();
         }
     }
 }
