@@ -19,7 +19,7 @@ namespace DIYManagementAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DiyTestModel>>> GetListings()
         {
-            var results = _service.GetTestResults();
+            var results = await _service.GetTestResults();
             return Ok(results);
         }
     }

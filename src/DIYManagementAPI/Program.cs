@@ -27,7 +27,6 @@ builder.Services.AddScoped<DiyTestModelDAO>();
 var connectionString = builder.Configuration.GetConnectionString("DIYManagementCN");
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connectionString));
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -40,7 +39,7 @@ if (app.Environment.IsDevelopment())
 
 using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
 {
-    scope.ServiceProvider.GetService<DatabaseContext>().MigrateDB();
+    scope.ServiceProvider.GetService<DatabaseContext>()?.MigrateDB();
 }
 
 app.UseHttpsRedirection();
