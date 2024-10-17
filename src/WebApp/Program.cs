@@ -1,10 +1,18 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Keycloak.AuthServices.Authentication;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
-using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// add cors 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", builder => builder
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .WithOrigins("http://localhost:8080", "https://localhost:8080")
+        .AllowCredentials());
+});
 
 // Set up logging
 builder.Host.UseSerilog((context, logContext) => 
@@ -28,47 +36,52 @@ builder.Services.AddHttpClient<IWorkshopManagementAPI, WorkshopManagementAPI>();
 
 builder.Services.AddAuthentication(options =>
 {
-    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = "oidc";
 })
-.AddCookie(cookie =>
+.AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
 {
-    cookie.Cookie.Name = "keycloak.cookie";
-    cookie.Cookie.MaxAge = TimeSpan.FromMinutes(60);
-    cookie.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
-    cookie.SlidingExpiration = true;
-})
-.AddOpenIdConnect(options =>
-{
-    options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-
-    options.Authority = builder.Configuration.GetValue<string>("Keycloak:RealmUrl");
-    options.ClientId = builder.Configuration.GetValue<string>("Keycloak:ClientId");
-    options.ClientSecret = builder.Configuration.GetValue<string>("Keycloak:ClientSecret");
-    options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
-    options.ResponseType = OpenIdConnectResponseType.Code;
+    options.Authority = "http://localhost:8080/realms/pitstop-realm";
+    options.Audience = "pitstop_client";
     options.RequireHttpsMetadata = false;
-    options.CorrelationCookie.SameSite = SameSiteMode.Lax;
-    options.NonceCookie.SameSite = SameSiteMode.Lax;
-    options.SaveTokens = true;
-    options.Scope.Add("openid");
-    options.Scope.Add("email");
-    options.Scope.Add("phone");
-    options.Scope.Add("profile");
-    options.TokenValidationParameters = new TokenValidationParameters
+    options.Events = new JwtBearerEvents
     {
-        NameClaimType = "name",
-        RoleClaimType = "https://schemas.scopic.com/roles"
+        OnAuthenticationFailed = context =>
+        {
+            Console.WriteLine($"JWT authentication failed: {context.Exception.Message}");
+            return Task.CompletedTask;
+        }
+    };
+})
+.AddOpenIdConnect("oidc", options =>
+{
+    options.Authority = "http://localhost:8080/realms/pitstop-realm";
+    options.ClientId = "pitstop_client";
+    options.RequireHttpsMetadata = false;
+    options.SaveTokens = true;
+    options.ResponseType = "code";
+    options.Scope.Add("openid");
+    options.Scope.Add("profile");
+    options.Scope.Add("email");
+    options.GetClaimsFromUserInfoEndpoint = true;
+
+    options.Events = new OpenIdConnectEvents
+    {
+        OnRemoteFailure = context =>
+        {
+            // Log detailed error
+            Console.WriteLine($"OIDC Error: {context.Failure.Message}");
+            context.HandleResponse();
+            return Task.CompletedTask;
+        },
+        OnTokenResponseReceived = context =>
+        {
+            Console.WriteLine("Token Response Received.");
+            return Task.CompletedTask;
+        }
     };
 });
 
-// Add authorization
-builder.Services.AddAuthorization(options =>
-{
-    options.FallbackPolicy = new AuthorizationPolicyBuilder()
-        .RequireAuthenticatedUser()
-        .Build();
-});
 
 var app = builder.Build();
 
