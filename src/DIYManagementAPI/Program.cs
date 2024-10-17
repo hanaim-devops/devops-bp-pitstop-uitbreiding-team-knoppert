@@ -17,11 +17,7 @@ builder.Host.UseSerilog((context, logContext) =>
 
 // Add services to the container.
 
-// Heeft met oneidigen loops door many to many reltaties te maken. zie ADR
-builder.Services.AddControllers().AddJsonOptions(options =>
-{
-    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-});
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -31,7 +27,6 @@ builder.Services.AddScoped<DYIDAO>();
 
 var connectionString = builder.Configuration.GetConnectionString("DIYManagementCN");
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connectionString));
-
 
 var app = builder.Build();
 
