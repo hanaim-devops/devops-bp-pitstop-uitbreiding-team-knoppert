@@ -6,4 +6,13 @@
     <img src="~/images/banner.jpg" />
     <h3 id="PageTitle">Pitstop - Garage Management System</h3>
     <p>Version: @System.Reflection.Assembly.GetEntryAssembly().GetName().Version</p>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p>Welcome, @User.Identity.Name!</p>
+    }
+    else
+    {
+        <p>You are not logged in.</p>
+    }
+
 </div>

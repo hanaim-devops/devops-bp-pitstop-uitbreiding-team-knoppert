@@ -9,6 +9,8 @@
   </PropertyGroup>
   
   <ItemGroup>
+    <PackageReference Include="Keycloak.AuthServices.Authentication" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />  
     <PackageReference Include="Microsoft.AspNetCore.HealthChecks" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" />
