@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Config
+clusters:
+- name: "groep4"
+  cluster:
+    server: "https://rancher.k8s.devops.aimsites.nl:8443/k8s/clusters/c-xnfcp"
+- name: "groep4-groep4"
+  cluster:
+    server: "https://10.31.0.226:6443"
+    certificate-authority-data: "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUM0VENDQ\
+      WNtZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFTTVJBd0RnWURWUVFERXdkcmRXSmwKT\
+      FdOaE1CNFhEVEkwTURreU16RXlNekUwT1ZvWERUTTBNRGt5TVRFeU16RTBPVm93RWpFUU1BNEdBM\
+      VVFQXhNSAphM1ZpWlMxallUQ0NBU0l3RFFZSktvWklodmNOQVFFQkJRQURnZ0VQQURDQ0FRb0NnZ\
+      0VCQUx5TFBubFFzYjM4CkdFUVJnaXY5VE9DUFlqUnhXVTVaMXVRK3N4R1dSaUIzNE90cjZ2cTFkV\
+      FY4aXVhU3VtM01pVk9jM2VZbmxzOHAKeFNrZjc1SGJiRHlxL1FlcXNVQ1dnNk95TkxveENyMmpZN\
+      VFkbTlYWm5wS2ZjNDNVVm5JSUUrWEJwbkNrdXYrWgpHV0t4L3k0dVdCeld2bGxrRFNkSnNLakVyR\
+      DhCRXl1TFc2N1Axd2hwcXI4UHBrbDRPNWJDaVl6by9jWHBveVhFCnlVQnFaS2RTd1ArMUpsMm00T\
+      UlDeUVuVlJobXVGYnVMcDBxVHBkcE9Za1NtNEhnbTZtK01BbGxrUWVJY250eVgKNGpnSWczczU5Z\
+      0lIcUhudW5FenhsQUdxM3doMkxzdmNkRkd3dGtnbUZDbFlZU2hKVG4xOEZ1dk1CR2EzRmlyNAptd\
+      Uh1Y3VUdU12c0NBd0VBQWFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdLa01BOEdBMVVkRXdFQi93U\
+      UZNQU1CCkFmOHdIUVlEVlIwT0JCWUVGQjc2MmVWTXRxekhwOENrcmdSQ0NodWZNeHVtTUEwR0NTc\
+      UdTSWIzRFFFQkN3VUEKQTRJQkFRQmpZVUlEdlhLR0FSMnI2bFRFYWQ0VmJUOGlLVFNGV3VVd2xmd\
+      UhBT1VVdXB0d1hSNWxkSk9ZK2x1VAoxRkNYQlg3UjBzZnRZSHg2Y2luZGdTY3R6aUxmNVhtTDVFV\
+      nBIWitEc1B0WWpiVDNvQnkyQ0dXVzJralpvMmU3CllNRjNMcG1wQjlDc1J3N0EzbHZGRFVkaDlHY\
+      mUwRkJuTEMzLzV3eGdIaktvNFdCSFMzYmRYMWc5TldzT2ZlV1AKdkdKZVV0eWtTbUVvZWtyL3hoT\
+      1dENHVrQUJ3ZlpOWVZjUWlzTCtLZmQ3UEM3QWZtY1VhWjNNcktzY1BWUzB6SQp0TUYrMnBWYzZXO\
+      UEydlRBYS9FUlpzNStzVkF6SlVpNGs2RjRUYUd5NEozczY2UThRTW56OVdDM09OYXEwYkt0CldRc\
+      Wx2SUJmT3JQL29uMzRjNWlBVnFkQXdGQTkKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo="
+
+users:
+- name: "groep4"
+  user:
+    token: "kubeconfig-user-z4jxqwqtqd:pzt9mrxfkpxxxd7mct8s2gnnk2d46qb6w29hhcrrlww7cpsgww7sbj"
+
+
+contexts:
+- name: "groep4"
+  context:
+    user: "groep4"
+    cluster: "groep4"
+- name: "groep4-groep4"
+  context:
+    user: "groep4"
+    cluster: "groep4-groep4"
+
+current-context: "groep4"
