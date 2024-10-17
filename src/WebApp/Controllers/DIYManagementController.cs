@@ -30,7 +30,7 @@ namespace PitStop.WebApp.Controllers;
     }
 
     [HttpGet]
-    public async Task<IActionResult> New()
+    public IActionResult New()
     {
         var model = new DIYNewViewModel
         {

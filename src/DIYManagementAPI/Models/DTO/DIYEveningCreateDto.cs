@@ -5,9 +5,9 @@ namespace DIYManagementAPI.Models.DTO
     public class DIYEveningCreateDto
     {
         [Required]
-        public string Title { get; set; }
+        public required string Title { get; set; }
 
-        public string ExtraInfo { get; set; }
+        public required string ExtraInfo { get; set; }
 
         [Required]
         public DateTime StartDate { get; set; }
@@ -15,7 +15,7 @@ namespace DIYManagementAPI.Models.DTO
         [Required]
         public DateTime EndDate { get; set; }
 
-        public string Mechanic { get; set; }
+        public required string Mechanic { get; set; }
 
     }
 }

@@ -8,10 +8,10 @@ namespace DIYManagementAPI.Models
         public int Id { get; set; }
 
         [Required]
-        public string Title { get; set; }
+        public required string Title { get; set; }
 
         [Required]
-        public string ExtraInfo { get; set; }
+        public required string ExtraInfo { get; set; }
 
         [Required]
         [DataType(DataType.DateTime)]
@@ -21,7 +21,7 @@ namespace DIYManagementAPI.Models
         [DataType(DataType.DateTime)]
         public DateTime EndDate { get; set; }
 
-        public string Mechanic { get; set; }
+        public required string Mechanic { get; set; }
 
     }
 }
