@@ -5,6 +5,7 @@ using DIYManagementAPI.Models;
 using Serilog;
 using Microsoft.EntityFrameworkCore;
 using Prometheus;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,8 +23,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<DiyTestModelService>();
-builder.Services.AddScoped<DiyTestModelDAO>();
+builder.Services.AddScoped<DYIService>();
+builder.Services.AddScoped<DYIDAO>();
 
 var connectionString = builder.Configuration.GetConnectionString("DIYManagementCN");
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connectionString));
@@ -46,7 +47,7 @@ if (app.Environment.IsDevelopment())
 
 using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
 {
-    scope.ServiceProvider.GetService<DatabaseContext>()?.MigrateDB();
+    scope.ServiceProvider.GetService<DatabaseContext>().MigrateDB();
 }
 
 app.UseHttpsRedirection();
