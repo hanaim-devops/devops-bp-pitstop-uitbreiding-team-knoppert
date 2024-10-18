@@ -4,6 +4,7 @@ using DIYManagementAPI.Services;
 using DIYManagementAPI.Models;
 using Serilog;
 using Microsoft.EntityFrameworkCore;
+using Prometheus;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,12 @@ var connectionString = builder.Configuration.GetConnectionString("DIYManagementC
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connectionString));
 
 var app = builder.Build();
+
+// Use Prometheus metrics middleware to expose metrics at /metrics
+app.UseMetricServer(); // Default endpoint: /metrics
+
+// Optionally, track HTTP request metrics automatically for all endpoints
+app.UseHttpMetrics();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
