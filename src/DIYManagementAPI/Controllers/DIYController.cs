@@ -41,8 +41,6 @@ namespace DIYManagementAPI.Controllers
         [HttpPost("registerfeedback")]
         public async Task<ActionResult<DIYEveningModel>> RegisterDIYFeedback([FromBody] DIYFeedbackCreateDto dto)
         {
-            Console.WriteLine($"Received feedback: DIYEveningId = {dto.DIYEveningId}, CustomerName = {dto.CustomerName}, Feedback = {dto.Feedback}");
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -90,8 +88,6 @@ namespace DIYManagementAPI.Controllers
         [HttpPost("registercustomer")]
         public async Task<ActionResult> RegisterDIYEveningCustomer([FromBody] DIYRegistrationCreateDto dto)
         {
-            Console.WriteLine($"Received registration: DIYEveningId = {dto.DIYEveningId}, CustomerName = {dto.CustomerName}, Reperations = {dto.Reparations}");
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
