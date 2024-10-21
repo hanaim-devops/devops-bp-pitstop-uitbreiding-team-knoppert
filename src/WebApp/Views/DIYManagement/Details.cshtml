@@ -37,6 +37,25 @@
 
 <a id="CancelButton" asp-action="Index" asp-controller="DIYManagement" class="btn btn-default">Cancel</a>
 
+<h4 style="margin-top: 50px;"> Registrations </h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>CustomerName</th>
+            <th>Reparations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var diy in Model.DIYRegistration)
+        {
+            <tr>
+                <td>@diy.CustomerName</td>
+                <td>@diy.Reparations</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
 @if (Model.DIYEvening.StartDate < DateTime.Now)
 {
     <h4 style="margin-top: 50px;"> Given Feedback: </h4>

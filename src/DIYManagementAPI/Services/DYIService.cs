@@ -40,5 +40,10 @@ namespace DIYManagementAPI.Services
         {
             return await _dao.GetFeedbackByDIYEveningIdAsync(diyEveningId);
         }
+
+        public async Task<List<DIYRegistration>> GetRegistrationAsync(int diyEveningId)
+        {
+            return await _dao.GetRegistrationByDIYEveningIdAsync(diyEveningId);
+        }
     }
 }

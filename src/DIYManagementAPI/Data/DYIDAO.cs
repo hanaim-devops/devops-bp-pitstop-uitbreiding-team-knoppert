@@ -50,5 +50,14 @@ namespace DIYManagementAPI.Data
 
             return feedback ?? new List<DIYFeedback>();
         }
+
+        public async Task<List<DIYRegistration>> GetRegistrationByDIYEveningIdAsync(int diyEveningId)
+        {
+            var registration = await _context.DIYRegistrations
+            .Where(f => f.DIYEveningID == diyEveningId)
+            .ToListAsync();
+
+            return registration ?? new List<DIYRegistration>();
+        }
     }
 }

@@ -46,4 +46,9 @@ public class DIYManagementAPI : IDIYManagementAPI
     {
         return await _restClient.GetDIYFeedbackById(diyEveningId);
     }
+
+    public async Task<List<DIYRegistration>> GetDIYRegistrationById([AliasAs("id")] string diyEveningId)
+    {
+        return await _restClient.GetDIYRegistrationById(diyEveningId);
+    }
 }

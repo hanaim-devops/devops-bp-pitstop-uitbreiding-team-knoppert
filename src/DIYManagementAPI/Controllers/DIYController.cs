@@ -69,6 +69,17 @@ namespace DIYManagementAPI.Controllers
             return Ok(feedback);
         }
 
+        [HttpGet("getregistration/{diyEveningId}")]
+        public async Task<ActionResult<IEnumerable<DIYRegistration>>> getRegistration(int diyEveningId)
+        {
+            var registration = await _service.GetRegistrationAsync(diyEveningId);
+            if (registration == null || !registration.Any())
+            {
+                return Ok(new List<DIYRegistration>());
+            }
+            return Ok(registration);
+        }
+
         // TODO: get all DIYEveningModels
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DIYEveningModel>>> GetDIYEvening()

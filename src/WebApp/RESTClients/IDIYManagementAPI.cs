@@ -19,4 +19,7 @@ public interface IDIYManagementAPI
 
     [Get("/diy/getfeedback/{id}")]
     Task<List<DIYFeedback>> GetDIYFeedbackById([AliasAs("id")] string diyEveningId);
+
+    [Get("/diy/getregistration/{id}")]
+    Task<List<DIYRegistration>> GetDIYRegistrationById([AliasAs("id")] string diyEveningId);
 }
