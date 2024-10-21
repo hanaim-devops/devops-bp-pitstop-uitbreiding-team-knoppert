@@ -51,5 +51,5 @@ kubectl apply \
     -f ../vehiclemanagementapi$MESHPOSTFIX.yaml \
     -f ../workshopmanagementapi$MESHPOSTFIX.yaml \
     -f ../webapp$MESHPOSTFIX.yaml \
-    -f ../hpa/hpa.yaml
-    -f ../diymanagementapi.yaml \
+    -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml \
+    -f ../diymanagementapi.yaml

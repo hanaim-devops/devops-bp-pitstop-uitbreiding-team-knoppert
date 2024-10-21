@@ -57,5 +57,5 @@ kubectl apply `
     -f ../vehiclemanagementapi$meshPostfix.yaml `
     -f ../workshopmanagementapi$meshPostfix.yaml `
     -f ../webapp$meshPostfix.yaml `
-    -f ../hpa/hpa.yaml `
+    -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml `
     -f ../diymanagementapi$meshPostfix.yaml
