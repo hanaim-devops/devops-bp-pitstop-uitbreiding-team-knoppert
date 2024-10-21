@@ -22,4 +22,7 @@ public interface IDIYManagementAPI
 
     [Get("/diy/getregistration/{id}")]
     Task<List<DIYRegistration>> GetDIYRegistrationById([AliasAs("id")] string diyEveningId);
+
+    [Post("/diy/cancelregistration/{id}")]
+    Task CancelRegistration([AliasAs("id")] string diyRegistrationId);
 }

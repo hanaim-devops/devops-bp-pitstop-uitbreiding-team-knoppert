@@ -37,12 +37,13 @@
 
 <a id="CancelButton" asp-action="Index" asp-controller="DIYManagement" class="btn btn-default">Cancel</a>
 
-<h4 style="margin-top: 50px;"> Registrations </h4>
+<h4 style="margin-top: 50px;"> Registrations: </h4>
 <table class="table">
     <thead>
         <tr>
             <th>CustomerName</th>
             <th>Reparations</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -51,6 +52,12 @@
             <tr>
                 <td>@diy.CustomerName</td>
                 <td>@diy.Reparations</td>
+                <td>
+                    <form asp-action="CancelRegistration" asp-controller="DIYManagement" method="post" style="display:inline;">
+                        <input type="hidden" name="diyRegistrationId" value="@diy.Id" />
+                        <button type="submit" class="btn btn-danger">Cancel</button>
+                    </form>
+                </td>
             </tr>
         }
     </tbody>

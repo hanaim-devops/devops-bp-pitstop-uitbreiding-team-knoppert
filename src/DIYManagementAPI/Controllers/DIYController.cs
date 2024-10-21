@@ -115,5 +115,18 @@ namespace DIYManagementAPI.Controllers
 
             return StatusCode(StatusCodes.Status201Created);
         }
+
+        [HttpPost("cancelregistration/{diyRegistrationId}")]
+        public async Task<ActionResult> CancelRegistration(int diyRegistrationId)
+        {
+            var result = await _service.CancelDIYRegistration(diyRegistrationId);
+
+            if (result)
+            {
+                return NoContent();
+            }
+            
+            return NotFound();
+        }
     }
 }

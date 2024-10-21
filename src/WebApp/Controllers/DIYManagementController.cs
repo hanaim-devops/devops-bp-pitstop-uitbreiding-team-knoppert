@@ -141,4 +141,15 @@ public class DIYManagementController : Controller
             return View("NewFeedback", inputModel);
         }
     }
+
+    [HttpPost]
+    public async Task<IActionResult> CancelRegistration(int diyRegistrationId)
+    {
+        return await _resiliencyHelper.ExecuteResilient(async () =>
+        {
+            await _DIYManagamentAPI.CancelRegistration(diyRegistrationId.ToString());
+
+            return RedirectToAction("Index");
+        }, View("Offline", new DIYManagementOfflineViewModel()));
+    }
 }
