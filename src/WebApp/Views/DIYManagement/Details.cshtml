@@ -1,6 +1,93 @@
-﻿namespace Pitstop.WebApp.Views.DIYManagement
+﻿@model Pitstop.WebApp.ViewModels.DIYManagementDetailsViewModel
+@{
+    ViewData["Title"] = "DIY Details";
+}
+<h3 id="PageTitle">DIY Management - details</h3>
+<table class="table">
+    <tbody>
+        <tr>
+            <td width="150">Name :</td>
+            <td><b>@Model.DIYEvening.Title</b></td>
+        </tr>
+        <tr>
+            <td>Description :</td>
+            <td><b>@Model.DIYEvening.ExtraInfo</b></td>
+        </tr>
+        <tr>
+            <td width="150">Start time :</td>
+            <td><b>@Model.DIYEvening.StartDate</b></td>
+        </tr>
+        <tr>
+            <td width="150">End time :</td>
+            <td><b>@Model.DIYEvening.EndDate</b></td>
+        </tr>
+        <tr>
+            <td width="150">Mechanic :</td>
+            <td><b>@Model.DIYEvening.Mechanic</b></td>
+        </tr>
+    </tbody>
+</table>
+<a id="RegisterCustomerButton" asp-action="NewRegistration" asp-route-diyEveningId="@Model.DIYEvening.Id"
+    asp-controller="DIYManagement" class="btn btn-default">Register customer</a>
+
+@if (Model.DIYEvening.StartDate < DateTime.Now)
 {
-    public class Details
-    {
-    }
+    <a id="RegisterDIYFeedbackButton" asp-action="NewFeedback" asp-route-diyEveningId="@Model.DIYEvening.Id" asp-controller="DIYManagement" class="btn btn-default">Give feedback</a>
+}
+
+<a id="CancelButton" asp-action="Index" asp-controller="DIYManagement" class="btn btn-default">Cancel</a>
+
+<h4 style="margin-top: 50px;"> Registrations: </h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>CustomerName</th>
+            <th>Reparations</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var diy in Model.DIYRegistration)
+        {
+            <tr>
+                <td>@diy.CustomerName</td>
+                <td>@diy.Reparations</td>
+                <td>
+                    @if (Model.DIYEvening.StartDate >= DateTime.Now)
+                    {
+                        <form asp-action="CancelRegistration" asp-controller="DIYManagement" method="post" style="display:inline;">
+                            <input type="hidden" name="diyRegistrationId" value="@diy.Id" />
+                            <button type="submit" class="btn btn-danger">Cancel</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <span class="text-muted">Cannot cancel after the event has started</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (Model.DIYEvening.StartDate < DateTime.Now)
+{
+    <h4 style="margin-top: 50px;"> Given Feedback: </h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>CustomerName</th>
+                <th>Feedback</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var diy in Model.DIYFeedback)
+            {
+                <tr>
+                    <td>@diy.CustomerName</td>
+                    <td>@diy.Feedback</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }

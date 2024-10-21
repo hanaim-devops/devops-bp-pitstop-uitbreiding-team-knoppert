@@ -5,11 +5,24 @@ public interface IDIYManagementAPI
     [Get("/diy")]
     Task<List<DIYEvening>> GetDIYEvening();
 
-    //TODO: get eveninging on id
+    [Post("/diy/registercustomer")]
+    Task RegisterDIYEveningCustomer(RegisterDIYRegistration command);
 
-    [Get("/diyevening/{id}")]
+    [Get("/diy/{id}")]
     Task<DIYEvening> GetDIYEveningById([AliasAs("id")] string diyEveningId);
 
     [Post("/diy")]
     Task RegisterDIYEvening(RegisterDIYEvening cmd);
+
+    [Post("/diy/registerfeedback")]
+    Task RegisterDIYFeedback(RegisterDIYFeedback cmd);
+
+    [Get("/diy/getfeedback/{id}")]
+    Task<List<DIYFeedback>> GetDIYFeedbackById([AliasAs("id")] string diyEveningId);
+
+    [Get("/diy/getregistration/{id}")]
+    Task<List<DIYRegistration>> GetDIYRegistrationById([AliasAs("id")] string diyEveningId);
+
+    [Post("/diy/cancelregistration/{id}")]
+    Task CancelRegistration([AliasAs("id")] string diyRegistrationId);
 }

@@ -38,6 +38,48 @@ namespace DIYManagementAPI.Controllers
             return StatusCode(StatusCodes.Status201Created, result);
         }
 
+        [HttpPost("registerfeedback")]
+        public async Task<ActionResult<DIYEveningModel>> RegisterDIYFeedback([FromBody] DIYFeedbackCreateDto dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var feedback = new DIYFeedback
+            {
+                DIYEveningID = dto.DIYEveningId,
+                CustomerName = dto.CustomerName,
+                Feedback = dto.Feedback
+            };
+
+            await _service.RegisterDIYFeedback(feedback);
+
+            return StatusCode(StatusCodes.Status201Created, null);
+        }
+
+        [HttpGet("getfeedback/{diyEveningId}")]
+        public async Task<ActionResult<IEnumerable<DIYFeedback>>> GetFeedback(int diyEveningId)
+        {
+            var feedback = await _service.GetFeedbackAsync(diyEveningId);
+            if (feedback == null || !feedback.Any())
+            {
+                return Ok(new List<DIYFeedback>());
+            }
+            return Ok(feedback);
+        }
+
+        [HttpGet("getregistration/{diyEveningId}")]
+        public async Task<ActionResult<IEnumerable<DIYRegistration>>> getRegistration(int diyEveningId)
+        {
+            var registration = await _service.GetRegistrationAsync(diyEveningId);
+            if (registration == null || !registration.Any())
+            {
+                return Ok(new List<DIYRegistration>());
+            }
+            return Ok(registration);
+        }
+
         // TODO: get all DIYEveningModels
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DIYEveningModel>>> GetDIYEvening()
@@ -46,8 +88,45 @@ namespace DIYManagementAPI.Controllers
             return Ok(result);
         }
 
-        // TODO: get specific DIYAvondModel by id
+        [HttpGet("{id}")]
+        public async Task<ActionResult<DIYEveningModel>> GetDIYEveningById(int id)
+        {
+            var result = await _service.GetDIYEveningById(id);
+            return Ok(result);
+        }
         // TODO: Annuleer meeting
         // TODO: meld aan als klant
+        [HttpPost("registercustomer")]
+        public async Task<ActionResult> RegisterDIYEveningCustomer([FromBody] DIYRegistrationCreateDto dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var registration = new DIYRegistration
+            {
+                DIYEveningID = dto.DIYEveningId,
+                CustomerName = dto.CustomerName,
+                Reparations = dto.Reparations
+            };
+
+            await _service.RegisterDIYEveningCustomer(registration);
+
+            return StatusCode(StatusCodes.Status201Created);
+        }
+
+        [HttpPost("cancelregistration/{diyRegistrationId}")]
+        public async Task<ActionResult> CancelRegistration(int diyRegistrationId)
+        {
+            var result = await _service.CancelDIYRegistration(diyRegistrationId);
+
+            if (result)
+            {
+                return NoContent();
+            }
+            
+            return NotFound();
+        }
     }
 }
