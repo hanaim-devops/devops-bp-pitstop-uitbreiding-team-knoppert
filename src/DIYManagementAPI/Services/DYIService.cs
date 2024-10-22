@@ -20,5 +20,20 @@ namespace DIYManagementAPI.Services
         {
             return await _dao.GetDIYEvenings();
         }
+
+        public async Task<DIYEveningModel> GetDIYEveningById(int id)
+        {
+            return await _dao.GetDIYEveningById(id);
+        }
+
+        public async Task RegisterDIYEveningCustomer(DIYRegistration registration)
+        {
+            await _dao.RegisterDIYEveningCustomer(registration);
+        }
+
+        public async Task<IEnumerable<DIYRegistration>> GetRegistrationsForDIYEvening(int diyEveningId)
+        {
+            return await _dao.GetRegistrationsForDIYEvening(diyEveningId);
+        }
     }
 }

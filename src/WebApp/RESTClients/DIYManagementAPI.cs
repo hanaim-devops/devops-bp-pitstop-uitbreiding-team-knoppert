@@ -1,4 +1,5 @@
-﻿namespace WebApp.RESTClients;
+﻿
+namespace WebApp.RESTClients;
 
 public class DIYManagementAPI : IDIYManagementAPI
 {
@@ -16,9 +17,9 @@ public class DIYManagementAPI : IDIYManagementAPI
             });
     }
 
-    public Task<DIYEvening> GetDIYEveningById([AliasAs("id")] string diyEveningId)
+    public async Task<DIYEvening> GetDIYEveningById([AliasAs("id")] string diyEveningId)
     {
-        throw new NotImplementedException();
+        return await _restClient.GetDIYEveningById(diyEveningId);
     }
 
     public async Task<List<DIYEvening>> GetDIYEvening()
@@ -26,9 +27,18 @@ public class DIYManagementAPI : IDIYManagementAPI
         return await _restClient.GetDIYEvening();
     }
 
+    public async Task RegisterDIYEveningCustomer(RegisterDIYRegistration command)
+    {
+        await _restClient.RegisterDIYEveningCustomer(command);
+    }
+
     public async Task RegisterDIYEvening(RegisterDIYEvening cmd)
     {
         await _restClient.RegisterDIYEvening(cmd);
     }
 
+    public async Task<List<DIYRegistration>> GetRegistrationsForDIYEvening(string diyEveningId)
+    {
+        return await _restClient.GetRegistrationsForDIYEvening(diyEveningId);
+    }
 }

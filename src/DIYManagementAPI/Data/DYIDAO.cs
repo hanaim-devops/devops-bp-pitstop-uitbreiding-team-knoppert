@@ -15,7 +15,7 @@ namespace DIYManagementAPI.Data
         public async Task<DIYEveningModel> CreateDIYEvening(DIYEveningModel diyEvening)
         {
             // TODO: reparateurs ophalen uit de database en zetten
-           
+
             _context.DIYEveningModels.Add(diyEvening);
             await _context.SaveChangesAsync();
 
@@ -25,6 +25,22 @@ namespace DIYManagementAPI.Data
         public async Task<IEnumerable<DIYEveningModel>> GetDIYEvenings()
         {
             return await _context.DIYEveningModels.ToListAsync();
+        }
+
+        public async Task<DIYEveningModel> GetDIYEveningById(int id)
+        {
+            return await _context.DIYEveningModels.FindAsync(id);
+        }
+
+        public async Task RegisterDIYEveningCustomer(DIYRegistration registration)
+        {
+            _context.DIYRegistrations.Add(registration);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<DIYRegistration>> GetRegistrationsForDIYEvening(int diyEveningId)
+        {
+            return await _context.DIYRegistrations.Where(r => r.DIYEveningId == diyEveningId).ToListAsync();
         }
     }
 }

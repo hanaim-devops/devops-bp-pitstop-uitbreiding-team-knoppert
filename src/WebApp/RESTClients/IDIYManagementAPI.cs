@@ -5,9 +5,13 @@ public interface IDIYManagementAPI
     [Get("/diy")]
     Task<List<DIYEvening>> GetDIYEvening();
 
-    //TODO: get eveninging on id
+    [Post("/diy/registercustomer")]
+    Task RegisterDIYEveningCustomer(RegisterDIYRegistration command);
 
-    [Get("/diyevening/{id}")]
+    [Get("/diy/{id}/registrations")]
+    Task<List<DIYRegistration>> GetRegistrationsForDIYEvening([AliasAs("id")] string diyEveningId);
+
+    [Get("/diy/{id}")]
     Task<DIYEvening> GetDIYEveningById([AliasAs("id")] string diyEveningId);
 
     [Post("/diy")]
