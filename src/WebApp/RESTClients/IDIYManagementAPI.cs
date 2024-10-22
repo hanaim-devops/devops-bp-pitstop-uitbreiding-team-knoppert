@@ -8,7 +8,7 @@ public interface IDIYManagementAPI
     [Post("/diy/registercustomer")]
     Task RegisterDIYAvondCustomer(RegisterDIYRegistration command);
 
-    [Get("/diyavonden/{id}/registrations")]
+    [Get("/diy/{id}/registrations")]
     Task<List<DIYRegistration>> GetRegistrationsForDIYAvond([AliasAs("id")] string diyAvondId);
 
     [Get("/diy/{id}")]

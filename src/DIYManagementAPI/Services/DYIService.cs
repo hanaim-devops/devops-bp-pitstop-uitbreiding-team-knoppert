@@ -30,5 +30,10 @@ namespace DIYManagementAPI.Services
         {
             await _dao.RegisterDIYAvondCustomer(registration);
         }
+
+        public async Task<IEnumerable<DIYRegistration>> GetRegistrationsForDIYAvond(int diyEveningId)
+        {
+            return await _dao.GetRegistrationsForDIYAvond(diyEveningId);
+        }
     }
 }

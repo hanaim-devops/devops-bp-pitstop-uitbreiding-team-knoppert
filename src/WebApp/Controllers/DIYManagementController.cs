@@ -37,7 +37,8 @@ public class DIYManagementController : Controller
         {
             var model = new DIYManagementDetailsViewModel
             {
-                DIYAvond = await _DIYManagamentAPI.GetDIYEveningById(id.ToString())
+                DIYAvond = await _DIYManagamentAPI.GetDIYEveningById(id.ToString()),
+                DIYRegistrations = await _DIYManagamentAPI.GetRegistrationsForDIYAvond(id.ToString())
             };
 
             return View(model);
