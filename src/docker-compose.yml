@@ -29,7 +29,7 @@ services:
       # Disable compaction by setting min and max block duration to the same value
       - --storage.tsdb.min-block-duration=1m
       - --storage.tsdb.max-block-duration=1m
-      - --storage.tsdb.retention.time=30d # wat is dit?
+      - --storage.tsdb.retention.time=5m # wat is dit?
     ports:
       - "9090:9090"
     networks:
