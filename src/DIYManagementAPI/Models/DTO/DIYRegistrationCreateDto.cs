@@ -1,13 +1,11 @@
-namespace Pitstop.WebApp.Models
+namespace DIYManagementAPI.Models.DTO
 {
-    public class DIYRegistration
+    public class DIYRegistrationCreateDto
     {
         public int DIYEveningId { get; set; }
 
-        [Display(Name = "Customer name")]
         public string CustomerName { get; set; }
 
-        [Display(Name = "Reparations")]
         public string Reparations { get; set; }
     }
 }

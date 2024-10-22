@@ -1,6 +1,9 @@
-﻿namespace PitStop.WebApp.Controllers;
+﻿using System.Diagnostics;
+using Polly;
 
-    public class DIYManagementController : Controller
+namespace PitStop.WebApp.Controllers;
+
+public class DIYManagementController : Controller
 {
     private IDIYManagementAPI _DIYManagamentAPI;
     private readonly Microsoft.Extensions.Logging.ILogger _logger;
@@ -20,13 +23,87 @@
         {
             var model = new DIYManagementViewModel
             {
-                DIYAvonden = await _DIYManagamentAPI.GetDIYAvonden()
+                DIYEvening = await _DIYManagamentAPI.GetDIYEvening()
             };
-            
+
             return View(model);
         }, View("Offline", new DIYManagementOfflineViewModel()));
     }
 
+    [HttpGet]
+    public async Task<IActionResult> Details(int id)
+    {
+        return await _resiliencyHelper.ExecuteResilient(async () =>
+        {
+            var model = new DIYManagementDetailsViewModel
+            {
+                DIYAvond = await _DIYManagamentAPI.GetDIYEveningById(id.ToString())
+            };
+
+            return View(model);
+        }, View("Offline", new DIYManagementOfflineViewModel()));
+    }
+
+    [HttpGet]
+    public IActionResult NewRegistration(int diyAvondId)
+    {
+        var model = new DIYManagementNewRegistrationViewModel
+        {
+            DIYRegistration = new DIYRegistration
+            {
+                DIYEveningId = diyAvondId
+            }
+        };
+        return View(model);
+    }
+
+    public IActionResult New()
+    {
+        var model = new DIYNewViewModel
+        {
+            DIYEvening = new DIYEvening(),
+        };
+        return View(model);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> RegisterCustomer([FromForm] DIYManagementNewRegistrationViewModel inputModel)
+    {
+        if (ModelState.IsValid)
+        {
+            return await _resiliencyHelper.ExecuteResilient(async () =>
+            {
+                RegisterDIYRegistration cmd = inputModel.MapToDIYRegistration();
+                await _DIYManagamentAPI.RegisterDIYAvondCustomer(cmd);
+                return RedirectToAction("Index");
+            }, View("Offline", new DIYManagementOfflineViewModel()));
+        }
+        else
+        {
+            return View("NewRegistration", inputModel);
+        }
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateDIYEvening([FromForm] DIYNewViewModel inputModel)
+    {
+        if (ModelState.IsValid)
+        {
+
+            return await _resiliencyHelper.ExecuteResilient(async () =>
+            {
+                RegisterDIYEvening cmd = inputModel.MapToRegisterEvening();
+
+                await _DIYManagamentAPI.RegisterDIYEvening(cmd);
+
+                return RedirectToAction("Index");
+            }, View("Offline", new DIYManagementOfflineViewModel()));
+        }
+        else
+        {
+            return View("New", inputModel);
+        }
+    }
     public IActionResult Error()
     {
         return View();
