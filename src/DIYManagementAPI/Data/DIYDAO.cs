@@ -1,4 +1,5 @@
 ﻿using DIYManagementAPI.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,8 +16,6 @@ namespace DIYManagementAPI.Data
 
         public async Task<DIYEveningModel> CreateDIYEvening(DIYEveningModel diyEvening)
         {
-            // TODO: reparateurs ophalen uit de database en zetten
-           
             _context.DIYEvening.Add(diyEvening);
             await _context.SaveChangesAsync();
 
@@ -33,7 +32,7 @@ namespace DIYManagementAPI.Data
             var diyEvening = await _context.DIYEvening.FindAsync(id);
             if (diyEvening == null)
             {
-                return null;
+                throw new Exception("DIY Evening not found");
             }
 
             diyEvening.Cancelled = true;

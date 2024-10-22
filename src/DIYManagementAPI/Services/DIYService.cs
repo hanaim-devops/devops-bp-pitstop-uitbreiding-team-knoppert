@@ -21,7 +21,6 @@ namespace DIYManagementAPI.Services
             return await _dao.GetDIYEvenings();
         }
 
-        // cancel evening
         public async Task<DIYEveningModel> CancelDIYEvening(int id)
         {
             return await _dao.CancelDIYEvening(id);
