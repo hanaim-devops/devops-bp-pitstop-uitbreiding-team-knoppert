@@ -10,11 +10,12 @@ namespace DIYManagementAPI.Controllers
     [ApiController]
     public class DIYController : ControllerBase
     {
-        private readonly DYIService _service;
+        
         private static readonly Counter RequestCounter = Metrics
       .CreateCounter("api_diytestmodels_requests_total", "Total number of requests to DiyTestModels API");
+        private readonly DIYService _service;
 
-        public DIYController(DYIService service)
+        public DIYController(DIYService service)
         {
             _service = service;
         }
@@ -47,6 +48,18 @@ namespace DIYManagementAPI.Controllers
         {
             RequestCounter.Inc();
             var result = await _service.GetDIYEvenings();
+            return Ok(result);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<DIYEveningModel>> CancelDIYEvening(int id)
+        {
+            var result = await _service.CancelDIYEvening(id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+
             return Ok(result);
         }
 
