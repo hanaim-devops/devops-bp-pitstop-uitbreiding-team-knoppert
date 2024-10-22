@@ -1,12 +1,35 @@
 services:
-  
+
+  minio:
+    image: minio/minio
+    container_name: minio
+    command: server /data --console-address ":9001"
+    environment:
+      - MINIO_ROOT_USER=minio
+      - MINIO_ROOT_PASSWORD=minio123
+    ports:
+      - "9000:9000" # MinIO API
+      - "9001:9001" # MinIO Console
+    volumes:
+      - minio-data:/data
+    networks:
+      - monitoring  
+
   prometheus:
     image: prom/prometheus
     container_name: prometheus
     volumes:
       - "./DIYManagementAPI/prometheus.yml:/etc/prometheus/prometheus.yml"
-      - prometheus-data:/prometheus
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --web.enable-lifecycle
+      # Disable compaction by setting min and max block duration to the same value
+      - --storage.tsdb.min-block-duration=1m
+      - --storage.tsdb.max-block-duration=1m
+      - --storage.tsdb.retention.time=30d # wat is dit?
     ports:
       - "9090:9090"
     networks:
@@ -24,7 +47,7 @@ services:
       - --grpc-address=0.0.0.0:10901
       - --http-address=0.0.0.0:10902
       - --tsdb.path=/prometheus
-      # - --objstore.config-file=/etc/thanos/objstore.yml
+      - --objstore.config-file=/etc/thanos/objstore.yml
     volumes:
       - prometheus-data:/prometheus   # Shared volume with Prometheus
       - ./thanos/objstore.yml:/etc/thanos/objstore.yml
@@ -32,6 +55,7 @@ services:
       - monitoring
     depends_on:
       - prometheus
+      - minio
 
   thanos-store:
     image: quay.io/thanos/thanos:v0.32.2
@@ -48,6 +72,8 @@ services:
       - ./thanos/objstore.yml:/etc/thanos/objstore.yml
     networks:
       - monitoring
+    depends_on:
+      - minio
 
   thanos-query:
     image: quay.io/thanos/thanos:v0.32.2
@@ -257,6 +283,8 @@ volumes:
     driver: local
   rabbitmqdata:
     external: true
+  minio-data:
+    driver: local
 
 networks:
   backend:

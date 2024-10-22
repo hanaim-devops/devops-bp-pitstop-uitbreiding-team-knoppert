@@ -1,3 +1,7 @@
-type: FILESYSTEM
+type: s3
 config:
-  directory: /data
+  bucket: "thanos-bucket"
+  endpoint: "minio:9000"
+  access_key: "minio"
+  secret_key: "minio123"
+  insecure: true
