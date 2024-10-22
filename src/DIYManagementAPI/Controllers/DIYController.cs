@@ -64,7 +64,7 @@ namespace DIYManagementAPI.Controllers
 
             var registration = new DIYRegistration
             {
-                DIYAvondID = dto.DIYEveningId,
+                DIYEveningId = dto.DIYEveningId,
                 CustomerName = dto.CustomerName,
                 Reparations = dto.Reparations
             };

@@ -26,11 +26,14 @@ namespace DIYManagementAPI.Migrations
 
             modelBuilder.Entity("DIYManagementAPI.Models.DIYAvondRegistration", b =>
                 {
-                    b.Property<int>("DIYAvondID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DIYAvondID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("DIYEveningId")
+                        .HasColumnType("int");
 
                     b.Property<string>("CustomerName")
                         .HasColumnType("nvarchar(max)");
@@ -38,7 +41,7 @@ namespace DIYManagementAPI.Migrations
                     b.Property<string>("Reparations")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("DIYAvondID");
+                    b.HasKey("Id");
 
                     b.ToTable("DIYRegistrations");
                 });
