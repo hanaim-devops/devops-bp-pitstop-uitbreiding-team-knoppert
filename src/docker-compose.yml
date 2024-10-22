@@ -5,12 +5,65 @@ services:
     container_name: prometheus
     volumes:
       - "./DIYManagementAPI/prometheus.yml:/etc/prometheus/prometheus.yml"
+      - prometheus-data:/prometheus
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
     networks:
       - monitoring
     depends_on:
       - diymanagementapi
+
+  thanos-sidecar:
+    image: quay.io/thanos/thanos:v0.32.2
+    container_name: thanos-sidecar
+    user: "0"  # Run as root user to avoid permission issues
+    command:
+      - sidecar
+      - --prometheus.url=http://prometheus:9090
+      - --grpc-address=0.0.0.0:10901
+      - --http-address=0.0.0.0:10902
+      - --tsdb.path=/prometheus
+      # - --objstore.config-file=/etc/thanos/objstore.yml
+    volumes:
+      - prometheus-data:/prometheus   # Shared volume with Prometheus
+      - ./thanos/objstore.yml:/etc/thanos/objstore.yml
+    networks:
+      - monitoring
+    depends_on:
+      - prometheus
+
+  thanos-store:
+    image: quay.io/thanos/thanos:v0.32.2
+    container_name: thanos-store
+    user: "0"  # Run as root user to avoid permission issues
+    command:
+      - store
+      - --grpc-address=0.0.0.0:10901
+      - --http-address=0.0.0.0:10902
+      - --data-dir=/data
+      - --objstore.config-file=/etc/thanos/objstore.yml
+    volumes:
+      - thanos-data:/data
+      - ./thanos/objstore.yml:/etc/thanos/objstore.yml
+    networks:
+      - monitoring
+
+  thanos-query:
+    image: quay.io/thanos/thanos:v0.32.2
+    container_name: thanos-query
+    command:
+      - query
+      - --http-address=0.0.0.0:9090
+      - --store=thanos-sidecar:10901
+      - --store=thanos-store:10901
+    ports:
+      - "19090:9090"
+    networks:
+      - monitoring
+    depends_on:
+      - thanos-sidecar
+      - thanos-store
 
   node-exporter:
     image: prom/node-exporter
@@ -198,6 +251,10 @@ services:
 volumes:
   sqlserverdata:
     external: true
+  prometheus-data:
+    driver: local
+  thanos-data:
+    driver: local
   rabbitmqdata:
     external: true
 
