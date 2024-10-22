@@ -26,14 +26,14 @@ namespace DIYManagementAPI.Services
             return await _dao.GetDIYEveningById(id);
         }
 
-        public async Task RegisterDIYAvondCustomer(DIYRegistration registration)
+        public async Task RegisterDIYEveningCustomer(DIYRegistration registration)
         {
-            await _dao.RegisterDIYAvondCustomer(registration);
+            await _dao.RegisterDIYEveningCustomer(registration);
         }
 
-        public async Task<IEnumerable<DIYRegistration>> GetRegistrationsForDIYAvond(int diyEveningId)
+        public async Task<IEnumerable<DIYRegistration>> GetRegistrationsForDIYEvening(int diyEveningId)
         {
-            return await _dao.GetRegistrationsForDIYAvond(diyEveningId);
+            return await _dao.GetRegistrationsForDIYEvening(diyEveningId);
         }
     }
 }

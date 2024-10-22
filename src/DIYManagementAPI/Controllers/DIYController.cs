@@ -54,7 +54,7 @@ namespace DIYManagementAPI.Controllers
         }
         // TODO: Annuleer meeting
         [HttpPost("registercustomer")]
-        public async Task<ActionResult> RegisterDIYAvondCustomer([FromBody] DIYRegistrationCreateDto dto)
+        public async Task<ActionResult> RegisterDIYEveningCustomer([FromBody] DIYRegistrationCreateDto dto)
         {
             if (!ModelState.IsValid)
             {
@@ -68,15 +68,15 @@ namespace DIYManagementAPI.Controllers
                 Reparations = dto.Reparations
             };
 
-            await _service.RegisterDIYAvondCustomer(registration);
+            await _service.RegisterDIYEveningCustomer(registration);
 
             return StatusCode(StatusCodes.Status201Created);
         }
 
         [HttpGet("{id}/registrations")]
-        public async Task<ActionResult<IEnumerable<DIYRegistration>>> GetRegistrationsForDIYAvond(int id)
+        public async Task<ActionResult<IEnumerable<DIYRegistration>>> GetRegistrationsForDIYEvening(int id)
         {
-            var result = await _service.GetRegistrationsForDIYAvond(id);
+            var result = await _service.GetRegistrationsForDIYEvening(id);
             return Ok(result);
         }
     }
