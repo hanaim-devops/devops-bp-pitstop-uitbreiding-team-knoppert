@@ -5,6 +5,7 @@ using DIYManagementAPI.Models;
 using Serilog;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
+using Prometheus;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +19,6 @@ builder.Host.UseSerilog((context, logContext) =>
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -29,6 +29,10 @@ var connectionString = builder.Configuration.GetConnectionString("DIYManagementC
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connectionString));
 
 var app = builder.Build();
+
+// Configure Prometheus metrics
+app.UseMetricServer(); // Dit stelt de /metrics endpoint beschikbaar voor Prometheus
+app.UseHttpMetrics();  // Deze middleware verzamelt automatisch HTTP-metrics
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

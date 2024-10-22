@@ -1,4 +1,19 @@
 services:
+  
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - "./DIYManagementAPI/prometheus.yml:/etc/prometheus/prometheus.yml"
+    ports:
+      - "9090:9090"
+    depends_on:
+      - diymanagementapi
+
+  node-exporter:
+    image: prom/node-exporter
+    ports:
+      - "9100:9100"
 
   rabbitmq:
     image: rabbitmq:3-management-alpine
