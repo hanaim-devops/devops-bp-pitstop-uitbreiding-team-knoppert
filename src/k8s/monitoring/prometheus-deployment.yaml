@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus
+  namespace: monitoring
+  labels:
+    app: prometheus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus
+  template:
+    metadata:
+      labels:
+        app: prometheus
+    spec:
+      containers:
+        - name: prometheus
+          image: prom/prometheus:latest
+          args:
+            - "--config.file=/etc/prometheus/prometheus.yml"
+            - "--storage.tsdb.path=/prometheus"
+            - "--web.enable-lifecycle"
+            # Disable compaction by setting min and max block duration to the same value
+            - "--storage.tsdb.min-block-duration=1m"
+            - "--storage.tsdb.max-block-duration=1m"
+            - "--storage.tsdb.retention.time=5m"
+          ports:
+            - containerPort: 9090
+          volumeMounts:
+            - name: prometheus-config-volume
+              mountPath: /etc/prometheus/
+            - name: prometheus-data-volume
+              mountPath: /prometheus
+        - name: thanos-sidecar
+          image: quay.io/thanos/thanos:v0.34.0
+          args:
+            - sidecar
+            - "--prometheus.url=http://localhost:9090"
+            - "--grpc-address=0.0.0.0:10901"
+            - "--http-address=0.0.0.0:10902"
+            - "--tsdb.path=/prometheus"
+            - "--objstore.config-file=/etc/thanos/objstore.yml"
+            - "--shipper.allow-feature=unsafe-non-native-hardlink" # added, nu werkt het helemaal niet meer
+          ports:
+            - containerPort: 10901
+              name: grpc
+            - containerPort: 10902
+              name: http
+          volumeMounts:
+            - name: prometheus-data-volume
+              mountPath: /prometheus
+            - name: thanos-objstore-config
+              mountPath: /etc/thanos
+      volumes:
+        - name: prometheus-config-volume
+          configMap:
+            name: prometheus-config
+        - name: prometheus-data-volume
+          emptyDir: {}
+        - name: thanos-objstore-config
+          configMap:
+            name: thanos-objstore-config
