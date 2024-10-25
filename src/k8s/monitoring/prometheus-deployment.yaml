@@ -34,7 +34,7 @@ spec:
             - name: prometheus-data-volume
               mountPath: /prometheus
         - name: thanos-sidecar
-          image: quay.io/thanos/thanos:v0.34.0
+          image: quay.io/thanos/thanos:v0.34.0  # Gebruik de nieuwste versie of de versie die je hebt
           args:
             - sidecar
             - "--prometheus.url=http://localhost:9090"
@@ -42,7 +42,6 @@ spec:
             - "--http-address=0.0.0.0:10902"
             - "--tsdb.path=/prometheus"
             - "--objstore.config-file=/etc/thanos/objstore.yml"
-            - "--shipper.allow-feature=unsafe-non-native-hardlink" # added, nu werkt het helemaal niet meer
           ports:
             - containerPort: 10901
               name: grpc
@@ -53,6 +52,10 @@ spec:
               mountPath: /prometheus
             - name: thanos-objstore-config
               mountPath: /etc/thanos
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
       volumes:
         - name: prometheus-config-volume
           configMap:
