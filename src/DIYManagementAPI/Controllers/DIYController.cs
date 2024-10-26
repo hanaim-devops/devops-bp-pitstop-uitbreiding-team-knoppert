@@ -48,7 +48,7 @@ namespace DIYManagementAPI.Controllers
 
             var feedback = new DIYFeedback
             {
-                DIYEveningID = dto.DIYEveningId,
+                DIYEveningId = dto.DIYEveningId,
                 CustomerName = dto.CustomerName,
                 Feedback = dto.Feedback
             };
@@ -106,7 +106,7 @@ namespace DIYManagementAPI.Controllers
 
             var registration = new DIYRegistration
             {
-                DIYEveningID = dto.DIYEveningId,
+                DIYEveningId = dto.DIYEveningId,
                 CustomerName = dto.CustomerName,
                 Reparations = dto.Reparations
             };

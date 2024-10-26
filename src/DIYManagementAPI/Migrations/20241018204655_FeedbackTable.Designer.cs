@@ -32,7 +32,7 @@ namespace DIYManagementAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("DIYEveningID")
+                    b.Property<int?>("DIYEveningId")
                         .HasColumnType("int");
 
                     b.Property<string>("CustomerName")

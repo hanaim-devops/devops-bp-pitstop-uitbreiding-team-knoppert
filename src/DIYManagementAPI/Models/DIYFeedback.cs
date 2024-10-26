@@ -7,7 +7,7 @@ namespace DIYManagementAPI.Models
         [Key]
         public int Id {  get; set; } 
 
-        public int DIYEveningID {  get; set; } 
+        public int DIYEveningId {  get; set; } 
 
         public string? CustomerName { get; set; }
 

@@ -16,7 +16,7 @@ namespace DIYManagementAPI.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DIYEveningID = table.Column<int>(type: "int", nullable: true),
+                    DIYEveningId = table.Column<int>(type: "int", nullable: false),
                     CustomerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Reparations = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },

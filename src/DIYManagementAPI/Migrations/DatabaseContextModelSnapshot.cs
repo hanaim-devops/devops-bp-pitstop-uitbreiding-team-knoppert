@@ -55,11 +55,11 @@ namespace DIYManagementAPI.Migrations
 
             modelBuilder.Entity("DIYManagementAPI.Models.DIYFeedback", b =>
                 {
-                    b.Property<int>("DIYEveningID")
+                    b.Property<int>("DIYEveningId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DIYEveningID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DIYEveningId"));
 
                     b.Property<string>("CustomerName")
                         .HasColumnType("nvarchar(max)");
@@ -67,18 +67,18 @@ namespace DIYManagementAPI.Migrations
                     b.Property<string>("Feedback")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("DIYEveningID");
+                    b.HasKey("DIYEveningId");
 
                     b.ToTable("DIYFeedback");
                 });
 
             modelBuilder.Entity("DIYManagementAPI.Models.DIYRegistration", b =>
                 {
-                    b.Property<int>("DIYEveningID")
+                    b.Property<int>("DIYEveningId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DIYEveningID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DIYEveningId"));
 
                     b.Property<string>("CustomerName")
                         .HasColumnType("nvarchar(max)");
@@ -86,7 +86,7 @@ namespace DIYManagementAPI.Migrations
                     b.Property<string>("Reparations")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("DIYEveningID");
+                    b.HasKey("DIYEveningId");
 
                     b.ToTable("DIYRegistrations");
                 });
