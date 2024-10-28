@@ -41,16 +41,11 @@ namespace DIYManagementAPI.Services
             return await _dao.GetFeedbackByDIYEveningIdAsync(diyEveningId);
         }
 
-        public async Task<List<DIYRegistration>> GetRegistrationAsync(int diyEveningId)
-        {
-            return await _dao.GetRegistrationByDIYEveningIdAsync(diyEveningId);
-        }
-
         public async Task<bool> CancelDIYRegistration(int diyEveningId)
         {
             return await _dao.CancelDIYRegistration(diyEveningId);
         }
-        
+
         public async Task<IEnumerable<DIYRegistration>> GetRegistrationsForDIYEvening(int diyEveningId)
         {
             return await _dao.GetRegistrationsForDIYEvening(diyEveningId);

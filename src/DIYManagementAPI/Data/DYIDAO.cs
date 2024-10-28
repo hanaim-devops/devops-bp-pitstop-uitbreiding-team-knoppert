@@ -51,15 +51,6 @@ namespace DIYManagementAPI.Data
             return feedback ?? new List<DIYFeedback>();
         }
 
-        public async Task<List<DIYRegistration>> GetRegistrationByDIYEveningIdAsync(int diyEveningId)
-        {
-            var registration = await _context.DIYRegistrations
-            .Where(f => f.DIYEveningId == diyEveningId)
-            .ToListAsync();
-
-            return registration ?? new List<DIYRegistration>();
-        }
-
         public async Task<bool> CancelDIYRegistration(int diyRegistrationId)
         {
             var registration = await _context.DIYRegistrations.FindAsync(diyRegistrationId);
@@ -75,7 +66,7 @@ namespace DIYManagementAPI.Data
             
             return true;
         }
-        
+
         public async Task<IEnumerable<DIYRegistration>> GetRegistrationsForDIYEvening(int diyEveningId)
         {
             return await _context.DIYRegistrations.Where(r => r.DIYEveningId == diyEveningId).ToListAsync();
