@@ -11,7 +11,7 @@ namespace DIYManagementAPI.Models
 
                 public DbSet<DIYRegistration> DIYRegistrations { get; set; }
 
-                public DbSet<DIYEveningModel> DIYEveningModels { get; set; }
+                public DbSet<DIYEveningModel> DIYEvening { get; set; }
 
                 public void MigrateDB()
                 {

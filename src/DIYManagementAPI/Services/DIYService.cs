@@ -3,10 +3,10 @@ using DIYManagementAPI.Models;
 
 namespace DIYManagementAPI.Services
 {
-    public class DYIService
+    public class DIYService
     {
-        private readonly DYIDAO _dao;
-        public DYIService(DYIDAO dao)
+        private readonly DIYDAO _dao;
+        public DIYService(DIYDAO dao)
         {
             _dao = dao;
         }
@@ -29,6 +29,10 @@ namespace DIYManagementAPI.Services
         public async Task RegisterDIYAvondCustomer(DIYRegistration registration)
         {
             await _dao.RegisterDIYAvondCustomer(registration);
+        }
+        public async Task<DIYEveningModel> CancelDIYEvening(int id)
+        {
+            return await _dao.CancelDIYEvening(id);
         }
     }
 }

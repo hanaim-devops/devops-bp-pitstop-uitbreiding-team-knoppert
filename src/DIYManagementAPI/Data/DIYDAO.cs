@@ -1,21 +1,21 @@
 ﻿using DIYManagementAPI.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 
 namespace DIYManagementAPI.Data
 {
-    public class DYIDAO
+    public class DIYDAO
     {
         private readonly DatabaseContext _context;
 
-        public DYIDAO(DatabaseContext context)
+        public DIYDAO(DatabaseContext context)
         {
             _context = context;
         }
 
         public async Task<DIYEveningModel> CreateDIYEvening(DIYEveningModel diyEvening)
         {
-            // TODO: reparateurs ophalen uit de database en zetten
-
             _context.DIYEvening.Add(diyEvening);
             await _context.SaveChangesAsync();
 
@@ -36,6 +36,20 @@ namespace DIYManagementAPI.Data
         {
             _context.DIYRegistrations.Add(registration);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<DIYEveningModel> CancelDIYEvening(int id)
+        {
+            var diyEvening = await _context.DIYEvening.FindAsync(id);
+            if (diyEvening == null)
+            {
+                throw new Exception("DIY Evening not found");
+            }
+
+            diyEvening.Cancelled = true;
+            await _context.SaveChangesAsync();
+
+            return diyEvening;
         }
     }
 }
