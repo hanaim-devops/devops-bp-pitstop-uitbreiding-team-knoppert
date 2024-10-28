@@ -35,4 +35,9 @@ public class DIYManagementAPI : IDIYManagementAPI
     {
         await _restClient.RegisterDIYEvening(cmd);
     }
+
+    public async Task CancelDIYEvening([AliasAs("id")] string diyEveningId)
+    {
+        await _restClient.CancelDIYEvening(diyEveningId);
+    }
 }

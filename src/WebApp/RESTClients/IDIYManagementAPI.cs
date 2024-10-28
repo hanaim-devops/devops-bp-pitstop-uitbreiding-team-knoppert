@@ -13,4 +13,7 @@ public interface IDIYManagementAPI
 
     [Post("/diy")]
     Task RegisterDIYEvening(RegisterDIYEvening cmd);
+
+    [Put("/diy/cancel/{id}")]
+    Task CancelDIYEvening([AliasAs("id")] string diyEveningId);
 }

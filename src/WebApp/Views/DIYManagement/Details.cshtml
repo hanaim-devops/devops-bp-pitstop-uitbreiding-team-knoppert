@@ -1,4 +1,5 @@
-﻿@model Pitstop.WebApp.ViewModels.DIYManagementDetailsViewModel
+﻿@using Microsoft.AspNetCore.Antiforgery
+@model Pitstop.WebApp.ViewModels.DIYManagementDetailsViewModel
 @{
     ViewData["Title"] = "DIY Details";
 }
@@ -25,8 +26,36 @@
             <td width="150">Mechanic :</td>
             <td><b>@Model.DIYAvond.Mechanic</b></td>
         </tr>
+        <tr>
+            <td width="150">Cancelled</td>
+            <td><b>@Model.DIYAvond.Cancelled</b></td>
+        </tr>
     </tbody>
 </table>
 <a id="RegisterCustomerButton" asp-action="NewRegistration" asp-route-diyAvondId="@Model.DIYAvond.Id"
-    asp-controller="DIYManagement" class="btn btn-default">Register customer</a>
+asp-controller="DIYManagement" class="btn btn-default">Register customer</a>
 <a id="CancelButton" asp-action="Index" asp-controller="DIYManagement" class="btn btn-default">Cancel</a>
+
+<a id="CancelDIYButton" class="btn btn-default" onclick="cancelDIYEvening(@Model.DIYAvond.Id)">Cancel evening</a>
+
+<script type="text/javascript">
+    async function cancelDIYEvening(diyAvondId) {
+        try {
+            const response = await fetch(`http://localhost:7005/DIYManagement/CancelDIYEvening/${diyAvondId}`, {
+            method: 'PUT',
+            headers: {
+            'Content-Type': 'application/json'
+            }
+            });
+            console.log(response);
+            if (response.ok || response.status == 302) {
+                alert('DIY evening has been cancelled');
+                window.location.href = 'http://localhost:7005/DIYManagement';
+            } else {
+                alert('Failed to cancel DIY evening');
+            }
+        } catch (error) {
+            alert('Failed to cancel DIY evening');
+        }
+    }
+</script>
