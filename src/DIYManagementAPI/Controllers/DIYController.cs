@@ -84,14 +84,7 @@ namespace DIYManagementAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var feedback = new DIYFeedback
-            {
-                DIYEveningId = dto.DIYEveningId,
-                CustomerName = dto.CustomerName,
-                Feedback = dto.Feedback
-            };
-
-            await _service.RegisterDIYFeedback(feedback);
+            await _service.RegisterDIYFeedback(dto);
 
             return StatusCode(StatusCodes.Status201Created, null);
         }
