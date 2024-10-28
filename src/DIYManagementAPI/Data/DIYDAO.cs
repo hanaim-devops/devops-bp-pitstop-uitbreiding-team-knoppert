@@ -1,4 +1,5 @@
 ﻿using DIYManagementAPI.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,8 +16,6 @@ namespace DIYManagementAPI.Data
 
         public async Task<DIYEveningModel> CreateDIYEvening(DIYEveningModel diyEvening)
         {
-            // TODO: reparateurs ophalen uit de database en zetten
-           
             _context.DIYEvening.Add(diyEvening);
             await _context.SaveChangesAsync();
 
@@ -28,18 +27,57 @@ namespace DIYManagementAPI.Data
             return await _context.DIYEvening.ToListAsync();
         }
 
+        public async Task<DIYEveningModel> GetDIYEveningById(int id)
+        {
+            return await _context.DIYEvening.FindAsync(id);
+        }
+
+        public async Task RegisterDIYEveningCustomer(DIYRegistration registration)
+        {
+            _context.DIYRegistrations.Add(registration);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<DIYRegistration>> GetRegistrationsForDIYEvening(int diyEveningId)
+        {
+            return await _context.DIYRegistrations.Where(r => r.DIYEveningId == diyEveningId).ToListAsync();
+        }
+
         public async Task<DIYEveningModel> CancelDIYEvening(int id)
         {
             var diyEvening = await _context.DIYEvening.FindAsync(id);
             if (diyEvening == null)
             {
-                return null;
+                throw new Exception("DIY Evening not found");
             }
 
             diyEvening.Cancelled = true;
             await _context.SaveChangesAsync();
 
             return diyEvening;
+        }
+
+        public async Task<bool> CancelDIYRegistration(int diyRegistrationId)
+        {
+            var registration = await _context.DIYRegistrations.FindAsync(diyRegistrationId);
+
+            if (registration == null)
+            {
+                return false;
+            }
+
+            _context.DIYRegistrations.Remove(registration);
+
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+        
+        public async Task<DIYFeedback> RegisterDIYFeedback(DIYFeedback diyFeedback)
+        {   
+            _context.DIYFeedback.Add(diyFeedback);
+            await _context.SaveChangesAsync();
+            return diyFeedback;
         }
     }
 }

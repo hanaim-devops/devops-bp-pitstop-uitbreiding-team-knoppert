@@ -22,12 +22,26 @@ public static class Mappers
         source.SelectedCustomerId
     );
 
+    public static RegisterDIYRegistration MapToDIYRegistration(this DIYManagementNewRegistrationViewModel source) => new RegisterDIYRegistration(
+        Guid.NewGuid(),
+        source.DIYRegistration.DIYEveningId,
+        source.DIYRegistration.CustomerName,
+        source.DIYRegistration.Reparations
+    );
+
     public static RegisterDIYEvening MapToRegisterEvening(this DIYNewViewModel source) => new RegisterDIYEvening(
         Guid.NewGuid(),
-        source.DIYEvening.Title,          
+        source.DIYEvening.Title,
         source.DIYEvening.ExtraInfo,
         source.DIYEvening.StartDate,
         source.DIYEvening.EndDate,
         source.DIYEvening.Mechanic
-        );
+    );
+    
+    public static RegisterDIYFeedback MapToDIYFeedback(this DIYManagementNewFeedbackViewModel source) => new RegisterDIYFeedback(
+        Guid.NewGuid(),
+        source.DIYFeedback.DIYEveningId,
+        source.DIYFeedback.CustomerName,
+        source.DIYFeedback.Feedback
+    );
 }
