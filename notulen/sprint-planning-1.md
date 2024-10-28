@@ -17,7 +17,7 @@ Dirk: notulist
 - De eisen aan de PB staan op de DevOps website. 
 - Er mag een andere taal gebruikt worden.  
 - Iedereen moet eigen bijdrage verantwoorden op maandag na de 2 weken. Dit 
-moet ook in een .md file staan. Hier mogen geen template teksten in staan. Zelf 
+moet ook in een .md file staan. Hier mogen geen template teksten in staan. Iedereen 
 mag zelf weten hoe je naar iets verwijst. 
 - De vrijdag over 2 weken is de beoordeling. 
 - A.s. vrijdag is er een tech review. 
