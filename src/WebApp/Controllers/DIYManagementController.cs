@@ -105,8 +105,19 @@ public class DIYManagementController : Controller
             return View("New", inputModel);
         }
     }
+
     public IActionResult Error()
     {
         return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CancelRegistration(int diyRegistrationId)
+    {
+        return await _resiliencyHelper.ExecuteResilient(async () =>
+        {
+            await _DIYManagamentAPI.CancelRegistration(diyRegistrationId.ToString());
+            return RedirectToAction("Index");
+        }, View("Offline", new DIYManagementOfflineViewModel()));
     }
 }

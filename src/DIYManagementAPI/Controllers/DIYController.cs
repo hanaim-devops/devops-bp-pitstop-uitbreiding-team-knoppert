@@ -75,5 +75,18 @@ namespace DIYManagementAPI.Controllers
             var result = await _service.GetRegistrationsForDIYEvening(id);
             return Ok(result);
         }
+
+        [HttpPost("cancelregistration/{diyRegistrationId}")]
+        public async Task<ActionResult> CancelRegistration(int diyRegistrationId)
+        {
+            var result = await _service.CancelDIYRegistration(diyRegistrationId);
+
+            if (result)
+            {
+                return NoContent();
+            }
+
+            return NotFound();
+        }
     }
 }
