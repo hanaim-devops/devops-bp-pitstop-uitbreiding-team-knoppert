@@ -34,7 +34,6 @@ var app = builder.Build();
 // Use Prometheus metrics middleware to expose metrics at /metrics
 app.UseMetricServer();
 
-// Optionally, track HTTP request metrics automatically for all endpoints
 app.UseHttpMetrics();
 
 // Configure the HTTP request pipeline.
