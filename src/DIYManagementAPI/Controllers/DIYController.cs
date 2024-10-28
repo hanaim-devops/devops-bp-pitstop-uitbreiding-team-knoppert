@@ -15,7 +15,7 @@ namespace DIYManagementAPI.Controllers
         private static readonly Counter createDIYEveningCounter = Metrics
             .CreateCounter("api_diy_CreateDIYEvening", "Total number of evenings created");
 
-        public DIYController(DYIService service)
+        public DIYController(DIYService service)
         {
             _service = service;
         }
