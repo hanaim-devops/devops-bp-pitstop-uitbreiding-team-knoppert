@@ -1,5 +1,6 @@
 ﻿using DIYManagementAPI.Data;
 using DIYManagementAPI.Models;
+using DIYManagementAPI.Models.DTO;
 
 namespace DIYManagementAPI.Services
 {
@@ -11,8 +12,17 @@ namespace DIYManagementAPI.Services
             _dao = dao;
         }
 
-        public async Task<DIYEveningModel> CreateDIYEvening(DIYEveningModel diyEvening)
+        public async Task<DIYEveningModel> CreateDIYEvening(DIYEveningCreateDto dto)
         {
+            var diyEvening = new DIYEveningModel
+            {
+                Title = dto.Title,
+                ExtraInfo = dto.ExtraInfo,
+                StartDate = dto.StartDate,
+                EndDate = dto.EndDate,
+                Mechanic = dto.Mechanic
+            };
+
             return await _dao.CreateDIYEvening(diyEvening);
         }
 
@@ -26,8 +36,15 @@ namespace DIYManagementAPI.Services
             return await _dao.GetDIYEveningById(id);
         }
 
-        public async Task RegisterDIYAvondCustomer(DIYRegistration registration)
+        public async Task RegisterDIYAvondCustomer(DIYRegistrationCreateDto dto)
         {
+            var registration = new DIYRegistration
+            {
+                DIYEveningId = dto.DIYEveningId,
+                CustomerName = dto.CustomerName,
+                Reparations = dto.Reparations
+            };
+
             await _dao.RegisterDIYAvondCustomer(registration);
         }
         public async Task<DIYEveningModel> CancelDIYEvening(int id)
