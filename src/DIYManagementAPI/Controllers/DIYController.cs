@@ -88,5 +88,18 @@ namespace DIYManagementAPI.Controllers
 
             return NotFound();
         }
+        
+        [HttpPost("registerfeedback")]
+        public async Task<ActionResult<DIYEveningModel>> RegisterDIYFeedback([FromBody] DIYFeedbackCreateDto dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _service.RegisterDIYFeedback(dto);
+
+            return StatusCode(StatusCodes.Status201Created, null);
+        }
     }
 }

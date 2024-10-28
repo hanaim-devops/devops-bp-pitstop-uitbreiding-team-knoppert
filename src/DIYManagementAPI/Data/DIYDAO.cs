@@ -72,5 +72,12 @@ namespace DIYManagementAPI.Data
 
             return true;
         }
+        
+        public async Task<DIYFeedback> RegisterDIYFeedback(DIYFeedback diyFeedback)
+        {   
+            _context.DIYFeedback.Add(diyFeedback);
+            await _context.SaveChangesAsync();
+            return diyFeedback;
+        }
     }
 }

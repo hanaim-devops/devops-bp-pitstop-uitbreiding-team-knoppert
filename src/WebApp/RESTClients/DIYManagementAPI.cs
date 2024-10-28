@@ -46,4 +46,9 @@ public class DIYManagementAPI : IDIYManagementAPI
     {
         await _restClient.CancelRegistration(diyRegistrationId);
     }
+    
+    public async Task RegisterDIYFeedback(RegisterDIYFeedback cmd)
+    {
+        await _restClient.RegisterDIYFeedback(cmd);
+    }
 }
