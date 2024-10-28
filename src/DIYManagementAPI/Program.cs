@@ -30,9 +30,8 @@ builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(c
 
 var app = builder.Build();
 
-// Configure Prometheus metrics
-app.UseMetricServer(); // Dit stelt de /metrics endpoint beschikbaar voor Prometheus
-app.UseHttpMetrics();  // Deze middleware verzamelt automatisch HTTP-metrics
+app.UseMetricServer();
+app.UseHttpMetrics();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
