@@ -4,8 +4,8 @@ namespace DIYManagementAPI.Models.DTO
     {
         public int DIYEveningId { get; set; }
 
-        public string CustomerName { get; set; }
+        public string? CustomerName { get; set; }
 
-        public string Reparations { get; set; }
+        public string? Reparations { get; set; }
     }
 }

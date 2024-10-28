@@ -9,9 +9,9 @@ namespace DIYManagementAPI.Controllers
     [ApiController]
     public class DIYController : ControllerBase
     {
-        private readonly DYIService _service;
+        private readonly DIYService _service;
 
-        public DIYController(DYIService service)
+        public DIYController(DIYService service)
         {
             _service = service;
         }
@@ -24,21 +24,11 @@ namespace DIYManagementAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var diyEvening = new DIYEveningModel
-            {
-                Title = dto.Title,
-                ExtraInfo = dto.ExtraInfo,
-                StartDate = dto.StartDate,
-                EndDate = dto.EndDate,
-                Mechanic = dto.Mechanic
-            };
-
-            var result = await _service.CreateDIYEvening(diyEvening);
+            var result = await _service.CreateDIYEvening(dto);
 
             return StatusCode(StatusCodes.Status201Created, result);
         }
 
-        // TODO: get all DIYEveningModels
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DIYEveningModel>>> GetDIYEvening()
         {
@@ -52,32 +42,31 @@ namespace DIYManagementAPI.Controllers
             var result = await _service.GetDIYEveningById(id);
             return Ok(result);
         }
-        // TODO: Annuleer meeting
+        [HttpPut("cancel/{id}")]
+        public async Task<ActionResult<DIYEveningModel>> CancelDIYEvening(int id)
+        {
+            try
+            {
+                var result = await _service.CancelDIYEvening(id);
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+
         [HttpPost("registercustomer")]
-        public async Task<ActionResult> RegisterDIYEveningCustomer([FromBody] DIYRegistrationCreateDto dto)
+        public async Task<ActionResult> RegisterDIYAvondCustomer([FromBody] DIYRegistrationCreateDto dto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var registration = new DIYRegistration
-            {
-                DIYEveningId = dto.DIYEveningId,
-                CustomerName = dto.CustomerName,
-                Reparations = dto.Reparations
-            };
-
-            await _service.RegisterDIYEveningCustomer(registration);
+            await _service.RegisterDIYAvondCustomer(dto);
 
             return StatusCode(StatusCodes.Status201Created);
-        }
-
-        [HttpGet("{id}/registrations")]
-        public async Task<ActionResult<IEnumerable<DIYRegistration>>> GetRegistrationsForDIYEvening(int id)
-        {
-            var result = await _service.GetRegistrationsForDIYEvening(id);
-            return Ok(result);
         }
     }
 }
