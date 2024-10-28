@@ -1,27 +1,18 @@
-wat je wel moet doen handmatig; 
+# MinIO
 
-ga naar;
+Als je voor de eerste keer de applicatie gaat starten moet je in MinIO een bucket voor de applicatie maken. Als je dit al reeds hebt gedaan, negeer dan dit! 
 
+Helaas maakt MinIO niet automatisch een bucket aan als deze niet bestaat. Dat resultaat tot errors in de Thanos Sidecar. 
+
+- Voor Docker, ga naar: 
 `http://localhost:9001`
 
-login met de gegevens uit de docker compose.
+- Voor de k8s omgeving, ga naar; 
+`http://localhost:30901`
 
-controleer of 'thanos-bucket' bestaat of niet. zo niet; 
-create een nieuwe bucket met de naam; 'thanos-bucket' 
+Login met de gegevens uit de docker compose of k8s. Standaard zal dit zijn: 
+Gebruikersnaam: minio
 
-restart de compose enz. 
+Wachtwoord: minio123
 
-TODO; dit netjes maken natuurlijk.en de docker configs enz weer netjes maken. Prometheus yamls en docker compose.
-
-
-![img.png](img.png)
-![img_1.png](img_1.png)
-![img_2.png](img_2.png)
-
-prometheus, ziedt wel de results, maar metrics zelf gaan na 5 min weg (rentention)
-
-![img_3.png](img_3.png)
-
-thanos, door minio, blijven de metrics wel langer beschikbaar
-
-![img_4.png](img_4.png)
+Wacht even en mogelijk ziet de Sidecar dat de bucket nu bestaat. Zo niet, herstart de omgeving.

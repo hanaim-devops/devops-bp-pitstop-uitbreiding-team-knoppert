@@ -34,7 +34,7 @@ spec:
             - name: prometheus-data-volume
               mountPath: /prometheus
         - name: thanos-sidecar
-          image: quay.io/thanos/thanos:v0.34.0  # Gebruik de nieuwste versie of de versie die je hebt
+          image: quay.io/thanos/thanos:v0.34.0
           args:
             - sidecar
             - "--prometheus.url=http://localhost:9090"

@@ -41,7 +41,6 @@ else
     echo "Starting Pitstop without service mesh."
 }
 
-# Apply Pitstop namespace
 kubectl apply -f ../pitstop-namespace$meshPostfix.yaml
 
 # Apply Monitoring namespace and resources
@@ -57,7 +56,6 @@ kubectl apply -f ../monitoring/thanos-store-service.yaml
 kubectl apply -f ../monitoring/thanos-query-deployment.yaml
 kubectl apply -f ../monitoring/thanos-query-service.yaml
 
-# Apply other services and deployments
 kubectl apply `
     -f ../rabbitmq.yaml `
     -f ../logserver.yaml `
