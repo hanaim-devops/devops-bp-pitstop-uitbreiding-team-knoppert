@@ -95,7 +95,6 @@ namespace DIYManagementAPI.Controllers
             return Ok(result);
         }
         // TODO: Annuleer meeting
-        // TODO: meld aan als klant
         [HttpPost("registercustomer")]
         public async Task<ActionResult> RegisterDIYEveningCustomer([FromBody] DIYRegistrationCreateDto dto)
         {
@@ -127,6 +126,13 @@ namespace DIYManagementAPI.Controllers
             }
             
             return NotFound();
+        }
+        
+        [HttpGet("{id}/registrations")]
+        public async Task<ActionResult<IEnumerable<DIYRegistration>>> GetRegistrationsForDIYEvening(int id)
+        {
+            var result = await _service.GetRegistrationsForDIYEvening(id);
+            return Ok(result);
         }
     }
 }

@@ -75,5 +75,10 @@ namespace DIYManagementAPI.Data
             
             return true;
         }
+        
+        public async Task<IEnumerable<DIYRegistration>> GetRegistrationsForDIYEvening(int diyEveningId)
+        {
+            return await _context.DIYRegistrations.Where(r => r.DIYEveningId == diyEveningId).ToListAsync();
+        }
     }
 }

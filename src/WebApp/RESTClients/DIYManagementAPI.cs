@@ -56,4 +56,9 @@ public class DIYManagementAPI : IDIYManagementAPI
     {
         await _restClient.CancelRegistration(diyRegistrationId);
     }
+    
+    public async Task<List<DIYRegistration>> GetRegistrationsForDIYEvening(string diyEveningId)
+    {
+        return await _restClient.GetRegistrationsForDIYEvening(diyEveningId);
+    }
 }

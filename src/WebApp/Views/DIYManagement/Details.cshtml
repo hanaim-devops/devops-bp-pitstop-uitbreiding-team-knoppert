@@ -41,13 +41,13 @@
 <table class="table">
     <thead>
         <tr>
-            <th>CustomerName</th>
-            <th>Reparations</th>
+            <th>Customer name</th>
+            <th>Reparation(s)</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var diy in Model.DIYRegistration)
+        @foreach (var diy in Model.DIYRegistrations)
         {
             <tr>
                 <td>@diy.CustomerName</td>
