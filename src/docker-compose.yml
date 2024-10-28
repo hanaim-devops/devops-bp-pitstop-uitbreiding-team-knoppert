@@ -8,8 +8,8 @@ services:
       - MINIO_ROOT_USER=minio
       - MINIO_ROOT_PASSWORD=minio123
     ports:
-      - "9000:9000" # MinIO API
-      - "9001:9001" # MinIO Console
+      - "9000:9000"
+      - "9001:9001"
     volumes:
       - minio-data:/data
     networks:
@@ -26,7 +26,6 @@ services:
       - --config.file=/etc/prometheus/prometheus.yml
       - --storage.tsdb.path=/prometheus
       - --web.enable-lifecycle
-      # Disable compaction by setting min and max block duration to the same value
       - --storage.tsdb.min-block-duration=1m
       - --storage.tsdb.max-block-duration=1m
       - --storage.tsdb.retention.time=5m
@@ -49,7 +48,7 @@ services:
       - --tsdb.path=/prometheus
       - --objstore.config-file=/etc/thanos/objstore.yml
     volumes:
-      - prometheus-data:/prometheus   # Shared volume with Prometheus
+      - prometheus-data:/prometheus
       - ./thanos/objstore.yml:/etc/thanos/objstore.yml
     networks:
       - monitoring
@@ -60,7 +59,7 @@ services:
   thanos-store:
     image: quay.io/thanos/thanos:v0.32.2
     container_name: thanos-store
-    user: "0"  # Run as root user to avoid permission issues
+    user: "0"
     command:
       - store
       - --grpc-address=0.0.0.0:10901

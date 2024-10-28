@@ -41,26 +41,15 @@ namespace DIYManagementAPI.Controllers
             var result = await _service.GetDIYEvenings();
             return Ok(result);
         }
-
-        [HttpPut("{id}")]
-        public async Task<ActionResult<DIYEveningModel>> CancelDIYEvening(int id)
-        {
-            var result = await _service.CancelDIYEvening(id);
-            if (result == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(result);
-        }
-
-
+           
         [HttpGet("{id}")]
         public async Task<ActionResult<DIYEveningModel>> GetDIYEveningById(int id)
         {
             var result = await _service.GetDIYEveningById(id);
             return Ok(result);
         }
+
+
         [HttpPut("cancel/{id}")]
         public async Task<ActionResult<DIYEveningModel>> CancelDIYEvening(int id)
         {
