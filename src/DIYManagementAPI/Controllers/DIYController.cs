@@ -75,5 +75,25 @@ namespace DIYManagementAPI.Controllers
             var result = await _service.GetRegistrationsForDIYEvening(id);
             return Ok(result);
         }
+
+        [HttpPost("registerfeedback")]
+        public async Task<ActionResult<DIYEveningModel>> RegisterDIYFeedback([FromBody] DIYFeedbackCreateDto dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var feedback = new DIYFeedback
+            {
+                DIYEveningId = dto.DIYEveningId,
+                CustomerName = dto.CustomerName,
+                Feedback = dto.Feedback
+            };
+
+            await _service.RegisterDIYFeedback(feedback);
+
+            return StatusCode(StatusCodes.Status201Created, null);
+        }
     }
 }

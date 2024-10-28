@@ -57,5 +57,10 @@ namespace DIYManagementAPI.Services
         {
             return await _dao.CancelDIYEvening(id);
         }
+
+        public async Task RegisterDIYFeedback(DIYFeedback feedback)
+        {
+            await _dao.RegisterDIYFeedback(feedback);
+        }
     }
 }
