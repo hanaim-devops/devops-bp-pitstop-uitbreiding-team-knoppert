@@ -32,7 +32,7 @@ builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(c
 var app = builder.Build();
 
 // Use Prometheus metrics middleware to expose metrics at /metrics
-app.UseMetricServer(); // Default endpoint: /metrics
+app.UseMetricServer();
 
 // Optionally, track HTTP request metrics automatically for all endpoints
 app.UseHttpMetrics();
@@ -47,7 +47,7 @@ if (app.Environment.IsDevelopment())
 
 using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
 {
-    scope.ServiceProvider.GetService<DatabaseContext>().MigrateDB();
+    scope.ServiceProvider.GetService<DatabaseContext>()?.MigrateDB();
 }
 
 app.UseHttpsRedirection();

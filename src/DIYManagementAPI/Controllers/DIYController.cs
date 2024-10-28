@@ -2,6 +2,7 @@
 using DIYManagementAPI.Models.DTO;
 using DIYManagementAPI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Prometheus;
 
 namespace DIYManagementAPI.Controllers
 {
@@ -11,6 +12,9 @@ namespace DIYManagementAPI.Controllers
     {
         private readonly DYIService _service;
 
+        private static readonly Counter requestCounter = Metrics
+            .CreateCounter("api_DIYController_total_requests", "Total number of requests to DiyTestModels API");
+
         public DIYController(DYIService service)
         {
             _service = service;
@@ -19,6 +23,8 @@ namespace DIYManagementAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<DIYEveningModel>> CreateDIYEvening([FromBody] DIYEveningCreateDto dto)
         {
+            requestCounter.Inc();
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
