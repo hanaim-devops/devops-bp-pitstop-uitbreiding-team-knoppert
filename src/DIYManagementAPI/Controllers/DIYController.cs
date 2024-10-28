@@ -16,6 +16,9 @@ namespace DIYManagementAPI.Controllers
 
         private readonly DIYService _service;
 
+        private static readonly Counter createDIYEveningCounter = Metrics
+            .CreateCounter("api_diy_CreateDIYEvening", "Total number of evenings created");
+
         public DIYController(DIYService service)
         {
             _service = service;
@@ -24,6 +27,8 @@ namespace DIYManagementAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<DIYEveningModel>> CreateDIYEvening([FromBody] DIYEveningCreateDto dto)
         {
+            createDIYEveningCounter.Inc();
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
