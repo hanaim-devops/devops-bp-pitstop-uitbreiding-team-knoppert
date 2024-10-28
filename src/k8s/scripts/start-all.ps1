@@ -58,4 +58,5 @@ kubectl apply `
     -f ../workshopmanagementapi$meshPostfix.yaml `
     -f ../webapp$meshPostfix.yaml `
     -f ../hpa/hpa.yaml `
-    -f ../diymanagementapi$meshPostfix.yaml
+    -f ../diymanagementapi$meshPostfix.yaml `
+    -f ../chaoskube/chaoskube.yaml 

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chaoskube
+  labels:
+    app: chaoskube
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: chaoskube
+  template:
+    metadata:
+      labels:
+        app: chaoskube
+    spec:
+      serviceAccountName: chaoskube
+      containers:
+      - name: chaoskube
+        image: ghcr.io/linki/chaoskube:v0.29.0
+        args:
+        # exclude all pods in the kube-system namespace
+        - --namespaces=pitstop
+        # terminate pods for real: this disables dry-run mode which is on by default
+        - --no-dry-run
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 65534
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop: ["ALL"]
