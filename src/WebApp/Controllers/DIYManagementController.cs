@@ -105,7 +105,7 @@ public class DIYManagementController : Controller
         }
     }
 
-    [HttpPut]
+    [HttpPost]
     public async Task<IActionResult> CancelDIYEvening(int id)
     {
         return await _resiliencyHelper.ExecuteResilient(async () =>
