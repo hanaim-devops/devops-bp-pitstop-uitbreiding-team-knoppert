@@ -27,3 +27,10 @@ Voor Docker:
 - [Prometheus](http://localhost:9090)
 - [Thanos](http://localhost:19090)
 - [MinIO](http://localhost:9001)
+
+
+In Prometheus en Thanos kun je een query uitvoeren. Dat kan met standaard metrics van zelf Prometheus. Maar wij hebben dus enkele custom metrics gemaakt. Deze kan je uitvoeren in het query veld van Prometheus en Thanos. 
+
+Twee custom metrics die je kan uitvoeren zijn: 
+- `api_diytestmodels_requests_total`
+- `api_diy_CreateDIYEvening`
