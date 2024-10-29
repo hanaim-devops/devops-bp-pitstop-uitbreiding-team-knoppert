@@ -12,8 +12,14 @@ namespace DIYManagementAPI.Controllers
     {
         private readonly DIYService _service;
 
-        private static readonly Counter createDIYEveningCounter = Metrics
-            .CreateCounter("api_diy_CreateDIYEvening", "Total number of evenings created");
+        private static readonly Histogram createDIYEveningDuration = Metrics
+            .CreateHistogram("api_diy_CreateDIYEvening_duration_seconds", "Duration of CreateDIYEvening requests in seconds");
+
+        private static readonly Counter getDIYEveningCounter = Metrics
+            .CreateCounter("api_diy_getDIYEvening_counter", "Total number of get requests on a single evening");
+
+        private static readonly Counter registerCustomerForDIYEveningCounter = Metrics
+            .CreateCounter("api_diy_registerDIYEvening_counter", "Total amount of customers registered for a DIYEvening");
 
         public DIYController(DIYService service)
         {
@@ -23,16 +29,17 @@ namespace DIYManagementAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<DIYEveningModel>> CreateDIYEvening([FromBody] DIYEveningCreateDto dto)
         {
-            createDIYEveningCounter.Inc();
-
-            if (!ModelState.IsValid)
+            using (createDIYEveningDuration.NewTimer())
             {
-                return BadRequest(ModelState);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var result = await _service.CreateDIYEvening(dto);
+
+                return StatusCode(StatusCodes.Status201Created, result);
             }
-
-            var result = await _service.CreateDIYEvening(dto);
-
-            return StatusCode(StatusCodes.Status201Created, result);
         }
 
         [HttpGet]
@@ -45,9 +52,11 @@ namespace DIYManagementAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<DIYEveningModel>> GetDIYEveningById(int id)
         {
+            getDIYEveningCounter.Inc();
             var result = await _service.GetDIYEveningById(id);
             return Ok(result);
         }
+
         [HttpPut("cancel/{id}")]
         public async Task<ActionResult<DIYEveningModel>> CancelDIYEvening(int id)
         {
@@ -65,6 +74,7 @@ namespace DIYManagementAPI.Controllers
         [HttpPost("registercustomer")]
         public async Task<ActionResult> RegisterDIYEveningCustomer([FromBody] DIYRegistrationCreateDto dto)
         {
+            registerCustomerForDIYEveningCounter.Inc();
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -94,7 +104,7 @@ namespace DIYManagementAPI.Controllers
 
             return NotFound();
         }
-        
+
         [HttpPost("registerfeedback")]
         public async Task<ActionResult<DIYEveningModel>> RegisterDIYFeedback([FromBody] DIYFeedbackCreateDto dto)
         {
