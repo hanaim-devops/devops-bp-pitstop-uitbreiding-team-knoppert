@@ -56,6 +56,7 @@ kubectl apply -f ../monitoring/thanos-query-deployment.yaml
 kubectl apply -f ../monitoring/thanos-query-service.yaml
 
 kubectl apply `
+    -f ../metrics-server.yaml `
     -f ../rabbitmq.yaml `
     -f ../logserver.yaml `
     -f ../sqlserver$meshPostfix.yaml `
@@ -70,5 +71,4 @@ kubectl apply `
     -f ../vehiclemanagementapi$meshPostfix.yaml `
     -f ../workshopmanagementapi$meshPostfix.yaml `
     -f ../webapp$meshPostfix.yaml `
-    -f ../hpa/hpa.yaml `
     -f ../diymanagementapi$meshPostfix.yaml
