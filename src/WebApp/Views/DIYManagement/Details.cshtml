@@ -61,9 +61,28 @@
 <a id="RegisterCustomerButton" asp-action="NewRegistration" asp-route-DIYEveningId="@Model.DIYEvening.Id"
     asp-controller="DIYManagement" class="btn btn-default">Register customer</a>
 
+<a id="CancelButton" asp-action="Index" asp-controller="DIYManagement" class="btn btn-default">Cancel</a>
+
 @if (Model.DIYEvening.StartDate < DateTime.Now)
 {
+    <h4 style="margin-top: 50px;"> Given Feedback: </h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>CustomerName</th>
+                <th>Feedback</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var diy in Model.DIYFeedback)
+            {
+                <tr>
+                    <td>@diy.CustomerName</td>
+                    <td>@diy.Feedback</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
     <a id="RegisterDIYFeedbackButton" asp-action="NewFeedback" asp-route-diyEveningId="@Model.DIYEvening.Id" asp-controller="DIYManagement" class="btn btn-default">Give feedback</a>
 }
-
-<a id="CancelButton" asp-action="Index" asp-controller="DIYManagement" class="btn btn-default">Cancel</a>

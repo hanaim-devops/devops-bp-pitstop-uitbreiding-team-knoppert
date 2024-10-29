@@ -114,5 +114,12 @@ namespace DIYManagementAPI.Controllers
 
             return StatusCode(StatusCodes.Status201Created, null);
         }
+
+        [HttpGet("getfeedback/{diyEveningId}")]
+        public async Task<ActionResult<IEnumerable<DIYFeedback>>> GetFeedback(int diyEveningId)
+        {
+            var feedback = await _service.GetFeedbackAsync(diyEveningId);
+            return Ok(feedback);
+        }
     }
 }
