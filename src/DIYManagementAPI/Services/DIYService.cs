@@ -74,5 +74,10 @@ namespace DIYManagementAPI.Services
 
             await _dao.RegisterDIYFeedback(feedback);
         }
+
+        public async Task<IEnumerable<DIYCustomerHistoryDTO>> GetCustomerHistory(string customerName)
+        {
+            return await _dao.GetCustomerHistory(customerName);
+        }
     }
 }

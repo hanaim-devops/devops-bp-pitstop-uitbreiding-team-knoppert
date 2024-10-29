@@ -1,4 +1,5 @@
 ﻿using DIYManagementAPI.Models;
+using DIYManagementAPI.Models.DTO;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
@@ -78,6 +79,24 @@ namespace DIYManagementAPI.Data
             _context.DIYFeedback.Add(diyFeedback);
             await _context.SaveChangesAsync();
             return diyFeedback;
+        }
+
+        public async Task<IEnumerable<DIYCustomerHistoryDTO>> GetCustomerHistory(string customerName)
+        {
+            return await (from evening in _context.DIYEvening
+                                join registration in _context.DIYRegistrations
+                                on evening.Id equals registration.DIYEveningId
+                                join feedback in _context.DIYFeedback
+                                on evening.Id equals feedback.DIYEveningId into feedbackGroup
+                                from feedback in feedbackGroup.DefaultIfEmpty()
+                                where registration.CustomerName == customerName
+                                select new DIYCustomerHistoryDTO
+                                {
+                                    Id = evening.Id,
+                                    Title = evening.Title,
+                                    Reparations = registration.Reparations,
+                                    Feedback = feedback.Feedback
+                                }).ToListAsync();
         }
     }
 }
