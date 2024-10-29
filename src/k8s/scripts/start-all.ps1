@@ -72,5 +72,5 @@ kubectl apply `
     -f ../workshopmanagementapi$meshPostfix.yaml `
     -f ../webapp$meshPostfix.yaml `
     -f ../ingress.yaml `
-    -f ../hpa/hpa.yaml `
+ #   -f ../hpa/hpa.yaml `
     -f ../diymanagementapi$meshPostfix.yaml
