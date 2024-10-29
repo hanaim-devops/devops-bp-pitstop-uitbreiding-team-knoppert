@@ -67,8 +67,7 @@ spec:
                 sleep 5
               done
               # Maak de bucket aan
-              mc mb myminio/thanos
-              # Houd de container draaiende
+              mc mb myminio/thanos-bucket
               sleep infinity
           env:
             - name: MINIO_ROOT_USER
