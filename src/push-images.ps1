@@ -1,22 +1,38 @@
-#docker push pitstop/customermanagementapi:1.0
-#docker push pitstop/customermanagementapi:2.0
-#docker push pitstop/webapp:1.0
-#docker push pitstop/workshopmanagementeventhandler:1.0
-#docker push pitstop/timeservice:1.0
-#docker push pitstop/notificationservice:1.0
-#docker push pitstop/invoiceservice:1.0
-#docker push pitstop/auditlogservice:1.0
-#docker push pitstop/workshopmanagementapi:1.0
-#docker push pitstop/vehiclemanagementapi:1.0
+# push-images.ps1
 
-# Push all the tagged images to the same repo with different tags
-docker push jelmer0314/pitstop/customermanagementapi:1.0
-docker push jelmer0314/pitstop/webapp:1.0
-docker push jelmer0314/pitstop/workshopmanagementeventhandler:1.0
-docker push jelmer0314/pitstop/timeservice:1.0
-docker push jelmer0314/pitstop/notificationservice:1.0
-docker push jelmer0314/pitstop/invoiceservice:1.0
-docker push jelmer0314/pitstop/auditlogservice:1.0
-docker push jelmer0314/pitstop/workshopmanagementapi:1.0
-docker push jelmer0314/pitstop/vehiclemanagementapi:1.0
-docker push jelmer0314/pitstop/diymanagementapi:1.0
+# Set your Docker Hub username and image tag
+$DOCKER_USERNAME = 'jelmer0314'
+$IMAGE_TAG = '1.0'
+
+# List of services
+$services = @(
+    'customermanagementapi',
+    'webapp',
+    'workshopmanagementeventhandler',
+    'timeservice',
+    'notificationservice',
+    'invoiceservice',
+    'auditlogservice',
+    'workshopmanagementapi',
+    'vehiclemanagementapi',
+    'diymanagementapi'
+)
+
+# Retag and push images for each service
+foreach ($service in $services) {
+    # Original image name
+    $originalImage = "pitstop/$service:$IMAGE_TAG"
+    
+    # New image name with Docker Hub username
+    $newImage = "$DOCKER_USERNAME/pitstop/$service:$IMAGE_TAG"
+    
+    # Retag the image
+    Write-Host "Retagging $originalImage to $newImage"
+    docker tag $originalImage $newImage
+    
+    # Push the image to Docker Hub
+    Write-Host "Pushing $newImage to Docker Hub"
+    docker push $newImage
+}
+
+Write-Host "All images have been retagged and pushed successfully."
