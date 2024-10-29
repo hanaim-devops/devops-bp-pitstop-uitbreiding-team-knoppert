@@ -16,3 +16,14 @@ Gebruikersnaam: minio
 Wachtwoord: minio123
 
 Wacht even en mogelijk ziet de Sidecar dat de bucket nu bestaat. Zo niet, herstart de omgeving.
+
+
+Voor k8s zijn de locaties:
+- [Prometheus](http://localhost:30900) 
+- [Thanos](http://localhost:30990)
+- [MinIO](http://localhost:30901)
+
+Voor Docker: 
+- [Prometheus](http://localhost:9090)
+- [Thanos](http://localhost:19090)
+- [MinIO](http://localhost:9001)
