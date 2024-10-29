@@ -65,7 +65,7 @@ jobs:
     needs: publish
     runs-on: ubuntu-latest
     name: deploy
-    if: github.ref == 'refs/heads/main'
+    #if: github.ref == 'refs/heads/main'
 
     steps:
     - name: Checkout repository
@@ -80,7 +80,7 @@ jobs:
     - name: Configure KUBECONFIG
       run: |
         mkdir -p $HOME/.kube
-        cp src/groep5.yaml $HOME/.kube/config  # Update path if needed
+        cp src/groep4.yaml $HOME/.kube/config  # Update path if needed
       env:
         KUBECONFIG: $HOME/.kube/config
 
