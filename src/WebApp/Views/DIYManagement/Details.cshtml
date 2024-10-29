@@ -1,4 +1,5 @@
-﻿@model Pitstop.WebApp.ViewModels.DIYManagementDetailsViewModel
+﻿@using Microsoft.AspNetCore.Antiforgery
+@model Pitstop.WebApp.ViewModels.DIYManagementDetailsViewModel
 @{
     ViewData["Title"] = "DIY Details";
 }
@@ -25,8 +26,13 @@
             <td width="150">Mechanic :</td>
             <td><b>@Model.DIYEvening.Mechanic</b></td>
         </tr>
+        <tr>
+            <td width="150">Cancelled</td>
+            <td><b>@Model.DIYEvening.Cancelled</b></td>
+        </tr>
     </tbody>
 </table>
+
 <table class="table">
     <thead>
         <tr>
@@ -58,12 +64,24 @@
         }
     </tbody>
 </table>
-<a id="RegisterCustomerButton" asp-action="NewRegistration" asp-route-DIYEveningId="@Model.DIYEvening.Id"
-    asp-controller="DIYManagement" class="btn btn-default">Register customer</a>
 
-@if (Model.DIYEvening.StartDate < DateTime.Now)
-{
-    <a id="RegisterDIYFeedbackButton" asp-action="NewFeedback" asp-route-diyEveningId="@Model.DIYEvening.Id" asp-controller="DIYManagement" class="btn btn-default">Give feedback</a>
-}
+<div class="d-flex align-items-center">
+    <a id="RegisterCustomerButton" asp-action="NewRegistration" asp-route-DIYEveningId="@Model.DIYEvening.Id"
+       asp-controller="DIYManagement" class="btn btn-default me-2">Register customer</a>
 
-<a id="CancelButton" asp-action="Index" asp-controller="DIYManagement" class="btn btn-default">Cancel</a>
+    @if (Model.DIYEvening.StartDate < DateTime.Now)
+    {
+        <a id="RegisterDIYFeedbackButton" asp-action="NewFeedback" asp-route-diyEveningId="@Model.DIYEvening.Id" 
+           asp-controller="DIYManagement" class="btn btn-default me-2">Give feedback</a>
+    }
+
+    <a id="CancelButton" asp-action="Index" asp-controller="DIYManagement" class="btn btn-default me-2">Cancel</a>
+
+    @using (Html.BeginForm("CancelDIYEvening", "DIYManagement", FormMethod.Post))
+    {
+        @Html.Hidden("id", Model.DIYEvening.Id)
+        <button type="submit" class="btn btn-default">Cancel evening</button>
+    }
+</div>
+
+
