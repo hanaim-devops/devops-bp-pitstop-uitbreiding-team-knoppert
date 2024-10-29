@@ -5,6 +5,8 @@ Dit testplan is geschreven voor de features toegevoegd door team Knoppert in het
 ## Gesteste onderdelen
 
 - Annuleren DIYavond
+- Feedback geven DIYavond
+- Registratie annuleren DIYavond
 
 ## Testen
 
@@ -48,3 +50,51 @@ Voor het testen van het annuleren van een DIYavond, zijn de volgende testcases g
 | 2. Klik op de gewenste avond, de avond moet al geweest zijn                          |                   | Je wordt doorgestuurd naar de detailpagina van de avond.      |
 | 3. Klik op de annuleer knop                           | de knop heet "cancel evening"                                  | Een popup wordt getoond dat de avond al geweest is |
 | 4. Controleer de status op de overzichtspagina         | Ga terug naar de overzichtspagina om status te checken.       | De avond is niet geannuleerd en de status is niet aangepast. |
+
+### Feedback geven DIYavond
+
+Voor het testen van het geven van feedback over een DIYavond, zijn de volgende testcases gemaakt:
+
+- De happy flow, hierbij word gekeken of er feedback toegevoegd kan worden nadat een DIYavond gestart is.
+
+- De edge case, hierbij word gekeken of de feedback button niet zichtbaar is op het moment dat de DIYavond nog niet begonnen is.
+
+#### Case 1: Happy flow
+
+| **Action**                                            | **Extra Info**                                              | **Expected Result**                                          |
+|-------------------------------------------------------|-------------------------------------------------------------|--------------------------------------------------------------|
+| 1. Ga naar de DIY management pagina                   | URL: `http://localhost:7005/DIYManagement`                   | De DIY management pagina wordt geladen.                     |
+| 2. Klik op de gewenste avond                          | Selecteer een avond die al gestart is.                       | Je wordt doorgestuurd naar de detailpagina van de avond.    |
+| 3. Klik op de feedback knop                           | Knop onder de datails.                                       | Het systeem laad het formulier.                             |
+| 4. Vul de gegevens in en klik op opslaan              | Vul naam en feedback in.                                     | De feedback is opgeslagen.                                  |
+
+#### Case 2: Egde flow
+
+| **Action**                                            | **Extra Info**                                              | **Expected Result**                                          |
+|-------------------------------------------------------|-------------------------------------------------------------|--------------------------------------------------------------|
+| 1. Ga naar de DIY management pagina                   | URL: `http://localhost:7005/DIYManagement`                   | De DIY management pagina wordt geladen.                     |
+| 2. Klik op de gewenste avond                          | Selecteer een avond die nog niet gestart is.                 | Je wordt doorgestuurd naar de detailpagina van de avond en kan geen feedback geven.    |
+
+### Registratie annuleren DIYavond
+
+Voor het testen van het annuleren van een registratie voor een DIYavond, zijn de volgende testcases gemaakt:
+
+- De happy flow, hierbij word gekeken of een registratie geannuleerd kan worden voor een DIYavond gestart is.
+
+- De edge flow, hierbij word gekeken of de registratie annuleren button niet zichtbaar is nadat de DIYavond begonnen is.
+
+#### Case 1: Happy flow
+
+| **Action**                                            | **Extra Info**                                              | **Expected Result**                                          |
+|-------------------------------------------------------|-------------------------------------------------------------|--------------------------------------------------------------|
+| 1. Ga naar de DIY management pagina                   | URL: `http://localhost:7005/DIYManagement`                   | De DIY management pagina wordt geladen.                     |
+| 2. Klik op de gewenste avond                          | Selecteer een avond nog niet gestart is.                     | Je wordt doorgestuurd naar de detailpagina van de avond.    |
+| 3. Klik op de annuleer knop                           | Knop die naast een registratie staat.                        | Het systeem annuleert de registratie.                       |
+| 4. Controleer de status                               | Kijk of de registratie niet meer zichtbaar is.               | De registratie is geannuleerd.                              |
+
+#### Case 2: Egde flow
+
+| **Action**                                            | **Extra Info**                                              | **Expected Result**                                          |
+|-------------------------------------------------------|-------------------------------------------------------------|--------------------------------------------------------------|
+| 1. Ga naar de DIY management pagina                   | URL: `http://localhost:7005/DIYManagement`                   | De DIY management pagina wordt geladen.                     |
+| 2. Klik op de gewenste avond                          | Selecteer een avond die al gestart is.                       | Je wordt doorgestuurd naar de detailpagina van de avond en kan geen registratie annuleren.    |
