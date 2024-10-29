@@ -7,7 +7,7 @@ data:
   objstore.yml: |
     type: s3
     config:
-      bucket: thanos-bucket
+      bucket: thanos
       endpoint: minio.monitoring.svc.cluster.local:9000
       access_key: minio
       secret_key: minio123

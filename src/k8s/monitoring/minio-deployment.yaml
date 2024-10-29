@@ -57,6 +57,24 @@ spec:
           volumeMounts:
             - name: minio-data
               mountPath: /data
+        - name: create-bucket
+          image: minio/mc
+          command: ["sh", "-c"]
+          args:
+            - |
+              # Wacht tot MinIO beschikbaar is
+              until mc alias set myminio http://localhost:9000 minio minio123; do
+                sleep 5
+              done
+              # Maak de bucket aan
+              mc mb myminio/thanos
+              # Houd de container draaiende
+              sleep infinity
+          env:
+            - name: MINIO_ROOT_USER
+              value: minio
+            - name: MINIO_ROOT_PASSWORD
+              value: minio123
       volumes:
         - name: minio-data
           emptyDir: {}
