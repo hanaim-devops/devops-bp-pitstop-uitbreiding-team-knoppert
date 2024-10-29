@@ -6,7 +6,10 @@ public interface IDIYManagementAPI
     Task<List<DIYEvening>> GetDIYEvening();
 
     [Post("/diy/registercustomer")]
-    Task RegisterDIYAvondCustomer(RegisterDIYRegistration command);
+    Task RegisterDIYEveningCustomer(RegisterDIYRegistration command);
+
+    [Get("/diy/{id}/registrations")]
+    Task<List<DIYRegistration>> GetRegistrationsForDIYEvening([AliasAs("id")] string diyEveningId);
 
     [Get("/diy/{id}")]
     Task<DIYEvening> GetDIYEveningById([AliasAs("id")] string diyEveningId);
@@ -16,4 +19,10 @@ public interface IDIYManagementAPI
 
     [Put("/diy/cancel/{id}")]
     Task CancelDIYEvening([AliasAs("id")] string diyEveningId);
+
+    [Post("/diy/cancelregistration/{id}")]
+    Task CancelRegistration([AliasAs("id")] string diyRegistrationId);
+    
+    [Post("/diy/registerfeedback")]
+    Task RegisterDIYFeedback(RegisterDIYFeedback cmd);
 }

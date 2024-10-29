@@ -36,7 +36,7 @@ namespace DIYManagementAPI.Services
             return await _dao.GetDIYEveningById(id);
         }
 
-        public async Task RegisterDIYAvondCustomer(DIYRegistrationCreateDto dto)
+        public async Task RegisterDIYEveningCustomer(DIYRegistrationCreateDto dto)
         {
             var registration = new DIYRegistration
             {
@@ -45,11 +45,34 @@ namespace DIYManagementAPI.Services
                 Reparations = dto.Reparations
             };
 
-            await _dao.RegisterDIYAvondCustomer(registration);
+            await _dao.RegisterDIYEveningCustomer(registration);
         }
+
+        public async Task<IEnumerable<DIYRegistration>> GetRegistrationsForDIYEvening(int diyEveningId)
+        {
+            return await _dao.GetRegistrationsForDIYEvening(diyEveningId);
+        }
+
         public async Task<DIYEveningModel> CancelDIYEvening(int id)
         {
             return await _dao.CancelDIYEvening(id);
+        }
+
+        public async Task<bool> CancelDIYRegistration(int diyEveningId)
+        {
+            return await _dao.CancelDIYRegistration(diyEveningId);
+        }
+        
+        public async Task RegisterDIYFeedback(DIYFeedbackCreateDto dto)
+        {
+            var feedback = new DIYFeedback
+            {
+                DIYEveningId = dto.DIYEveningId,
+                CustomerName = dto.CustomerName,
+                Feedback = dto.Feedback
+            };
+
+            await _dao.RegisterDIYFeedback(feedback);
         }
     }
 }
