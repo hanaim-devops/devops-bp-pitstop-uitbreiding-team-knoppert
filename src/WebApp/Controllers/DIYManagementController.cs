@@ -107,6 +107,16 @@ public class DIYManagementController : Controller
         }
     }
 
+    [HttpPost]
+    public async Task<IActionResult> CancelDIYEvening(int id)
+    {
+        return await _resiliencyHelper.ExecuteResilient(async () =>
+        {
+            await _DIYManagamentAPI.CancelDIYEvening(id.ToString());
+            return RedirectToAction("Index");
+        }, View("Offline", new DIYManagementOfflineViewModel()));
+    }
+
     public IActionResult Error()
     {
         return View();
@@ -151,5 +161,19 @@ public class DIYManagementController : Controller
         {
             return View("NewFeedback", inputModel);
         }
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> CustomerOverview()
+    {
+        return await _resiliencyHelper.ExecuteResilient(async () =>
+        {
+            var model = new DIYManagementViewModel
+            {
+                DIYEvening = await _DIYManagamentAPI.GetDIYEvening()
+            };
+
+            return View(model);
+        }, View("Offline", new DIYManagementOfflineViewModel()));
     }
 }
