@@ -2,6 +2,7 @@
 using DIYManagementAPI.Models.DTO;
 using DIYManagementAPI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Prometheus;
 
 namespace DIYManagementAPI.Controllers
 {
@@ -9,9 +10,16 @@ namespace DIYManagementAPI.Controllers
     [ApiController]
     public class DIYController : ControllerBase
     {
-        private readonly DYIService _service;
+        
+        private static readonly Counter RequestCounter = Metrics
+        .CreateCounter("api_diy_getEvenings_request", "Total number of requests to DiyTestModels API");
 
-        public DIYController(DYIService service)
+        private readonly DIYService _service;
+
+        private static readonly Counter createDIYEveningCounter = Metrics
+            .CreateCounter("api_diy_CreateDIYEvening", "Total number of evenings created");
+
+        public DIYController(DIYService service)
         {
             _service = service;
         }
@@ -19,35 +27,92 @@ namespace DIYManagementAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<DIYEveningModel>> CreateDIYEvening([FromBody] DIYEveningCreateDto dto)
         {
+            createDIYEveningCounter.Inc();
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var diyEvening = new DIYEveningModel
-            {
-                Title = dto.Title,
-                ExtraInfo = dto.ExtraInfo,
-                StartDate = dto.StartDate,
-                EndDate = dto.EndDate,
-                Mechanic = dto.Mechanic
-            };
-
-            var result = await _service.CreateDIYEvening(diyEvening);
+            var result = await _service.CreateDIYEvening(dto);
 
             return StatusCode(StatusCodes.Status201Created, result);
         }
 
-        // TODO: get all DIYEveningModels
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DIYEveningModel>>> GetDIYEvening()
         {
+            RequestCounter.Inc();
             var result = await _service.GetDIYEvenings();
             return Ok(result);
         }
+           
+        [HttpGet("{id}")]
+        public async Task<ActionResult<DIYEveningModel>> GetDIYEveningById(int id)
+        {
+            var result = await _service.GetDIYEveningById(id);
+            return Ok(result);
+        }
 
-        // TODO: get specific DIYAvondModel by id
-        // TODO: Annuleer meeting
-        // TODO: meld aan als klant
+
+        [HttpPut("cancel/{id}")]
+        public async Task<ActionResult<DIYEveningModel>> CancelDIYEvening(int id)
+        {
+            try
+            {
+                var result = await _service.CancelDIYEvening(id);
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+
+        [HttpPost("registercustomer")]
+        public async Task<ActionResult> RegisterDIYEveningCustomer([FromBody] DIYRegistrationCreateDto dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _service.RegisterDIYEveningCustomer(dto);
+
+            return StatusCode(StatusCodes.Status201Created);
+        }
+
+        [HttpGet("{id}/registrations")]
+        public async Task<ActionResult<IEnumerable<DIYRegistration>>> GetRegistrationsForDIYEvening(int id)
+        {
+            var result = await _service.GetRegistrationsForDIYEvening(id);
+            return Ok(result);
+        }
+
+        [HttpPost("cancelregistration/{diyRegistrationId}")]
+        public async Task<ActionResult> CancelRegistration(int diyRegistrationId)
+        {
+            var result = await _service.CancelDIYRegistration(diyRegistrationId);
+
+            if (result)
+            {
+                return NoContent();
+            }
+
+            return NotFound();
+        }
+        
+        [HttpPost("registerfeedback")]
+        public async Task<ActionResult<DIYEveningModel>> RegisterDIYFeedback([FromBody] DIYFeedbackCreateDto dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _service.RegisterDIYFeedback(dto);
+
+            return StatusCode(StatusCodes.Status201Created, null);
+        }
     }
 }

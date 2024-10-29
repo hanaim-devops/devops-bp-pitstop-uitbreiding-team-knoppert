@@ -36,6 +36,7 @@ then
 fi
 
 kubectl apply \
+    -f ../metrics-server.yaml \
     -f ../pitstop-namespace$MESHPOSTFIX.yaml \
     -f ../rabbitmq.yaml \
     -f ../logserver.yaml \
