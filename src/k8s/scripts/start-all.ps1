@@ -58,5 +58,6 @@ kubectl apply `
     -f ../workshopmanagementapi$meshPostfix.yaml `
     -f ../webapp$meshPostfix.yaml `
     -f ../hpa/hpa.yaml `
-    -f ../diymanagementapi$meshPostfix.yaml `
-    -f ../chaoskube/chaoskube.yaml 
+    -f ../diymanagementapi$meshPostfix.yaml 
+
+kubectl run chaoskube --image=ghcr.io/linki/chaoskube:v0.32.0 --restart=Never -- --interval=1m --namespaces=pitstop --no-dry-run
