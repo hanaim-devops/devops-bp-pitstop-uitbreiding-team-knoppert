@@ -12,7 +12,7 @@ namespace DIYManagementAPI.Controllers
     {
         
         private static readonly Counter RequestCounter = Metrics
-        .CreateCounter("api_diytestmodels_requests_total", "Total number of requests to DiyTestModels API"); //!!!! ! !  ! !!  !! ! !
+        .CreateCounter("api_diy_getEvenings_request", "Total number of requests to DiyTestModels API");
 
         private readonly DIYService _service;
 

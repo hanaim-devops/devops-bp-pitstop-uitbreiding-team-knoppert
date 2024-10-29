@@ -5,8 +5,6 @@ using DIYManagementAPI.Models;
 using Serilog;
 using Microsoft.EntityFrameworkCore;
 using Prometheus;
-using System.Text.Json.Serialization;
-using Prometheus;
 
 var builder = WebApplication.CreateBuilder(args);
 
