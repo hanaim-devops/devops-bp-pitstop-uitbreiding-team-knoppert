@@ -35,5 +35,5 @@ In Prometheus en Thanos kun je een query uitvoeren. Dat kan met standaard metric
 
 Twee custom metrics die je kan uitvoeren zijn:
 
-- `api_diytestmodels_requests_total`
+- `api_diy_getEvenings_request`
 - `api_diy_CreateDIYEvening`
