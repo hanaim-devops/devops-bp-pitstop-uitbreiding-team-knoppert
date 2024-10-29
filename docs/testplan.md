@@ -12,6 +12,8 @@ Voor het testen van alle features zijn hier een aantal testcases gemaakt, hierbi
 
 ### Annuleren DIYavond
 
+prerequisites: Doe de Happy flow van "maak DIYavond" voordat je deze testcases uitvoert.
+
 Voor het testen van het annuleren van een DIYavond, zijn de volgende testcases gemaakt:
 
 - De happy flow, hierbij word een DIYavond geannuleerd en gekeken of de status van de DIYavond is aangepast.
