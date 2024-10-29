@@ -41,7 +41,7 @@ Competenties: *Nieuwsgierige houding*
 Competenties: *DevOps-7 - Attitude*, *DevOps-4 DevSecOps*
 
 - [Review opzet pipeline](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/21)
-- ... (nog een andere code review)
+- [Review feedback geven DIY avond](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/46)
 
 ## 6. Bijdrage documentatie
 
@@ -60,6 +60,16 @@ Beschrijf tijdens het project onder dit kopje ook evt. verdere activiteiten rond
 ## 8. Leerervaringen
 
 Competenties: *DevOps-7 - Attitude*
+
+**Tops**: 
+
+- (top1)
+- (top2)
+
+**Tips**:
+
+- (tip1)
+- (tip2)
 
 Geef tot slot hier voor jezelf minimaal 2 en maximaal **4 tops** en 2 dito (2 tot 4) **tips** á la professional skills die je kunt meenemen in je verdere loopbaan. Beschrijf ook de voor jezelf er het meest uitspringende hulp of feedback van groepsgenoten die je (tot dusver) hebt gehad tijdens het project.
 
