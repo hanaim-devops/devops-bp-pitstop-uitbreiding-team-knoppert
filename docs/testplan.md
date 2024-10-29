@@ -8,7 +8,7 @@ Dit testplan is geschreven voor de features toegevoegd door team Knoppert in het
 
 ## Testen
 
-Voor het testen van alle features zijn hier een aantal testcases gemaakt, hierbij word gezorgd dat zowiezo de happy flow word getest, daarnaast word er ook gekeken naar de edge cases.
+Voor het testen van alle features zijn hier een aantal testcases gemaakt, hierbij word gezorgd dat sowieso de happy flow word getest, daarnaast word er ook gekeken naar de edge cases.
 
 ### Annuleren DIYavond
 
