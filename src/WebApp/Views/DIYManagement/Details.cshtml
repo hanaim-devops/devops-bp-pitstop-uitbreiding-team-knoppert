@@ -28,18 +28,18 @@
         </tr>
         <tr>
             <td width="150">Cancelled</td>
-            <td><b>@Model.DIYAvond.Cancelled</b></td>
+            <td><b>@Model.DIYEvening.Cancelled</b></td>
         </tr>
     </tbody>
 </table>
 
-<a id="RegisterCustomerButton" asp-action="NewRegistration" asp-route-diyAvondId="@Model.DIYAvond.Id"
+<a id="RegisterCustomerButton" asp-action="NewRegistration" asp-route-diyAvondId="@Model.DIYEvening.Id"
 asp-controller="DIYManagement" class="btn btn-default">Register customer</a>
 <a id="CancelButton" asp-action="Index" asp-controller="DIYManagement" class="btn btn-default">Cancel</a>
 
 @using (Html.BeginForm("CancelDIYEvening", "DIYManagement", FormMethod.Post))
 {
-    @Html.Hidden("id", Model.DIYAvond.Id)
+    @Html.Hidden("id", Model.DIYEvening.Id)
     <button type="submit" class="btn btn-default">Cancel evening</button>
 }
 
