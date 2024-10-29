@@ -24,7 +24,7 @@ foreach ($service in $services) {
     $originalImage = "pitstop/${service}:${IMAGE_TAG}"
     
     # New image name with Docker Hub username
-    $newImage = "${DOCKER_USERNAME}/pitstop/${service}:${IMAGE_TAG}"
+    $newImage = "jelmer0314/pitstop/${service}:${IMAGE_TAG}"
     
     # Retag the image
     Write-Host "Retagging $originalImage to $newImage"
