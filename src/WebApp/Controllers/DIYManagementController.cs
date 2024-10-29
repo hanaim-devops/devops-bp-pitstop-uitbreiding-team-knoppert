@@ -106,6 +106,16 @@ public class DIYManagementController : Controller
         }
     }
 
+    [HttpPost]
+    public async Task<IActionResult> CancelDIYEvening(int id)
+    {
+        return await _resiliencyHelper.ExecuteResilient(async () =>
+        {
+            await _DIYManagamentAPI.CancelDIYEvening(id.ToString());
+            return RedirectToAction("Index");
+        }, View("Offline", new DIYManagementOfflineViewModel()));
+    }
+
     public IActionResult Error()
     {
         return View();
