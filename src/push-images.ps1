@@ -18,6 +18,8 @@ $services = @(
     'diymanagementapi'
 )
 
+docker login
+
 # Retag and push images for each service
 foreach ($service in $services) {
     # Original image name
