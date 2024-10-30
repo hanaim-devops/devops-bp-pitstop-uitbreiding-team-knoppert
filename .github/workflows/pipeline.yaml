@@ -37,7 +37,7 @@ jobs:
     needs: build-and-test
     runs-on: ubuntu-latest
     name: Publish
-    #if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
 
     steps:
     - name: Checkout repository
@@ -48,14 +48,12 @@ jobs:
       working-directory: src
       shell: pwsh
 
-        # Log in to GitHub Container Registry
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    # Run the push-images.ps1 script
     - name: Execute push images script
       run: ./push-images.ps1
       working-directory: src
@@ -65,13 +63,12 @@ jobs:
     needs: publish
     runs-on: ubuntu-latest
     name: deploy
-    #if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    # Set up Minikube
     - name: Setup Minikube
       uses: medyagh/setup-minikube@latest
       with:
@@ -88,20 +85,17 @@ jobs:
     - name: Use Kubernetes Context
       run: kubectl config use-context groep4
 
-    # Stop existing pods (uses stop-all.ps1 script)
     - name: Stop Pods
       run: ./stop-all.ps1
       working-directory: src/k8s/scripts
       shell: pwsh
 
-    # Log in to GitHub Container Registry
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    # Start pods (uses start-all.ps1 script)
     - name: Start Pods
       run: ./start-all.ps1 -nomesh
       working-directory: src/k8s/scripts
