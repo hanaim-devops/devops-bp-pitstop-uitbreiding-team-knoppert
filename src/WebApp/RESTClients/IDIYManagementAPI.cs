@@ -22,4 +22,7 @@ public interface IDIYManagementAPI
     
     [Post("/diy/registerfeedback")]
     Task RegisterDIYFeedback(RegisterDIYFeedback cmd);
+
+    [Get("/diy/customerhistory/{customerName}")]
+    Task<List<DIYCustomerHistory>> CustomerHistory(string customerName);
 }

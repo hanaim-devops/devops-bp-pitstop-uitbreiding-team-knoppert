@@ -51,4 +51,9 @@ public class DIYManagementAPI : IDIYManagementAPI
     {
         await _restClient.RegisterDIYFeedback(cmd);
     }
+
+    public async Task<List<DIYCustomerHistory>> CustomerHistory(string customerName)
+    {
+        return await _restClient.CustomerHistory(customerName);
+    }
 }
