@@ -11,6 +11,7 @@
             <th>DIY Description</th>
             <th>Start Date & time</th>
             <th>End Date & time</th>
+            <th>Status</th>
         </tr>
     </thead>
     <tbody>
@@ -21,8 +22,18 @@
                 <td>@diy.ExtraInfo</td>
                 <td>@diy.StartDate</td>
                 <td>@diy.EndDate</td>
+                <td>@if (diy.Cancelled)
+                {
+                    <span class="glyphicon glyphicon-remove" style="color:red"></span>
+                }
+                else
+                {
+                    <span class="glyphicon glyphicon-ok" style="color:green"></span>
+                }
+                </td>
             </tr>
         }
     </tbody>
 </table>
 <a id="CreateDIYEveningButton" asp-action="New" asp-controller="DIYManagement" class="btn btn-default">Register DIYEvening</a>
+<a id="NavigateToCustomerOverviewButton" asp-action="CustomerOverview" asp-controller="DIYManagement" class="btn btn-default">Customer overview</a>

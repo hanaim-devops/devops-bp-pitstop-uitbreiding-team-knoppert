@@ -4,18 +4,9 @@ using DIYManagementAPI.Services;
 using DIYManagementAPI.Models;
 using Serilog;
 using Microsoft.EntityFrameworkCore;
-using System.Text.Json.Serialization;
-using Microsoft.Extensions.Configuration; // Add this namespace if not already present
+using Prometheus;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// **Add this block to clear default configuration sources and re-add them without file watching**
-builder.Configuration.Sources.Clear();
-
-builder.Configuration
-    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: false)
-    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true, reloadOnChange: false)
-    .AddEnvironmentVariables();
 
 // setup logging
 builder.Host.UseSerilog((context, logContext) =>
@@ -27,17 +18,21 @@ builder.Host.UseSerilog((context, logContext) =>
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<DYIService>();
-builder.Services.AddScoped<DYIDAO>();
+builder.Services.AddScoped<DIYService>();
+builder.Services.AddScoped<DIYDAO>();
 
 var connectionString = builder.Configuration.GetConnectionString("DIYManagementCN");
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connectionString));
 
 var app = builder.Build();
+
+// Use Prometheus metrics middleware to expose metrics at /metrics
+app.UseMetricServer();
+
+app.UseHttpMetrics();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -46,9 +41,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
 using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
 {
-    scope.ServiceProvider.GetService<DatabaseContext>().MigrateDB();
+    scope.ServiceProvider.GetService<DatabaseContext>()?.MigrateDB();
 }
 
 app.UseHttpsRedirection();
