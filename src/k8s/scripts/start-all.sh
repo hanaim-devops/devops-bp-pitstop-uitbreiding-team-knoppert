@@ -54,4 +54,9 @@ kubectl apply \
     -f ../hpa/hpa.yaml
     -f ../diymanagementapi.yaml \
 
-kubectl run chaoskube --image=ghcr.io/linki/chaoskube:v0.32.0 --restart=Never -- --interval=1m --namespaces=pitstop --no-dry-run
+kubectl create serviceaccount chaoskube-sa -n pitstop
+
+kubectl apply -f ../chaoskube/chaoskube-role.yaml
+kubectl apply -f ../chaoskube/chaoskube-rolebinding.yaml
+
+kubectl apply -f ../chaoskube/chaoskube.yaml
