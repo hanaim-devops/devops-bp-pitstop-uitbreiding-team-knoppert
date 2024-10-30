@@ -27,7 +27,7 @@ public interface IDIYManagementAPI
     Task RegisterDIYFeedback(RegisterDIYFeedback cmd);
 
     [Get("/diy/customerhistory/{customerName}")]
-    Task<List<DIYCustomerHistory>> CustomerHistory(string customerName);
+    Task<List<DIYCustomerHistory>> GetCustomerHistory(string customerName);
 
     [Get("/diy/getfeedback/{id}")]
     Task<List<DIYFeedback>> GetDIYFeedbackById([AliasAs("id")] string diyEveningId);
