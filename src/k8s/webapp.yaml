@@ -43,7 +43,7 @@ metadata:
   name: webapp
   namespace: pitstop
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
   - name: "7005"
     port: 7005
