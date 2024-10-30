@@ -52,7 +52,6 @@ kubectl apply \
     -f ../vehiclemanagementapi$MESHPOSTFIX.yaml \
     -f ../workshopmanagementapi$MESHPOSTFIX.yaml \
     -f ../webapp$MESHPOSTFIX.yaml \
-    -f ../hpa/hpa.yaml
     -f ../diymanagementapi.yaml \
 
 if [ "$2" = "--chaoskube" ]
