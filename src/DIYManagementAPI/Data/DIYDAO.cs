@@ -85,22 +85,31 @@ namespace DIYManagementAPI.Data
         {
             var now = DateTime.Now;
 
-            return await (from evening in _context.DIYEvening
-                                join registration in _context.DIYRegistrations
-                                on evening.Id equals registration.DIYEveningId
-                                join feedback in _context.DIYFeedback
-                                on evening.Id equals feedback.DIYEveningId into feedbackGroup
-                                from feedback in feedbackGroup.DefaultIfEmpty()
-                                where registration.CustomerName == customerName
-                                      && (evening.EndDate.Date < now.Date ||
-                                          (evening.EndDate.Date == now.Date && evening.EndDate.TimeOfDay < now.TimeOfDay))
-                                select new DIYCustomerHistoryDTO
-                                {
-                                    Id = evening.Id,
-                                    Title = evening.Title,
-                                    Reparations = registration.Reparations,
-                                    Feedback = feedback.Feedback
-                                }).ToListAsync();
+            return await _context.DIYEvening
+                .Join(_context.DIYRegistrations,
+                      evening => evening.Id,
+                      registration => registration.DIYEveningId,
+                      (evening, registration) => new { evening, registration })
+                .GroupJoin(_context.DIYFeedback,
+                      combined => combined.evening.Id,
+                      feedback => feedback.DIYEveningId,
+                      (combined, feedbackGroup) => new { combined.evening, combined.registration, feedbackGroup })
+                .SelectMany(x => x.feedbackGroup.DefaultIfEmpty(),
+                      (x, feedback) => new { x.evening, x.registration, feedback })
+                .Where(x => x.registration.CustomerName == customerName &&
+                             (x.evening.EndDate.Date < now.Date ||
+                              (x.evening.EndDate.Date == now.Date && x.evening.EndDate.TimeOfDay < now.TimeOfDay)))
+                .Select(dto => new DIYCustomerHistoryDTO
+                {
+                    Id = dto.evening.Id,
+                    Title = dto.evening.Title,
+                    Reparations = dto.registration.Reparations,
+                    StartDate = dto.evening.StartDate,
+                    EndDate = dto.evening.EndDate,
+                    Feedback = dto.feedback.Feedback
+                })
+                .OrderBy(dto => dto.StartDate)
+                .ToListAsync();
         }
     }
 }

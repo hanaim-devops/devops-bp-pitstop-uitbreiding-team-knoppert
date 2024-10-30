@@ -10,6 +10,8 @@
         <tr>
             <th>DIY Title</th>
             <th>Reparations</th>
+            <th>Start Time</th>
+            <th>End Time</th>
             <th>Feedback</th>
         </tr>
     </thead>
@@ -19,6 +21,8 @@
                 <tr class="clickable" onclick="location.href = '@(Url.Action("Details", "DIYManagement", new { id = diy.Id }))'">
                     <td>@diy.Title</td>
                     <td>@diy.Reparations</td>
+                    <td>@diy.StartDate</td>
+                    <td>@diy.EndDate</td>
                     <td>@diy.Feedback</td>
                 </tr>
         }
