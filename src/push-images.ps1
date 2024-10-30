@@ -1,5 +1,3 @@
-# Set your Docker Hub username and image tag
-$DOCKER_USERNAME = 'jelmer0314'
 $IMAGE_TAG = '1.0'
 
 # List of services
@@ -16,7 +14,6 @@ $services = @(
     'diymanagementapi'
 )
 
-# Retag and push images for each service
 foreach ($service in $services) {
     # Original image name
     $originalImage = "pitstop/${service}:${IMAGE_TAG}"

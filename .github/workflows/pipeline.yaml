@@ -77,11 +77,10 @@ jobs:
     - name: Configure KUBECONFIG
       run: |
         mkdir -p $HOME/.kube
-        cp src/groep4.yaml $HOME/.kube/config  # Update path if needed
+        cp src/groep4.yaml $HOME/.kube/config
       env:
         KUBECONFIG: $HOME/.kube/config
 
-    # Set the Kubernetes context
     - name: Use Kubernetes Context
       run: kubectl config use-context groep4
 

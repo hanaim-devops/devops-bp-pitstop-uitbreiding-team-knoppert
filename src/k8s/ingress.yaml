@@ -23,9 +23,9 @@ spec:
         paths:
           - backend:
               service:
-                name: prometheus-service   # Naam van de Prometheus service
+                name: prometheus-service   
                 port:
-                  number: 9090             # Poort voor Prometheus
+                  number: 9090            
             pathType: ImplementationSpecific
             path: /
 
@@ -34,9 +34,9 @@ spec:
         paths:
           - backend:
               service:
-                name: thanos-query-service # Naam van de Thanos Query service
+                name: thanos-query-service 
                 port:
-                  number: 10901            # Poort voor Thanos Query
+                  number: 10901           
             pathType: ImplementationSpecific
             path: /
 
