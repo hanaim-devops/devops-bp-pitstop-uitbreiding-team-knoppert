@@ -5,7 +5,8 @@
 param (
     [switch]$nomesh = $false,
     [switch]$istio = $false,
-    [switch]$linkerd = $false
+    [switch]$linkerd = $false,
+    [switch]$chaoskube = $false
 )
 
 if (-not $nomesh -and -not $istio -and -not $linkerd)
@@ -60,9 +61,14 @@ kubectl apply `
     -f ../hpa/hpa.yaml `
     -f ../diymanagementapi$meshPostfix.yaml 
 
-kubectl create serviceaccount chaoskube-sa -n pitstop
+if ($chaoskube)
+{
+    echo "Starting Chaoskube."
+    
+    kubectl create serviceaccount chaoskube-sa -n pitstop
 
-kubectl apply -f ../chaoskube/chaoskube-role.yaml
-kubectl apply -f ../chaoskube/chaoskube-rolebinding.yaml
+    kubectl apply -f ../chaoskube/chaoskube-role.yaml
+    kubectl apply -f ../chaoskube/chaoskube-rolebinding.yaml
 
-kubectl apply -f ../chaoskube/chaoskube.yaml
+    kubectl apply -f ../chaoskube/chaoskube.yaml
+}
