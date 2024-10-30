@@ -60,7 +60,12 @@ kubectl apply `
     -f ../hpa/hpa.yaml `
     -f ../diymanagementapi$meshPostfix.yaml 
 
+# Maak het ServiceAccount aan in de juiste volgorde
+kubectl create serviceaccount chaoskube-sa -n pitstop
+
+# Pas de Role en RoleBinding toe voor de juiste permissies
 kubectl apply -f ../chaoskube/chaoskube-role.yaml
 kubectl apply -f ../chaoskube/chaoskube-rolebinding.yaml
 
-kubectl run chaoskube --image=ghcr.io/linki/chaoskube:v0.32.0 --restart=Never -- --interval=1m --namespaces=pitstop --no-dry-run
+# Deploy de chaoskube Pod
+kubectl apply -f ../chaoskube/chaoskube.yaml

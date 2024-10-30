@@ -1,9 +1,11 @@
-kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
 metadata:
-  namespace: pitstop
-  name: chaoskube-role
+  name: chaoskube-clusterrole
 rules:
 - apiGroups: [""]
   resources: ["pods"]
   verbs: ["list", "delete"]
+- apiGroups: [""]
+  resources: ["events"]
+  verbs: ["create"]
