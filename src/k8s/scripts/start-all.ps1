@@ -42,6 +42,7 @@ else
 }
 
 $yamlFiles = @(
+    "../inotify-limits-daemonset.yaml", 
     "../pitstop-namespace$meshPostfix.yaml",
     "../monitoring-namespace.yaml",
     "../monitoring/prometheus-configmap.yaml",

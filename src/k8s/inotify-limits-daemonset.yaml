@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: sysctl-inotify
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      name: sysctl-inotify
+  template:
+    metadata:
+      labels:
+        name: sysctl-inotify
+    spec:
+      containers:
+      - name: sysctl
+        image: busybox
+        command:
+          - sh
+          - -c
+          - |
+            echo "fs.inotify.max_user_watches=1048576" > /etc/sysctl.d/fs.inotify.conf
+            sysctl -p /etc/sysctl.d/fs.inotify.conf
+        securityContext:
+          privileged: true
+      hostNetwork: true
+      hostPID: true
+      restartPolicy: Always
