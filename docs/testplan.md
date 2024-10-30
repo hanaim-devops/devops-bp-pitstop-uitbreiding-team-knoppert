@@ -152,4 +152,4 @@ Voor het testen van het annuleren van een registratie voor een DIYavond, zijn de
 | **Action**                                            | **Extra Info**                                              | **Expected Result**                                          |
 |-------------------------------------------------------|-------------------------------------------------------------|--------------------------------------------------------------|
 | 1. Ga naar de DIY management pagina                   | URL: `http://localhost:7005/DIYManagement`                   | De DIY management pagina wordt geladen.                     |
-| 2. Klik op de gewenste avond                          | Selecteer een avond die al gestart is.                       | Je wordt doorgestuurd naar de detailpagina van de avond en kan geen registratie annuleren.    |
+| 2. Klik op de gewenste avond                          | Selecteer een avond die al gestart is.                       | Je wordt doorgestuurd naar de detailpagina van de avond en kan geen registratie annuleren.|
