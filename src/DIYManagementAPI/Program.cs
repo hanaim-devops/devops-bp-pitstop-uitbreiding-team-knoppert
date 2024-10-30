@@ -5,16 +5,8 @@ using DIYManagementAPI.Models;
 using Serilog;
 using Microsoft.EntityFrameworkCore;
 using Prometheus;
-using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Configuration.Sources.Clear();
-
-builder.Configuration
-    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: false)
-    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true, reloadOnChange: false)
-    .AddEnvironmentVariables();
 
 // setup logging
 builder.Host.UseSerilog((context, logContext) =>

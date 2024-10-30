@@ -37,7 +37,7 @@ jobs:
     needs: build-and-test
     runs-on: ubuntu-latest
     name: Publish
-    if: github.ref == 'refs/heads/main'
+    #if: github.ref == 'refs/heads/main'
 
     steps:
     - name: Checkout repository
@@ -63,7 +63,7 @@ jobs:
     needs: publish
     runs-on: ubuntu-latest
     name: deploy
-    if: github.ref == 'refs/heads/main'
+    #if: github.ref == 'refs/heads/main'
 
     steps:
     - name: Checkout repository
