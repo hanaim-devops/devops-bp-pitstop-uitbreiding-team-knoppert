@@ -41,7 +41,6 @@ else
     echo "Starting Pitstop without service mesh."
 }
 
-# Als alternatief kunnen we alle YML-bestanden individueel toepassen
 $yamlFiles = @(
     "../pitstop-namespace$meshPostfix.yaml",
     "../monitoring-namespace.yaml",
@@ -71,7 +70,7 @@ $yamlFiles = @(
     "../workshopmanagementapi$meshPostfix.yaml",
     "../webapp$meshPostfix.yaml",
     "../ingress.yaml",
-    # "../hpa/hpa.yaml",  # Uncomment if needed
+    # "../hpa/hpa.yaml",  # bestaat niet op deze branch?
     "../diymanagementapi$meshPostfix.yaml"
 )
 

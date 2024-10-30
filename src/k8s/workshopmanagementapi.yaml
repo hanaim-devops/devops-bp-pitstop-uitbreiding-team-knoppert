@@ -22,7 +22,7 @@ spec:
       - env:
         - name: ASPNETCORE_ENVIRONMENT
           value: Production
-        image: jelmer0314/pitstop-workshopmanagementapi:latest
+        image: jelmer0314/pitstop-workshopmanagementapi:1.0
         imagePullPolicy: IfNotPresent
         name: workshopmanagementapi
         ports:
