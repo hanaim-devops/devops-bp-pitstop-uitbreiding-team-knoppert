@@ -5,7 +5,8 @@
 param (
     [switch]$nomesh = $false,
     [switch]$istio = $false,
-    [switch]$linkerd = $false
+    [switch]$linkerd = $false,
+    [switch]$chaoskube = $false
 )
 
 if (-not $nomesh -and -not $istio -and -not $linkerd)

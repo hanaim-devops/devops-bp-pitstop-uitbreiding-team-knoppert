@@ -53,5 +53,16 @@ kubectl apply \
     -f ../workshopmanagementapi$MESHPOSTFIX.yaml \
     -f ../webapp$MESHPOSTFIX.yaml \
     -f ../ingress.yaml \
-    -f ../hpa/hpa.yaml \
+    -f ../hpa/hpa.yaml \ # deze bestaat vgm niet
     -f ../diymanagementapi.yaml
+    -f ../diymanagementapi.yaml \
+
+if [ "$2" = "--chaoskube" ]
+then
+    kubectl create serviceaccount chaoskube-sa -n pitstop
+
+    kubectl apply -f ../chaoskube/chaoskube-role.yaml
+    kubectl apply -f ../chaoskube/chaoskube-rolebinding.yaml
+
+    kubectl apply -f ../chaoskube/chaoskube.yaml
+fi

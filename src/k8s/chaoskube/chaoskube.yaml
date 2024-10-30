@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: chaoskube
+  namespace: pitstop
+spec:
+  serviceAccountName: chaoskube-sa
+  containers:
+  - name: chaoskube
+    image: ghcr.io/linki/chaoskube:v0.32.0
+    args:
+    - --interval=1m
+    - --namespaces=pitstop
+    - --no-dry-run
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: 65534
+      readOnlyRootFilesystem: true
+      capabilities:
+        drop: ["ALL"]

@@ -1,7 +1,5 @@
 # Eigen bijdrage Jelle
 
-Als deliverable voor de individuele bijdrage in het beroepsproduct maak een eigen markdown bestand `<mijn-voornaam>.md` in je repo aan met tekst inclusief linkjes naar code en documentaties bestanden, pull requests, commit diffs. Maak hierin de volgende kopjes met een invulling.
-
 Je schrapt verder deze tekst en vervangt alle andere template zaken, zodat alleen de kopjes over blijven. **NB: Aanwezigheid van template teksten na inleveren ziet de beoordelaar als een teken dat je documentatie nog niet af is, en hij/zij deze dus niet kan of hoeft te beoordelen**.
 
 Je begin hier onder het hoofdkopje met een samenvatting van je bijdrage zoals je die hieronder uitwerkt. Best aan het einde schrijven. Zorg voor een soft landing van de beoordelaar, maar dat deze ook direct een beeld krijgt. Je hoeft geen heel verslag te schrijven. De kopjes kunnen dan wat korter met wat bullet lijst met links voor 2 tot 4 zaken en 1 of 2 inleidende zinnen erboven. Een iets uitgebreidere eind conclusie schrijf je onder het laatste kopje.
@@ -41,7 +39,7 @@ Competenties: *Nieuwsgierige houding*
 Competenties: *DevOps-7 - Attitude*, *DevOps-4 DevSecOps*
 
 - [Review opzet pipeline](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/21)
-- ... (nog een andere code review)
+- [Review feedback geven DIY avond](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/46)
 
 ## 6. Bijdrage documentatie
 
@@ -60,6 +58,16 @@ Beschrijf tijdens het project onder dit kopje ook evt. verdere activiteiten rond
 ## 8. Leerervaringen
 
 Competenties: *DevOps-7 - Attitude*
+
+**Tops**:
+
+- Vragen stellen aan groepsgenoten
+- (top2)
+
+**Tips**:
+
+- (tip1)
+- (tip2)
 
 Geef tot slot hier voor jezelf minimaal 2 en maximaal **4 tops** en 2 dito (2 tot 4) **tips** á la professional skills die je kunt meenemen in je verdere loopbaan. Beschrijf ook de voor jezelf er het meest uitspringende hulp of feedback van groepsgenoten die je (tot dusver) hebt gehad tijdens het project.
 

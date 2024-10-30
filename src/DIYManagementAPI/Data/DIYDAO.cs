@@ -79,5 +79,14 @@ namespace DIYManagementAPI.Data
             await _context.SaveChangesAsync();
             return diyFeedback;
         }
+
+        public async Task<List<DIYFeedback>> GetFeedbackByDIYEveningIdAsync(int diyEveningId)
+        {
+            var feedback = await _context.DIYFeedback
+            .Where(f => f.DIYEveningId == diyEveningId)
+            .ToListAsync();
+
+            return feedback ?? new List<DIYFeedback>();
+        }
     }
 }
