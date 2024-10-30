@@ -83,6 +83,8 @@ namespace DIYManagementAPI.Data
 
         public async Task<IEnumerable<DIYCustomerHistoryDTO>> GetCustomerHistory(string customerName)
         {
+            var now = DateTime.Now;
+
             return await (from evening in _context.DIYEvening
                                 join registration in _context.DIYRegistrations
                                 on evening.Id equals registration.DIYEveningId
@@ -90,6 +92,8 @@ namespace DIYManagementAPI.Data
                                 on evening.Id equals feedback.DIYEveningId into feedbackGroup
                                 from feedback in feedbackGroup.DefaultIfEmpty()
                                 where registration.CustomerName == customerName
+                                      && (evening.EndDate.Date < now.Date ||
+                                          (evening.EndDate.Date == now.Date && evening.EndDate.TimeOfDay < now.TimeOfDay))
                                 select new DIYCustomerHistoryDTO
                                 {
                                     Id = evening.Id,
