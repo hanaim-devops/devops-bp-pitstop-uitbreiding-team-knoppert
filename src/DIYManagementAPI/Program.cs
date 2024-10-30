@@ -5,8 +5,17 @@ using DIYManagementAPI.Models;
 using Serilog;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
+using Microsoft.Extensions.Configuration; // Add this namespace if not already present
 
 var builder = WebApplication.CreateBuilder(args);
+
+// **Add this block to clear default configuration sources and re-add them without file watching**
+builder.Configuration.Sources.Clear();
+
+builder.Configuration
+    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: false)
+    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true, reloadOnChange: false)
+    .AddEnvironmentVariables();
 
 // setup logging
 builder.Host.UseSerilog((context, logContext) =>
@@ -36,7 +45,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 
 using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
 {
