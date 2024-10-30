@@ -36,6 +36,7 @@ then
 fi
 
 kubectl apply \
+    -f ../metrics-server.yaml \
     -f ../pitstop-namespace$MESHPOSTFIX.yaml \
     -f ../rabbitmq.yaml \
     -f ../logserver.yaml \
@@ -54,7 +55,7 @@ kubectl apply \
     -f ../hpa/hpa.yaml
     -f ../diymanagementapi.yaml \
 
-if [ "$1" = "--chaoskube" ]
+if [ "$2" = "--chaoskube" ]
 then
     kubectl create serviceaccount chaoskube-sa -n pitstop
 

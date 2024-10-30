@@ -4,7 +4,7 @@ using DIYManagementAPI.Services;
 using DIYManagementAPI.Models;
 using Serilog;
 using Microsoft.EntityFrameworkCore;
-using System.Text.Json.Serialization;
+using Prometheus;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +18,6 @@ builder.Host.UseSerilog((context, logContext) =>
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -30,6 +29,11 @@ builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(c
 
 var app = builder.Build();
 
+// Use Prometheus metrics middleware to expose metrics at /metrics
+app.UseMetricServer();
+
+app.UseHttpMetrics();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -40,7 +44,7 @@ if (app.Environment.IsDevelopment())
 
 using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
 {
-    scope.ServiceProvider.GetService<DatabaseContext>().MigrateDB();
+    scope.ServiceProvider.GetService<DatabaseContext>()?.MigrateDB();
 }
 
 app.UseHttpsRedirection();

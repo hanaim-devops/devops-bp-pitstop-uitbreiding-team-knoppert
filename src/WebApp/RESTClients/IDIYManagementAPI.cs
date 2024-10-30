@@ -17,9 +17,15 @@ public interface IDIYManagementAPI
     [Post("/diy")]
     Task RegisterDIYEvening(RegisterDIYEvening cmd);
 
+    [Put("/diy/cancel/{id}")]
+    Task CancelDIYEvening([AliasAs("id")] string diyEveningId);
+
     [Post("/diy/cancelregistration/{id}")]
     Task CancelRegistration([AliasAs("id")] string diyRegistrationId);
     
     [Post("/diy/registerfeedback")]
     Task RegisterDIYFeedback(RegisterDIYFeedback cmd);
+
+    [Get("/diy/getfeedback/{id}")]
+    Task<List<DIYFeedback>> GetDIYFeedbackById([AliasAs("id")] string diyEveningId);
 }
