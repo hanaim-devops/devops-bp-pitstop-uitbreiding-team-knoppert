@@ -37,3 +37,8 @@ Twee custom metrics die je kan uitvoeren zijn:
 
 - `api_diy_getEvenings_request`
 - `api_diy_CreateDIYEvening`
+- `api_diy_CreateDIYEvening_duration_seconds`
+- `api_diy_getDIYEvening_counter`
+- `api_diy_registerDIYEvening_counter`
+
+Om het percentage te kunnen zien tussen het aantal klanten die de detail pagina van een avond bezoeken en het aantal klanten die zich aanmelden voor een avond kan je de volgende query uitvoeren in Prometheus: `(api_diy_registerDIYEvening_counter / api_diy_getDIYEvening_counter) * 100`
