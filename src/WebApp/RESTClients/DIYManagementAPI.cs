@@ -37,6 +37,11 @@ public class DIYManagementAPI : IDIYManagementAPI
         await _restClient.RegisterDIYEvening(cmd);
     }
 
+    public async Task CancelDIYEvening([AliasAs("id")] string diyEveningId)
+    {
+        await _restClient.CancelDIYEvening(diyEveningId);
+    }
+
     public async Task<List<DIYRegistration>> GetRegistrationsForDIYEvening(string diyEveningId)
     {
         return await _restClient.GetRegistrationsForDIYEvening(diyEveningId);
@@ -55,5 +60,10 @@ public class DIYManagementAPI : IDIYManagementAPI
     public async Task<List<DIYCustomerHistory>> CustomerHistory(string customerName)
     {
         return await _restClient.CustomerHistory(customerName);
+    }
+
+    public async Task<List<DIYFeedback>> GetDIYFeedbackById([AliasAs("id")] string diyEveningId)
+    {
+        return await _restClient.GetDIYFeedbackById(diyEveningId);
     }
 }

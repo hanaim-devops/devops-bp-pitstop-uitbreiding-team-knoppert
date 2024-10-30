@@ -79,5 +79,17 @@ namespace DIYManagementAPI.Services
         {
             return await _dao.GetCustomerHistory(customerName);
         }
+
+        public async Task<List<DIYFeedback>> GetFeedbackAsync(int diyEveningId)
+        {
+            var feedback = await _dao.GetFeedbackByDIYEveningIdAsync(diyEveningId);
+
+            if (feedback == null || !feedback.Any())
+            {
+                return new List<DIYFeedback>();
+            }
+            
+            return feedback;
+        }
     }
 }

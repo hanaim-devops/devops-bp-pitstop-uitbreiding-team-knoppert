@@ -111,5 +111,14 @@ namespace DIYManagementAPI.Data
                 .OrderBy(dto => dto.StartDate)
                 .ToListAsync();
         }
+
+        public async Task<List<DIYFeedback>> GetFeedbackByDIYEveningIdAsync(int diyEveningId)
+        {
+            var feedback = await _context.DIYFeedback
+            .Where(f => f.DIYEveningId == diyEveningId)
+            .ToListAsync();
+
+            return feedback ?? new List<DIYFeedback>();
+        }
     }
 }
