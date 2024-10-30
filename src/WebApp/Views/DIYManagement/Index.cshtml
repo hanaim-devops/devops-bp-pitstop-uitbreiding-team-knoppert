@@ -37,4 +37,13 @@
 </table>
 <a id="CreateDIYEveningButton" asp-action="New" asp-controller="DIYManagement" class="btn btn-default">Register DIYEvening</a>
 <a id="NavigateToCustomerOverviewButton" asp-action="CustomerOverview" asp-controller="DIYManagement" class="btn btn-default">Customer overview</a>
-<a id="NavigateToCustomerHistoryButton" asp-action="CustomerHistory" asp-controller="DIYManagement" class="btn btn-default">Customer History</a>
+
+<form asp-action="CustomerHistory" asp-controller="DIYManagement" method="get" class="form-group" style="margin-top: 20px">
+    <div class="form-group">
+        <label for="CustomerNameInput">Voer hier onder je naam in om uw historie van Doe Het Zelf Avonden in te zien:</label>
+
+        <input type="text" id="CustomerNameInput" name="customerName" class="form-control" placeholder="Customer Name" required />
+    </div>
+
+    <button type="submit" class="btn btn-default">Customer History</button>
+</form>

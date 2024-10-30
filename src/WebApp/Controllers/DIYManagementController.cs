@@ -167,13 +167,14 @@ public class DIYManagementController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> CustomerHistory()
+    public async Task<IActionResult> CustomerHistory(string customerName)
     {
+        Debug.WriteLine("CustomerName: " + customerName);
         return await _resiliencyHelper.ExecuteResilient(async () =>
         {
             var model = new DIYManagementCustomerHistoryViewModel
             {
-                DIYCustomerHistory = await _DIYManagamentAPI.CustomerHistory("kaas")
+                DIYCustomerHistory = await _DIYManagamentAPI.CustomerHistory(customerName)
             };
 
             return View(model);
