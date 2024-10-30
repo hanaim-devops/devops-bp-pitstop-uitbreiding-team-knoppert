@@ -176,4 +176,19 @@ public class DIYManagementController : Controller
             return View(model);
         }, View("Offline", new DIYManagementOfflineViewModel()));
     }
+
+    [HttpGet]
+    public async Task<IActionResult> CustomerHistory(string customerName)
+    {
+        return await _resiliencyHelper.ExecuteResilient(async () =>
+        {
+            var model = new DIYManagementCustomerHistoryViewModel
+            {
+                DIYCustomerHistory = await _DIYManagamentAPI.GetCustomerHistory(customerName),
+                CustomerName = customerName
+            };
+
+            return View(model);
+        }, View("Offline", new DIYManagementOfflineViewModel()));
+    }
 }
