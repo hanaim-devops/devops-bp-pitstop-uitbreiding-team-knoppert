@@ -72,7 +72,6 @@ $yamlFiles = @(
     "../workshopmanagementapi$meshPostfix.yaml",
     "../webapp$meshPostfix.yaml",
     "../ingress.yaml",
-    # "../hpa/hpa.yaml",  # bestaat niet op deze branch?
     "../diymanagementapi$meshPostfix.yaml"
 )
 
