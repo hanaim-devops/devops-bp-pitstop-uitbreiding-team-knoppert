@@ -53,6 +53,8 @@ Voor het testen van het annuleren van een DIYavond, zijn de volgende testcases g
 
 ### Feedback geven DIYavond
 
+Pre-conditie: Er is een DIYavond aangemaakt.
+
 Voor het testen van het geven van feedback over een DIYavond, zijn de volgende testcases gemaakt:
 
 - De happy flow, hierbij word gekeken of er feedback toegevoegd kan worden nadat een DIYavond gestart is.
@@ -65,8 +67,8 @@ Voor het testen van het geven van feedback over een DIYavond, zijn de volgende t
 |-------------------------------------------------------|-------------------------------------------------------------|--------------------------------------------------------------|
 | 1. Ga naar de DIY management pagina                   | URL: `http://localhost:7005/DIYManagement`                   | De DIY management pagina wordt geladen.                     |
 | 2. Klik op de gewenste avond                          | Selecteer een avond die al gestart is.                       | Je wordt doorgestuurd naar de detailpagina van de avond.    |
-| 3. Klik op de feedback knop                           | Knop onder de datails.                                       | Het systeem laad het formulier.                             |
-| 4. Vul de gegevens in en klik op opslaan              | Vul naam en feedback in.                                     | De feedback is opgeslagen.                                  |
+| 3. Klik op de knop "feedback"                         | Knop onder de datails.                                       | Het systeem laad het formulier.                             |
+| 4. Vul de gegevens in en klik op opslaan              | Vul naam: "Jan" en feedback: "eten kon beter" in.            | De feedback is opgeslagen overeenkomstig input.             |
 
 #### Case 2: Egde flow
 
