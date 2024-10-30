@@ -24,5 +24,7 @@ namespace DIYManagementAPI.Models
         public required string Mechanic { get; set; }
 
         public bool Cancelled { get; set; } = false;
+
+        public bool IsStarted => TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.Utc, TimeZoneInfo.FindSystemTimeZoneById("W. Europe Standard Time")) >= StartDate;
     }
 }
