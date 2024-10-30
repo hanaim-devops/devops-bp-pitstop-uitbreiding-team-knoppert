@@ -174,7 +174,8 @@ public class DIYManagementController : Controller
         {
             var model = new DIYManagementCustomerHistoryViewModel
             {
-                DIYCustomerHistory = await _DIYManagamentAPI.CustomerHistory(customerName)
+                DIYCustomerHistory = await _DIYManagamentAPI.CustomerHistory(customerName),
+                CustomerName = customerName
             };
 
             return View(model);
