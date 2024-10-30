@@ -2,7 +2,7 @@
 
 ---
 
-**Status**: ...  
+**Status**: Besloten  
 **Datum**: 30 oktober 2024  
 **Auteur**: Jelle Schrans
 
@@ -17,7 +17,7 @@ In eerste instantie leek de applicatie in Kubernetes niet helemaal goed te draai
 ## Argumenten
 
 - **Betrouwbaarheid testen**: Door Chaos Engineering toe te passen, kunnen we de betrouwbaarheid van ons systeem testen en eventueel verbeteren als blijkt dat het systeem niet goed met storingen om kan gaan.
-- **Makkelijke implementatie**: De implementatie van ChaosKube in Kubernetes was relatief eenvoudig en leverde weinig problemen op. In een configuratie bestand kan gedefinieerd worden welke pods ChaosKube mag targeten zodat er makkelijk verschillende tests uitgevoerd kunnen worden.
+- **Makkelijke implementatie**: De implementatie van ChaosKube in Kubernetes was relatief eenvoudig en leverde weinig problemen op. In een [configuratie bestand](../../src/k8s/chaoskube/chaoskube.yaml) kan gedefinieerd worden welke pods ChaosKube mag targeten zodat er makkelijk verschillende tests uitgevoerd kunnen worden.
 
 ## Gevolgen
 
