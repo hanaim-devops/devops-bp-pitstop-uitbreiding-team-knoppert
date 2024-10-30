@@ -53,7 +53,9 @@ Voor het testen van het annuleren van een DIYavond, zijn de volgende testcases g
 
 ### Feedback geven DIYavond
 
-Pre-conditie: Er is een DIYavond aangemaakt.
+Pre-condities: 
+- Er is een DIYavond aangemaakt die gestart is.
+- Er is een DIYavond aangemaakt die nog niet gestart is
 
 Voor het testen van het geven van feedback over een DIYavond, zijn de volgende testcases gemaakt:
 
@@ -78,6 +80,11 @@ Voor het testen van het geven van feedback over een DIYavond, zijn de volgende t
 | 2. Klik op de gewenste avond                          | Selecteer een avond die nog niet gestart is.                 | Je wordt doorgestuurd naar de detailpagina van de avond en kan geen feedback geven.    |
 
 ### Registratie annuleren DIYavond
+
+Pre-condities: 
+- Er is een DIYavond aangemaakt die gestart is.
+- Er is een DIYavond aangemaakt die nog niet gestart is
+- Er is een registratie voor die avonden.
 
 Voor het testen van het annuleren van een registratie voor een DIYavond, zijn de volgende testcases gemaakt:
 
