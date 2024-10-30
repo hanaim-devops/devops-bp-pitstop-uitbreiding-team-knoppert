@@ -53,9 +53,7 @@ kubectl apply \
     -f ../workshopmanagementapi$MESHPOSTFIX.yaml \
     -f ../webapp$MESHPOSTFIX.yaml \
     -f ../ingress.yaml \
-    -f ../hpa/hpa.yaml \ # deze bestaat vgm niet
     -f ../diymanagementapi.yaml
-    -f ../diymanagementapi.yaml \
 
 if [ "$2" = "--chaoskube" ]
 then
