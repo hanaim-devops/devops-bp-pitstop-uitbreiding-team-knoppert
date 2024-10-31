@@ -5,6 +5,7 @@ Dit testplan is geschreven voor de features toegevoegd door team Knoppert in het
 ## Gesteste onderdelen
 
 - Annuleren DIYavond
+- Registreren klant voor DIYavond
 
 ## Testen
 
@@ -48,3 +49,18 @@ Voor het testen van het annuleren van een DIYavond, zijn de volgende testcases g
 | 2. Klik op de gewenste avond, de avond moet al geweest zijn                          |                   | Je wordt doorgestuurd naar de detailpagina van de avond.      |
 | 3. Klik op de annuleer knop                           | de knop heet "cancel evening"                                  | Een popup wordt getoond dat de avond al geweest is |
 | 4. Controleer de status op de overzichtspagina         | Ga terug naar de overzichtspagina om status te checken.       | De avond is niet geannuleerd en de status is niet aangepast. |
+
+### Registreren klant voor DIYavond
+
+Prerequisites: Doe de Happy flow van "maak DIYAvond" voordat je deze testcases uitvoert.
+
+Voor het testen van het registreren van een klant voor een DIYavond, zijn de volgende testcases gemaakt:
+
+- De happy flow, hierbij word een klant geregistreerd voor een DIYavond en gekeken of de klant is toegevoegd aan de lijst.
+
+| **Action**| **Extra Info**| **Expected Result** |
+|-----------|---------------|---------------------|
+| 1. Ga naar de DIY management pagina                   | URL: `http://localhost:7005/DIYManagement`                   | De DIY management pagina wordt geladen.                      |
+| 2. Klik op de gewenste avond                        |                   | Je wordt doorgestuurd naar de detailpagina van de avond.      |
+| 3. Klik op de registreer knop                           | De knop heet "Register Customer"                                  | Je wordt naar de pagina gestuurd waar je de nodige gegevens kan invullen om een klant te registreren voor de gegeven avond |
+| 4. Vul de gegevens in en klik op de registreer knop                           |                   | De klant is toegevoegd aan de lijst van klanten die zich hebben geregistreerd voor de avond. |
