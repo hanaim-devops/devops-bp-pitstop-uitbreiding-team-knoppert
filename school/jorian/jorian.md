@@ -10,6 +10,7 @@ Je begin hier onder het hoofdkopje met een samenvatting van je bijdrage zoals je
 ## 1. Code/platform bijdrage
 
 Ik heb in dit project de Dev rol op me genomen. Ik heb gewerkt aan de volgende onderdelen:
+
 - Cancellen van Diy avond. [pull req1](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/44), [pull req2](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/68).
 - [Details van de eerst volgende Diy avond in overzicht](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/80).
 - [Start van het testplan en een aantal testen geschreven](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/58).
@@ -21,7 +22,8 @@ Beschrijf hier kort je bijdrage vanuit je rol, developer (Dev) of infrastructure
  
 ## 2. Bijdrage app configuratie/containers/kubernetes
 
-Ik heb gewerkt aan de configuratie van keycloak, dit heb ik jammer genoeg niet kunnen toevoegen aan het project. 
+Ik heb gewerkt aan de configuratie van keycloak, dit heb ik jammer genoeg niet kunnen toevoegen aan het project.
+
 - Ik heb voor deze configuratie een script geschreven die een [realm configureert](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/blob/9-register-with-keycloak/src/k8s/scripts/create-realm.ps1).
 - Ook heb ik voor keycloak de laaste versie van keycloak toegevoegd aan het [start script](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/blob/9-register-with-keycloak/src/k8s/scripts/start-all.ps1). Ik heb gekozen dat altijd de laatste versie van keycloak wordt gebruikt, omdat dit de meest veilige versie is.
 
@@ -87,7 +89,12 @@ Zet hier een links naar en geef beschrijving van je C4 diagram of diagrammen, RE
  
 ## 7. Bijdrage Agile werken, groepsproces, communicatie opdrachtgever en soft skills
 
-We hebben deze weken een aantal scrum serimonies gehad. Tijdens het inplannen van de userstories heb ik geholpen met het uitdenken van de planning van de week, ook heb ik geholpen met de acceptatiecriteria van de userstories. 
+Ik heb geholpen met de acceptatiecriteria van de userstories. Ook ben ik notulist geweest tijdens sprint retrospective en voorzitter tijdens de eind oplevering. Tijdens de sprint heb ik een aantal DSU geleid.
+
+- Helpen met [acceptatiecriteria](https://github.com/orgs/hanaim-devops/projects/31)
+- Notulist tijdens sprint retrospective
+- Voorzitter tijdens eind oplevering
+- DSU geleid
 
 Competenties: *DevOps-1 - Continuous Delivery*, *Agile*
 
