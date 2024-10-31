@@ -1,5 +1,9 @@
 # Eigen bijdrage jorian
- 
+
+In dit project heb ik als Developer gewerkt aan verschillende functionaliteiten en configuraties, met name rond het annuleren en tonen van DIY-avonden en het opzetten van testplannen voor kwaliteitsbewaking. Daarnaast heb ik voor Keycloak configuraties ontwikkeld en geïmplementeerd, maar dit bleek door technische beperkingen niet werkend te krijgen. Voor de workflow in GitHub heb ik merge-regels en review-richtlijnen opgezet om een eenduidig proces te waarborgen.
+
+Verder heb ik bijgedragen aan documentatie, zoals het C4-containerdiagram en een ADR over Keycloak. Binnen het team heb ik aan de acceptatiecriteria voor user stories gewerkt, notulen gemaakt, en enkele Daily Standups geleid.
+
 <!-- Je begin hier onder het hoofdkopje met een samenvatting van je bijdrage zoals je die hieronder uitwerkt. Best aan het einde schrijven. Zorg voor een soft landing van de beoordelaar, maar dat deze ook direct een beeld krijgt. Je hoeft geen heel verslag te schrijven. De kopjes kunnen dan wat korter met wat bullet lijst met links voor 2 tot 4 zaken en 1 of 2 inleidende zinnen erboven. Een iets uitgebreidere eind conclusie schrijf je onder het laatste kopje. -->
 
 
