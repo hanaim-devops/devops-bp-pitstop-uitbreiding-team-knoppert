@@ -95,7 +95,7 @@ Voor het testen van het annuleren van een DIYavond, zijn de volgende testcases g
 | 3. Klik op de annuleer knop                           | de knop heet "cancel evening"                                  | Een popup wordt getoond dat de avond al geweest is |
 | 4. Controleer de status op de overzichtspagina         | Ga terug naar de overzichtspagina om status te checken.       | De avond is niet geannuleerd en de status is niet aangepast. |
 
-### Registreren klant voor DIYavond
+### Registreren klant voor doe het zelf avond
 
 Prerequisites:
 
@@ -103,9 +103,11 @@ Prerequisites:
 
 Voor het testen van het registreren van een klant voor een DIYavond, zijn de volgende testcases gemaakt:
 
-- De happy flow, hierbij word een klant geregistreerd voor een DIYavond en gekeken of de klant is toegevoegd aan de lijst.
+- De happy flow, hierbij wordt een klant geregistreerd voor een DIYavond en gekeken of de klant is toegevoegd aan de lijst.
 
-- De edge case, hierbij word geprobeerd een klant te registreren voor een DIYavond die al is geweest, hierbij word gekeken of de gebruiker niet naar de registratie pagina kan.
+- De edge case, hierbij wordt geprobeerd een klant te registreren voor een DIYavond die al is geweest, hierbij word gekeken of de gebruiker niet naar de registratie pagina kan.
+
+- De edge case, hierbij wordt een klant geregistreerd met lege waarden, hierbij word gekeken of er een error word gegeven.
 
 #### Case 1: Happy flow
 
@@ -121,8 +123,17 @@ Voor het testen van het registreren van een klant voor een DIYavond, zijn de vol
 | **Action**| **Extra Info**| **Expected Result** |
 |-----------|---------------|---------------------|
 | 1. Ga naar de DIY management pagina                   | URL: `http://localhost:7005/DIYManagement`                   | De DIY management pagina wordt geladen.                      |
-| 2. Klik op een avond die afgelopen is.                     |                   | Je wordt doorgestuurd naar de detailpagina van de avond.      |
+| 2. Klik op een avond die al begonnen is.                     |                   | Je wordt doorgestuurd naar de detailpagina van de avond.      |
 | 3. Check of er een knop aanwezig is om een klant te registreren                           |       | De knop is niet aanwezig, er kan geen klant geregistreerd worden |
+
+#### Case 3: Egde flow
+
+| **Action**| **Extra Info**| **Expected Result** |
+|-----------|---------------|---------------------|
+| 1. Ga naar de DIY management pagina                   | URL: `http://localhost:7005/DIYManagement`                   | De DIY management pagina wordt geladen.                      |
+| 2. Klik op de gewenste avond                        |                   | Je wordt doorgestuurd naar de detailpagina van de avond.      |
+| 3. Klik op de registreer knop                           | De knop heet "Register Customer"                                  | Je wordt naar de pagina gestuurd waar je de nodige gegevens kan invullen om een klant te registreren voor de gegeven avond |
+| 4. Laat alle velden leeg en druk op de registreer knop                           |                   | Er komt een foutmelding dat de aanwezige velden verplicht zijn. |
 
 ### Feedback geven op een doe het zelf avond
 
