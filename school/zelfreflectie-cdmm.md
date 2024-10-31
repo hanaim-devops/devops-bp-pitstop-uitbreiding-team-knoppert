@@ -128,11 +128,11 @@
 - [ ] TV-301 Volledige automatische acceptatie tests
 - [ ] TV-302 Automatische performance tests
 - [ ] TV-303 Automatische security tests
-- [x] TV-304 Risico gebaseerde handmatige tests
+- [x] TV-304 Risico gebaseerde handmatige tests: We hebben een [testplan](../docs/testplan.md) uitgewerkt, waarin we tests uitwerken die handmatig uitgevoerd kunnen worden.
 
 ### Expert
 
-- [x] TV-401 Verifieer verwachte bedrijfswaarde
+- [x] TV-401 Verifieer verwachte bedrijfswaarde: We verifiëren de verwachte bedrijfswaarde door de geimplementeerde functionaliteit handmatig te testen, om aan te kunnen tonen dat alles naar wens is geimplementeerd.
 
 ## Informatie & Rapporteren : Mitchel
 
