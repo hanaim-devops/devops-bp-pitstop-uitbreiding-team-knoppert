@@ -1,4 +1,7 @@
 ﻿using DIYManagementAPI.Models;
+using DIYManagementAPI.Models.DTO;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using System.Linq;
@@ -88,6 +91,46 @@ namespace DIYManagementAPI.Data
             _context.DIYFeedback.Add(diyFeedback);
             await _context.SaveChangesAsync();
             return diyFeedback;
+        }
+
+        public async Task<IEnumerable<DIYCustomerHistoryDTO>> GetCustomerHistory(string customerName)
+        {
+            var now = DateTime.Now;
+
+            return await _context.DIYEvening
+                .Join(_context.DIYRegistrations,
+                      evening => evening.Id,
+                      registration => registration.DIYEveningId,
+                      (evening, registration) => new { evening, registration })
+                .GroupJoin(_context.DIYFeedback,
+                      combined => combined.evening.Id,
+                      feedback => feedback.DIYEveningId,
+                      (combined, feedbackGroup) => new { combined.evening, combined.registration, feedbackGroup })
+                .SelectMany(x => x.feedbackGroup.DefaultIfEmpty(),
+                      (x, feedback) => new { x.evening, x.registration, feedback })
+                .Where(x => x.registration.CustomerName == customerName &&
+                             (x.evening.EndDate.Date < now.Date ||
+                              (x.evening.EndDate.Date == now.Date && x.evening.EndDate.TimeOfDay < now.TimeOfDay)))
+                .Select(dto => new DIYCustomerHistoryDTO
+                {
+                    Id = dto.evening.Id,
+                    Title = dto.evening.Title,
+                    Reparations = dto.registration.Reparations,
+                    StartDate = dto.evening.StartDate,
+                    EndDate = dto.evening.EndDate,
+                    Feedback = dto.feedback.Feedback
+                })
+                .OrderBy(dto => dto.StartDate)
+                .ToListAsync();
+        }
+
+        public async Task<List<DIYFeedback>> GetFeedbackByDIYEveningIdAsync(int diyEveningId)
+        {
+            var feedback = await _context.DIYFeedback
+            .Where(f => f.DIYEveningId == diyEveningId)
+            .ToListAsync();
+
+            return feedback ?? new List<DIYFeedback>();
         }
     }
 }

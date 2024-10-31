@@ -1,0 +1,30 @@
+﻿@model Pitstop.WebApp.ViewModels.DIYManagementCustomerHistoryViewModel
+@{
+    ViewData["Title"] = "DIY Customer History";
+}
+
+<h3>DIY Customer History From @Model.CustomerName</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>DIY Title</th>
+            <th>Reparations</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Feedback</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var diy in Model.DIYCustomerHistory)
+        {
+                <tr class="clickable" onclick="location.href = '@(Url.Action("Details", "DIYManagement", new { id = diy.Id }))'">
+                    <td>@diy.Title</td>
+                    <td>@diy.Reparations</td>
+                    <td>@diy.StartDate</td>
+                    <td>@diy.EndDate</td>
+                    <td>@diy.Feedback</td>
+                </tr>
+        }
+    </tbody>
+</table>

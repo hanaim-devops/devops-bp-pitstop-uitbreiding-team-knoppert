@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: chaoskube-clusterrolebinding
+subjects:
+- kind: ServiceAccount
+  name: chaoskube-sa
+  namespace: pitstop
+roleRef:
+  kind: ClusterRole
+  name: chaoskube-clusterrole
+  apiGroup: rbac.authorization.k8s.io
