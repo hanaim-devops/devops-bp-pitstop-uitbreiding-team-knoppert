@@ -3,13 +3,14 @@
 ## 1. Code/platform bijdrage
 
 Ik ben Infrastructure specialist omdat ik de taak heb om HPA te implementeren. Onderstaand waar ik aan gewerkt heb:
+
 - [Feedback toevoegen]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/55 )
 - [Cancel registration]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/56 )
 - [View feedback]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/74 )
 - [Fix time]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/77 )
- 
+
 ## 2. Bijdrage app configuratie/containers/kubernetes
- 
+
 - [HPA Implementeren]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/17 )
 - [Basis app opzetten]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/22 )
 - [Rancher setup]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/39 )
@@ -36,7 +37,7 @@ Ik ben Infrastructure specialist omdat ik de taak heb om HPA te implementeren. O
 - [Testplan]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/70 )
 - [Notulen]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/59 )
 - [C4 model]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/72 )
- 
+
 ## 7. Bijdrage Agile werken, groepsproces, communicatie opdrachtgever en soft skills
 
 - Ik heb het initiatief genomen om de cluster info alvast op te vragen, omdat wij er anders straks misschien op moesten wachten.

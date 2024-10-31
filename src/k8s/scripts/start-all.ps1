@@ -42,46 +42,39 @@ else
     echo "Starting Pitstop without service mesh."
 }
 
-kubectl apply -f ../pitstop-namespace$meshPostfix.yaml
+$yamlFiles = @(
+    "../pitstop-namespace$meshPostfix.yaml",
+    "../monitoring-namespace.yaml",
+    "../monitoring/prometheus-configmap.yaml",
+    "../monitoring/thanos-objstore-config.yaml",
+    "../monitoring/minio-deployment.yaml",
+    "../monitoring/prometheus-deployment.yaml",
+    "../monitoring/prometheus-service.yaml",
+    "../monitoring/thanos-sidecar-service.yaml",
+    "../monitoring/thanos-store-deployment.yaml",
+    "../monitoring/thanos-store-service.yaml",
+    "../monitoring/thanos-query-deployment.yaml",
+    "../monitoring/thanos-query-service.yaml",
+    "../metrics-server.yaml",
+    "../rabbitmq.yaml",
+    "../logserver.yaml",
+    "../sqlserver$meshPostfix.yaml",
+    "../mailserver.yaml",
+    "../invoiceservice.yaml",
+    "../timeservice.yaml",
+    "../notificationservice.yaml",
+    "../workshopmanagementeventhandler.yaml",
+    "../auditlogservice.yaml",
+    "../customermanagementapi-v1$meshPostfix.yaml",
+    "../customermanagementapi-svc.yaml",
+    "../vehiclemanagementapi$meshPostfix.yaml",
+    "../workshopmanagementapi$meshPostfix.yaml",
+    "../webapp$meshPostfix.yaml",
+    "../ingress.yaml",
+    "../diymanagementapi$meshPostfix.yaml"
+)
 
-kubectl apply -f ../monitoring-namespace.yaml
-kubectl apply -f ../monitoring/prometheus-configmap.yaml
-kubectl apply -f ../monitoring/thanos-objstore-config.yaml
-kubectl apply -f ../monitoring/minio-deployment.yaml
-kubectl apply -f ../monitoring/prometheus-deployment.yaml
-kubectl apply -f ../monitoring/prometheus-service.yaml
-kubectl apply -f ../monitoring/thanos-sidecar-service.yaml
-kubectl apply -f ../monitoring/thanos-store-deployment.yaml
-kubectl apply -f ../monitoring/thanos-store-service.yaml
-kubectl apply -f ../monitoring/thanos-query-deployment.yaml
-kubectl apply -f ../monitoring/thanos-query-service.yaml
-
-kubectl apply `
-    -f ../metrics-server.yaml `
-    -f ../rabbitmq.yaml `
-    -f ../logserver.yaml `
-    -f ../sqlserver$meshPostfix.yaml `
-    -f ../mailserver.yaml `
-    -f ../invoiceservice.yaml `
-    -f ../timeservice.yaml `
-    -f ../notificationservice.yaml `
-    -f ../workshopmanagementeventhandler.yaml `
-    -f ../auditlogservice.yaml `
-    -f ../customermanagementapi-v1$meshPostfix.yaml `
-    -f ../customermanagementapi-svc.yaml `
-    -f ../vehiclemanagementapi$meshPostfix.yaml `
-    -f ../workshopmanagementapi$meshPostfix.yaml `
-    -f ../webapp$meshPostfix.yaml `
-    -f ../diymanagementapi$meshPostfix.yaml 
-
-if ($chaoskube)
-{
-    echo "Starting Chaoskube."
-    
-    kubectl create serviceaccount chaoskube-sa -n pitstop
-
-    kubectl apply -f ../chaoskube/chaoskube-role.yaml
-    kubectl apply -f ../chaoskube/chaoskube-rolebinding.yaml
-
-    kubectl apply -f ../chaoskube/chaoskube.yaml
+foreach ($file in $yamlFiles) {
+    Write-Host "Applying configuration: $file"
+    kubectl apply -f $file
 }

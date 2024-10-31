@@ -24,10 +24,14 @@ spec:
     spec:
       containers:
       - env:
+        - name: DOTNET_USE_POLLING_FILE_WATCHER
+          value: "1"
+        - name: DOTNET_SYSTEM_IO_INOTIFY_INSTANCES
+          value: "1024"
         - name: ASPNETCORE_ENVIRONMENT
           value: Production
-        image: pitstop/diymanagementapi:1.0
-        imagePullPolicy: IfNotPresent
+        image: jelmer0314/pitstop-diymanagementapi:1.0
+        imagePullPolicy: Always
         name: diymanagementapi
         ports:
         - containerPort: 5300

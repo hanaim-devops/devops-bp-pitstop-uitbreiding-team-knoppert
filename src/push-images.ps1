@@ -1,10 +1,30 @@
-docker push pitstop/customermanagementapi:1.0
-docker push pitstop/customermanagementapi:2.0
-docker push pitstop/webapp:1.0
-docker push pitstop/workshopmanagementeventhandler:1.0
-docker push pitstop/timeservice:1.0
-docker push pitstop/notificationservice:1.0
-docker push pitstop/invoiceservice:1.0
-docker push pitstop/auditlogservice:1.0
-docker push pitstop/workshopmanagementapi:1.0
-docker push pitstop/vehiclemanagementapi:1.0
+$DOCKER_USERNAME = 'jelmer0314'
+$IMAGE_TAG = '1.0'
+
+# List of services
+$services = @(
+    'customermanagementapi',
+    'webapp',
+    'workshopmanagementeventhandler',
+    'timeservice',
+    'notificationservice',
+    'invoiceservice',
+    'auditlogservice',
+    'workshopmanagementapi',
+    'vehiclemanagementapi',
+    'diymanagementapi'
+)
+
+foreach ($service in $services) {
+    $originalImage = "pitstop/${service}:${IMAGE_TAG}"
+
+    $newImage = "${DOCKER_USERNAME}/pitstop-${service}:${IMAGE_TAG}"
+    
+    Write-Host "Retagging $originalImage to $newImage"
+    docker tag $originalImage $newImage
+    
+    Write-Host "Pushing $newImage to Docker Hub"
+    docker push $newImage
+}
+
+Write-Host "All images have been retagged and pushed successfully."
