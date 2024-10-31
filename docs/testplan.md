@@ -53,7 +53,7 @@ Voor het testen van het aanmaken van een van een doe het zelf avond, zijn de vol
 | 1. Ga naar de DIY management pagina       | URL: `http://localhost:7005/DIYManagement`                      | De DIY management pagina wordt geladen.                       |
 | 2. Klik op de "Nieuwe avond" knop        | Begin het proces voor het aanmaken van een nieuwe avond.        | Het formulier voor een nieuwe avond wordt geopend.            |
 | 3. Laat alle velden leeg                 |                                                                 | Er komt geen foutmelding                                      |
-| 4. Druk de opslaan knop in               |                                                                 | Alle velden. Weergeven een foutmelding dat deze verplicht is. |
+| 4. Druk de opslaan knop in               |                                                                 | Alle velden weergeven een foutmelding dat deze verplicht is. |
 
 ### Annuleren doe het zelf avond
 
