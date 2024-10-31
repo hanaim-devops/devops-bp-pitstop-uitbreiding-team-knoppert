@@ -3,13 +3,14 @@
 ## 1. Code/platform bijdrage
 
 Ik ben Infrastructure specialist omdat ik de taak heb om HPA te implementeren. Onderstaand waar ik aan gewerkt heb:
+
 - [Feedback toevoegen]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/55 )
 - [Cancel registration]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/56 )
 - [View feedback]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/74 )
 - [Fix time]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/77 )
- 
+
 ## 2. Bijdrage app configuratie/containers/kubernetes
- 
+
 - [HPA Implementeren]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/17 )
 - [Basis app opzetten]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/22 )
 - [Rancher setup]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/39 )
