@@ -4,7 +4,8 @@ Datum: 28-10-2024
 Aanwezigen: iedereen (Jelmer, Jelle, Jorian, Dirk, Mitchel)
 Notulist: Jelmer
 Voorzitter: Mitchel
-Sprintdoel: 
+Sprintdoel:
+
 - Afronden van gekozen userstorys
 - Toepassen van blog tooling
 - Maken van documentatie
