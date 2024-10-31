@@ -126,12 +126,6 @@ Voor het testen van het geven van feedback over een DIYavond, zijn de volgende t
 
 ### Registratie annuleren van een doe het zelf avond
 
-Pre-condities:
-
-- Er is een DIYavond aangemaakt die gestart is.
-- Er is een DIYavond aangemaakt die nog niet gestart is
-- Er is een registratie voor die avonden.
-
 Voor het testen van het annuleren van een registratie voor een DIYavond, zijn de volgende testcases gemaakt:
 
 - De happy flow, hierbij word gekeken of een registratie geannuleerd kan worden voor een DIYavond gestart is.
