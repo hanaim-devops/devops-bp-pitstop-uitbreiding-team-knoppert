@@ -37,7 +37,7 @@ Ik ben Infrastructure specialist omdat ik de taak heb om HPA te implementeren. O
 - [Testplan]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/70 )
 - [Notulen]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/59 )
 - [C4 model]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/72 )
- 
+
 ## 7. Bijdrage Agile werken, groepsproces, communicatie opdrachtgever en soft skills
 
 - Ik heb het initiatief genomen om de cluster info alvast op te vragen, omdat wij er anders straks misschien op moesten wachten.
