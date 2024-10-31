@@ -12,7 +12,7 @@ Binnen ons project waren we bezig met het implementeren van authenticatie en aut
 
 ## Besluit
 
-Na verschillende pogingen om Keycloak te integreren in de frontend .NET applicatie, liepen we tegen onoplosbare problemen aan. Deze problemen hadden te maken met compatibiliteitsissues en de complexiteit van de integratie, zoals beschreven in [issue #9](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/issues/9). Gezien de beperkte tijd die we hadden om deze problemen op te lossen, hebben we besloten om Keycloak niet verder te implementeren. 
+Na verschillende pogingen om Keycloak te integreren in de frontend .NET applicatie, liepen we tegen onoplosbare problemen aan. Deze problemen hadden te maken met compatibiliteitsissues en de complexiteit van de integratie, zoals beschreven in [issue #9](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/issues/9). Gezien de beperkte tijd die we hadden om deze problemen op te lossen, hebben we besloten om Keycloak niet verder te implementeren.
 
 Uiteindelijk hebben we besloten om authenticatie en autorisatie in deze fase van het project niet te implementeren.
 

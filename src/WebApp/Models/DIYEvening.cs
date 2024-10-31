@@ -29,5 +29,7 @@
         public string Error { get; set; }
 
         public bool Cancelled { get; set; }
+
+        public bool IsStarted { get; set; }
     }
 }
