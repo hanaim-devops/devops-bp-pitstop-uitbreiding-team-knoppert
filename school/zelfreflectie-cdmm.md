@@ -71,8 +71,8 @@
 
 ### Basis
 
-- [x] BD-001 Code in versiebeheer
-- [x] BD-002 Gescripte builds
+- [x] BD-001 Code in versiebeheer: We hebben ons project in een git repository met historie en branches.
+- [x] BD-002 Gescripte builds: We hebben een script om de applicatie te bouwen. Deze wordt ook gebruikt in de CI/CD pipeline.   
 - [x] BD-003 Basis scheduled builds (CI)
 - [ ] BD-004 Dedicated build server
 - [ ] BD-005 Gedocumenteerde handmatige deploy
