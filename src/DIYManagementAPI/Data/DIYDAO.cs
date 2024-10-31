@@ -3,6 +3,8 @@ using DIYManagementAPI.Models.DTO;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
+using System.Linq;
 
 namespace DIYManagementAPI.Data
 {
@@ -26,6 +28,16 @@ namespace DIYManagementAPI.Data
         public async Task<IEnumerable<DIYEveningModel>> GetDIYEvenings()
         {
             return await _context.DIYEvening.ToListAsync();
+        }
+
+        public async Task<IEnumerable<DIYEveningModel>> GetFutureDIYEvenings()
+        {
+            var now = DateTime.Now;
+            return await _context.DIYEvening
+                        .Where(x => x.EndDate.Date > now.Date ||
+                              (x.EndDate.Date == now.Date && x.EndDate.TimeOfDay > now.TimeOfDay))
+                        .OrderBy(e => e.StartDate)
+                        .ToListAsync();
         }
 
         public async Task<DIYEveningModel> GetDIYEveningById(int id)
