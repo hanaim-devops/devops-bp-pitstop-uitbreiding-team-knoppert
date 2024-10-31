@@ -54,11 +54,17 @@ Voor het testen van het annuleren van een DIYavond, zijn de volgende testcases g
 
 ### Registreren klant voor DIYavond
 
-Prerequisites: Doe de Happy flow van "maak DIYAvond" voordat je deze testcases uitvoert.
+Prerequisites:
+
+- Er is een DIY Avond aangemaakt.
 
 Voor het testen van het registreren van een klant voor een DIYavond, zijn de volgende testcases gemaakt:
 
 - De happy flow, hierbij word een klant geregistreerd voor een DIYavond en gekeken of de klant is toegevoegd aan de lijst.
+
+- De edge case, hierbij word geprobeerd een klant te registreren voor een DIYavond die al is geweest, hierbij word gekeken of de gebruiker niet naar de registratie pagina kan.
+
+#### Case 1: Happy flow
 
 | **Action**| **Extra Info**| **Expected Result** |
 |-----------|---------------|---------------------|
@@ -66,6 +72,14 @@ Voor het testen van het registreren van een klant voor een DIYavond, zijn de vol
 | 2. Klik op de gewenste avond                        |                   | Je wordt doorgestuurd naar de detailpagina van de avond.      |
 | 3. Klik op de registreer knop                           | De knop heet "Register Customer"                                  | Je wordt naar de pagina gestuurd waar je de nodige gegevens kan invullen om een klant te registreren voor de gegeven avond |
 | 4. Vul de gegevens in en klik op de registreer knop                           |                   | De klant is toegevoegd aan de lijst van klanten die zich hebben geregistreerd voor de avond. |
+
+#### Case 2: Egde flow
+
+| **Action**| **Extra Info**| **Expected Result** |
+|-----------|---------------|---------------------|
+| 1. Ga naar de DIY management pagina                   | URL: `http://localhost:7005/DIYManagement`                   | De DIY management pagina wordt geladen.                      |
+| 2. Klik op een avond die afgelopen is.                     |                   | Je wordt doorgestuurd naar de detailpagina van de avond.      |
+| 3. Check of er een knop aanwezig is om een klant te registreren                           |       | Er gebeurt niks, de knop is disabled en er kunnen geen klanten geregistreerd worden |
 
 ### Feedback geven DIYavond
 
