@@ -1,6 +1,6 @@
 # CDMM Zelfreflectie
 
-## Cultuur & Organisatie
+## Cultuur & Organisatie: 8
 
 ### Basis
 
@@ -37,7 +37,7 @@
 - [ ] CO-401 Cross functional team (=CO-201++)
 - [x] CO-402 No rollbacks (always roll forward): We hebben updates gedaan en als er een fout was hebben we deze gefixt en een nieuwe update gedaan.
 
-## Ontwerp & Architectuur
+## Ontwerp & Architectuur: 6
 
 ### Basis
 
@@ -67,7 +67,7 @@
 
 - [ ] OA-401 Infrastructure as Code (IaC)
 
-## Build & Deploy
+## Build & Deploy: 6
 
 ### Basis
 
@@ -107,7 +107,7 @@
 - [ ] BD-401 Build bakery
 - [ ] BD-402 Zero touch continuous deployment
 
-## Test & Verificatie : Jelle
+## Test & Verificatie: 4
 
 ### Basis
 
@@ -134,7 +134,7 @@
 
 - [x] TV-401 Verifieer verwachte bedrijfswaarde: We verifiëren de verwachte bedrijfswaarde door de geimplementeerde functionaliteit handmatig te testen, om aan te kunnen tonen dat alles naar wens is geimplementeerd. We hebben per functionaliteit de happy flow uitgewerkt, en ook de edge cases om aan te tonen dat als er afgeweken wordt van de happy flow, de applicatie nog steeds werkt zoals verwacht.
 
-## Informatie & Rapporteren
+## Informatie & Rapporteren: 6
 
 ### Basis
 
