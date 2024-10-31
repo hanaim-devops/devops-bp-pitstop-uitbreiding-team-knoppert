@@ -169,12 +169,14 @@ Voor het testen van het inzien van de eerste avond in detail, zijn de volgende t
 | 4. Vul startdatum en tijd in             | Startdatum: een datum 2 dagen in de toekomst                          |  er is geen foutmelding en de avond is aangemaakt |
 | 5. Vul einddatum en tijd in              | Einddatum: latere toekomstige tijdstip | Einddatumveld wordt correct ingevuld en is na starttijd.      |
 | 6. Vul mechanic(s) in                    | Mechanics: "John Doe, Jane Smith"                               | Mechanic(s) veld wordt correct ingevuld met ingevoerde waarde.|
+| 7. Voeg optionele extra info toe         | Extra info: "Voor gevorderde klussers"                          | Optioneel veld wordt correct ingevuld, indien nodig.       |
 | 7. Klik op "Opslaan"                     | Bewaar de avond.                                                | De nieuwe avond is nu toegevoegd aan het overzicht |
 | 8. Klik op de "Nieuwe avond" knop        | Begin het proces voor het aanmaken van een nieuwe avond.        | Het formulier voor een nieuwe avond wordt geopend.            |
 | 9. Vul titel in                          | Titel: "DIY Avond - Remmen Controleren"                         | Titelveld wordt correct ingevuld met ingevoerde waarde.       |
 | 10. Vul startdatum en tijd in             | Startdatum: een datum 1 dag in de toekomst                          |  er is geen foutmelding en de avond is aangemaakt |
 | 11. Vul einddatum en tijd in              | Einddatum: latere toekomstige tijdstip | Einddatumveld wordt correct ingevuld en is na starttijd.      |
 | 12. Vul mechanic(s) in                    | Mechanics: "John Doe, Jane Smith"                               | Mechanic(s) veld wordt correct ingevuld met ingevoerde waarde.|
+| 7. Voeg optionele extra info toe         | Extra info: "Voor gevorderde klussers"                          | Optioneel veld wordt correct ingevuld, indien nodig.       |
 | 13. Klik op "Opslaan"                     | Bewaar de avond.                                                | De nieuwe avond is nu toegevoegd aan het overzicht |
 | 15. Klik op de knop "customer Overview" | | Een andere view word laten zien |
-| 16. Je zie nu alle avonden in de toekomst, gesorteerd op dichtbijzijnde  | | De avond die als tweede is aangemaakt staat bovenaan in detail weergeven |
+| 16. Je zie nu alle avonden in de toekomst, gesorteerd op tijd oplopend  | | De avond die als tweede is aangemaakt staat bovenaan in detail weergeven |
