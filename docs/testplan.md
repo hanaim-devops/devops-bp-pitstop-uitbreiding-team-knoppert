@@ -28,7 +28,7 @@ Voor het testen van het aanmaken van een van een doe het zelf avond, zijn de vol
 | **Action**                               | **Extra Info**                                                  | **Expected Result**                                           |
 |------------------------------------------|-----------------------------------------------------------------|---------------------------------------------------------------|
 | 1. Ga naar de DIY management pagina       | URL: `http://localhost:7005/DIYManagement`                      | De DIY management pagina wordt geladen.                       |
-| 2. Klik op de "Nieuwe avond" knop        | Begin het proces voor het aanmaken van een nieuwe avond.        | Het formulier voor een nieuwe avond wordt geopend.            |
+| 2. Klik op de "Register DIYevening knop        | Begin het proces voor het aanmaken van een nieuwe avond.        | Het formulier voor een nieuwe avond wordt geopend.            |
 | 3. Vul titel in                          | Titel: "DIY Avond - Motor Onderhoud"                            | Titelveld wordt correct ingevuld met ingevoerde waarde.       |
 | 4. Vul startdatum en tijd in             | Startdatum: toekomstig tijdstip (bv. "2024-11-20 19:00")        | Startdatumveld wordt correct ingevuld en is een toekomstige datum. |
 | 5. Vul einddatum en tijd in              | Einddatum: latere toekomstige tijdstip (bv. "2024-11-20 21:00") | Einddatumveld wordt correct ingevuld en is na starttijd.      |
@@ -41,7 +41,7 @@ Voor het testen van het aanmaken van een van een doe het zelf avond, zijn de vol
 | **Action**                               | **Extra Info**                                                  | **Expected Result**                                           |
 |------------------------------------------|-----------------------------------------------------------------|---------------------------------------------------------------|
 | 1. Ga naar de DIY management pagina       | URL: `http://localhost:7005/DIYManagement`                      | De DIY management pagina wordt geladen.                       |
-| 2. Klik op de "Nieuwe avond" knop        | Begin het proces voor het aanmaken van een nieuwe avond.        | Het formulier voor een nieuwe avond wordt geopend.            |
+| 2. Klik op de "Register DIYevening knop        | Begin het proces voor het aanmaken van een nieuwe avond.        | Het formulier voor een nieuwe avond wordt geopend.            |
 | 3. Vul titel in                          | Titel: "DIY Avond - Remmen Controleren"                         | Titelveld wordt correct ingevuld met ingevoerde waarde.       |
 | 4. Vul startdatum en tijd in             | Startdatum: een datum in het verleden                           | Een foutmelding verschijnt dat de startdatum in de toekomst moet liggen. |
 | 5. Druk de opslaan knop in               |                                                                 | De avond kan niet worden opgeslagen zolang de datum in het verleden is. |
@@ -51,7 +51,7 @@ Voor het testen van het aanmaken van een van een doe het zelf avond, zijn de vol
 | **Action**                               | **Extra Info**                                                  | **Expected Result**                                           |
 |------------------------------------------|-----------------------------------------------------------------|---------------------------------------------------------------|
 | 1. Ga naar de DIY management pagina       | URL: `http://localhost:7005/DIYManagement`                      | De DIY management pagina wordt geladen.                       |
-| 2. Klik op de "Nieuwe avond" knop        | Begin het proces voor het aanmaken van een nieuwe avond.        | Het formulier voor een nieuwe avond wordt geopend.            |
+| 2. Klik op de "Register DIYevening knop        | Begin het proces voor het aanmaken van een nieuwe avond.        | Het formulier voor een nieuwe avond wordt geopend.            |
 | 3. Laat alle velden leeg                 |                                                                 | Er komt geen foutmelding                                      |
 | 4. Druk de opslaan knop in               |                                                                 | Alle velden weergeven een foutmelding dat deze verplicht is. |
 
@@ -164,15 +164,15 @@ Voor het testen van het inzien van de eerste avond in detail, zijn de volgende t
 | **Action**                                            | **Extra Info**                                              | **Expected Result**                                          |
 |-------------------------------------------------------|-------------------------------------------------------------|--------------------------------------------------------------|
 | 1. Ga naar de DIY management pagina                   | URL: `http://localhost:7005/DIYManagement`                   | De DIY management pagina wordt geladen.                     |
-| 2. Klik op de "Nieuwe avond" knop        | Begin het proces voor het aanmaken van een nieuwe avond.        | Het formulier voor een nieuwe avond wordt geopend.            |
+| 2. Klik op de "Register DIYevening knop        | Begin het proces voor het aanmaken van een nieuwe avond.        | Het formulier voor een nieuwe avond wordt geopend.            |
 | 3. Vul titel in                          | Titel: "DIY Avond - Remmen Controleren"                         | Titelveld wordt correct ingevuld met ingevoerde waarde.       |
 | 4. Vul startdatum en tijd in             | Startdatum: een datum 2 dagen in de toekomst                          |  er is geen foutmelding en de avond is aangemaakt |
 | 5. Vul einddatum en tijd in              | Einddatum: latere toekomstige tijdstip | Einddatumveld wordt correct ingevuld en is na starttijd.      |
 | 6. Vul mechanic(s) in                    | Mechanics: "John Doe, Jane Smith"                               | Mechanic(s) veld wordt correct ingevuld met ingevoerde waarde.|
 | 7. Voeg optionele extra info toe         | Extra info: "Voor gevorderde klussers"                          | Optioneel veld wordt correct ingevuld, indien nodig.       |
 | 7. Klik op "Opslaan"                     | Bewaar de avond.                                                | De nieuwe avond is nu toegevoegd aan het overzicht |
-| 8. Klik op de "Nieuwe avond" knop        | Begin het proces voor het aanmaken van een nieuwe avond.        | Het formulier voor een nieuwe avond wordt geopend.            |
-| 9. Vul titel in                          | Titel: "DIY Avond - Remmen Controleren"                         | Titelveld wordt correct ingevuld met ingevoerde waarde.       |
+| 8. Klik op de "Register DIYevening knop        | Begin het proces voor het aanmaken van een nieuwe avond.        | Het formulier voor een nieuwe avond wordt geopend.            |
+| 9. Vul titel in                          | Titel: "DIY Avond - Banden controleren"                         | Titelveld wordt correct ingevuld met ingevoerde waarde.       |
 | 10. Vul startdatum en tijd in             | Startdatum: een datum 1 dag in de toekomst                          |  er is geen foutmelding en de avond is aangemaakt |
 | 11. Vul einddatum en tijd in              | Einddatum: latere toekomstige tijdstip | Einddatumveld wordt correct ingevuld en is na starttijd.      |
 | 12. Vul mechanic(s) in                    | Mechanics: "John Doe, Jane Smith"                               | Mechanic(s) veld wordt correct ingevuld met ingevoerde waarde.|
