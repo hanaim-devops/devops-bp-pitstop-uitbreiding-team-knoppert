@@ -52,9 +52,8 @@ Voor het testen van het aanmaken van een van een doe het zelf avond, zijn de vol
 |------------------------------------------|-----------------------------------------------------------------|---------------------------------------------------------------|
 | 1. Ga naar de DIY management pagina       | URL: `http://localhost:7005/DIYManagement`                      | De DIY management pagina wordt geladen.                       |
 | 2. Klik op de "Nieuwe avond" knop        | Begin het proces voor het aanmaken van een nieuwe avond.        | Het formulier voor een nieuwe avond wordt geopend.            |
-| 3. Laat titel veld leeg                  |                                                                 | Een foutmelding verschijnt dat het titelveld verplicht is.    |
-| 4. Vul andere velden correct in          | Startdatum, einddatum en mechanic(s) zijn correct ingevuld      | Foutmelding blijft zichtbaar voor het lege titelveld.         |
-| 5. Druk de opslaan knop in               |                                                                 | De avond kan niet worden opgeslagen zonder ingevulde verplichte velden. |
+| 3. Laat alle velden leeg                 |                                                                 | Er komt geen foutmelding                                      |
+| 4. Druk de opslaan knop in               |                                                                 | Alle velden. Weergeven een foutmelding dat deze verplicht is. |
 
 ### Annuleren doe het zelf avond
 
