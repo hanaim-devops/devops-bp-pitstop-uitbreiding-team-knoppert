@@ -8,10 +8,8 @@ Je begin hier onder het hoofdkopje met een samenvatting van je bijdrage zoals je
 
 Competenties: *DevOps-1 Continuous Delivery*
 
-- [Code: inzien aangemelde klanten](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/35)
-- [Code: aanmelden DIY avond](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/34)
-
-Beschrijf hier kort je bijdrage vanuit je rol, developer (Dev) of infrastructure specialist (Ops). Als Developer beschrijf en geef je links van minimaal 2 en maximaal 4 grootste bijdrages qua code functionaliteiten of non-functionele requirements. Idealiter werk je TDD (dus ook commit van tests en bijbehorende code tegelijk), maar je kunt ook linken naar geschreven automatische tests (unit tests, acceptance tests (BDD), integratie tests, end to end tests, performance/load tests, etc.). Als Opser geef je je minimaal 2 maximaal 4 belangrijkste bijdragen aan het opzetten van het Kubernetes platform, achterliggende netwerk infrastructuur of configuration management (MT) buiten Kubernetes (en punt 2).
+- [Code: inzien aangemelde klanten](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/35): Code geschreven om te zorgen dat aangemelde klanten voor een doe het zelf avond ingezien kunnen worden op de detailpagina.
+- [Code: aanmelden DIY avond](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/34): Code geschreven om klanten aan te kunnen melden voor een doe het zelf avond. Bovenstaande code was hier best wel van afhankelijk, dus heb ik ook deze story opgepakt.
 
 ## 2. Bijdrage app configuratie/containers/kubernetes
 
@@ -32,20 +30,41 @@ NB Het gebruik van *versiebeheer* ((e.g. git)) hoort bij je standaardtaken en de
 Competenties: *Nieuwsgierige houding*
 
 - [Blog over ChaosKube](https://github.com/hanaim-devops/devops-blog-JelleSchrans)
-- Conclusie: Het is nog niet gelukt om ChaosKube te implementeren, omdat ik zelf problemen had met het lokaal draaien van de Pitstop applicatie in Kubernetes. Ik heb hierdoor niet kunnen testen of ChaosKube daadwerkelijk werkt in Pitstop.
+- [Config ChaosKube](../../src/k8s/chaoskube/chaoskube.yaml)
+
+**Conclusie**: Nadat Kubernetes in eerste instantie niet helemaal leek te werken, is het in de tweede week wel gelukt om ChaosKube te implementeren. Dit bleek uiteindelijk niet heel moeilijk te zijn, dus is er niet onnodig veel tijd aan verloren gegaan.
 
 ## 5. Bijdrage code review/kwaliteit anderen en security
 
 Competenties: *DevOps-7 - Attitude*, *DevOps-4 DevSecOps*
 
+### Reviews
+
 - [Review opzet pipeline](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/21)
 - [Review feedback geven DIY avond](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/46)
+
+### Security
+
+[Dependabot: Bump set-value and union-value](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/27/files)
+
+Onderstaande PR is aangemaakt door dependabot, waar wat packages worden geupdate en er ook 1 wordt verwijderd. Dependabot had namelijk 2 security vulnerabilities gevonden in de packages (1 high, 1 critical). Dit waren onderstaande vulnerabilities:
+
+- [High severity vulnerability](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/security/dependabot/21)
+- [Critical severity vulnerability](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/security/dependabot/14)
+
+Bij beide vulnerabilities wordt gesproken van 'Prototype Pollution'. Hierbij wordt er een prototype object aangepast, wat kan leiden tot ongewenst gedrag. Dit kan bijvoorbeeld leiden tot het uitvoeren van ongewenste code.
 
 ## 6. Bijdrage documentatie
 
 Competenties: *DevOps-6 Onderzoek*
 
-Zet hier een links naar en geef beschrijving van je C4 diagram of diagrammen, README of andere markdown bestanden, ADR's of andere documentatie. Bij andere markdown bestanden of doumentatie kun je denken aan eigen proces documentatie, zoals code standaarden, commit- of branchingconventies. Tot slot ook user stories en acceptatiecriteria (hopelijk verwerkt in gitlab issues en vertaalt naar `.feature` files) en evt. noemen en verwijzen naar handmatige test scripts/documenten.
+[ADR ChaosKube](../../docs/adr/adr-002-chaoskube-voor-chaos-engineering.md)
+
+ADR gemaakt voor het gebruik van ChaosKube voor Chaos Engineering. Hierin wordt beschreven wat ChaosKube is, waarom we het willen gebruiken en hoe we het willen gebruiken. Toegelicht dat het in de eerste week niet werkte, later gelukkig wel.
+
+[Testplan registreren klant voor DIY avond](../../docs/testplan)
+
+(zie kopje 'Registren klant voor doe het zelf avond') Testplan gemaakt voor het registreren van klanten voor een doe het zelf avond. Naast de happy flow 2 edge cases gevonden die getest konden worden.
 
 ## 7. Bijdrage Agile werken, groepsproces, communicatie opdrachtgever en soft skills
 
