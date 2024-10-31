@@ -1,0 +1,48 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webapp-ingress
+  namespace: pitstop
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  rules:
+    - host: test.groep4.k8s.devops.aimsites.nl
+      http:
+        paths:
+          - backend:
+              service:
+                name: webapp
+                port:
+                  number: 7005
+            pathType: ImplementationSpecific
+            path: /
+
+    - host: prometheus.test.groep4.k8s.devops.aimsites.nl
+      http:
+        paths:
+          - backend:
+              service:
+                name: prometheus-service   
+                port:
+                  number: 9090            
+            pathType: ImplementationSpecific
+            path: /
+
+    - host: thanos.test.groep4.k8s.devops.aimsites.nl
+      http:
+        paths:
+          - backend:
+              service:
+                name: thanos-query-service 
+                port:
+                  number: 10901           
+            pathType: ImplementationSpecific
+            path: /
+
+  tls:
+    - hosts:
+        - test.groep4.k8s.devops.aimsites.nl
+        - prometheus.test.groep4.k8s.devops.aimsites.nl
+        - thanos.test.groep4.k8s.devops.aimsites.nl
+      secretName: letsencrypt-cert

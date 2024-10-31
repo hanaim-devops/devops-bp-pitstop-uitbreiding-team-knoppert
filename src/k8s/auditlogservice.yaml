@@ -20,9 +20,13 @@ spec:
     spec:
       containers:
       - env:
+        - name: DOTNET_USE_POLLING_FILE_WATCHER
+          value: "1"
+        - name: DOTNET_SYSTEM_IO_INOTIFY_INSTANCES
+          value: "1024"
         - name: DOTNET_ENVIRONMENT
           value: Production
-        image: pitstop/auditlogservice:1.0
+        image: jelmer0314/pitstop-auditlogservice:1.0
         imagePullPolicy: IfNotPresent
         name: auditlogservice
       restartPolicy: Always

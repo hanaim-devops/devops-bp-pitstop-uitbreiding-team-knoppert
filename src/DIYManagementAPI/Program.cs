@@ -41,7 +41,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
 using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
 {
     scope.ServiceProvider.GetService<DatabaseContext>()?.MigrateDB();
