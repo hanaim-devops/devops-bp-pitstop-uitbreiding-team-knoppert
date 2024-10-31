@@ -67,32 +67,32 @@
 
 - [ ] OA-401 Infrastructure as Code (IaC)
 
-## Build & Deploy : Jelmer
+## Build & Deploy
 
 ### Basis
 
 - [x] BD-001 Code in versiebeheer: We hebben ons project in een git repository met historie en branches.
-- [x] BD-002 Gescripte builds: We hebben een script om de applicatie te bouwen. Deze wordt ook gebruikt in de CI/CD pipeline.   
-- [x] BD-003 Basis scheduled builds (CI)
+- [x] BD-002 Gescripte builds: We hebben een script om de applicatie te bouwen. Deze wordt ook gebruikt in de CI/CD pipeline ([Build en deploy](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/blob/main/.github/workflows/pipeline.yaml)).
+- [x] BD-003 Basis scheduled builds (CI): We hebben een CI pipeline die automatisch wordt uitgevoerd bij elke push naar de main branch.
 - [ ] BD-004 Dedicated build server
 - [ ] BD-005 Gedocumenteerde handmatige deploy
-- [x] BD-006 Enkele deployment scripts bestaan
+- [x] BD-006 Enkele deployment scripts bestaan: We hebben een script om de applicatie te deployen naar onze Rancher omgeving.
 
 ### Beginner
 
 - [ ] BD-101 Polling builds
 - [ ] BD-102 Opslag van build (milestone)
 - [ ] BD-103 Handmatige tags en versies
-- [x] BD-104 1e stap naar standaardisatie deploys
-- [x] BD-105 DB wijzigingen in VCS
+- [x] BD-104 1e stap naar standaardisatie deploys: We hebben een script om de applicatie te deployen naar onze Rancher omgeving.
+- [x] BD-105 DB wijzigingen in VCS: Via [Entity Framework Core migrations](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/tree/main/src/DIYManagementAPI/Migrations) worden de DB wijzigingen in de code opgeslagen.
 
 ### Gemiddeld
 
-- [x] BD-201 Auto triggered builds (commit hooks)
+- [x] BD-201 Auto triggered builds (commit hooks): We hebben een CI pipeline die automatisch wordt uitgevoerd bij elke push naar de main branch. Daarnaast worden ook de solution gecompileerd en de tests uitgevoerd.
 - [ ] BD-202 Geautomatiseerde tags & versies
-- [x] BD-203 Build once deploy anywhere
-- [x] BD-204 Automatiseer meeste DB wijzigingen
-- [x] BD-205 Basis pipeline, prod deploy
+- [ ] BD-203 Build once deploy anywhere: Helaas niet volledig gelukt. Het deel van 'build once' hebben we. Maar deploy anywhere is niet omdat we het naar een enkele Rancher omgeving deployen en niet naar meerdere omgevingen.
+- [x] BD-204 Automatiseer meeste DB wijzigingen: Doordat we bij iedere applicatie start de [database migration opnieuw uitvoeren](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/blob/3cd851dbfb83911d38ae485e087644c4dd9f8024/src/DIYManagementAPI/Program.cs#L46), worden de meeste wijzigingen automatisch doorgevoerd.
+- [x] BD-205 Basis pipeline, prod deploy: We hebben een pipeline die de applicatie bouwt en deployt naar onze Rancher omgeving.
 - [ ] BD-206 Gescripte config wijzigingen
 - [ ] BD-207 Standaard proces voor alle omgevingen
 
@@ -100,7 +100,7 @@
 
 - [ ] BD-301 Zero downtime deploys
 - [ ] BD-302 Meerdere build machines
-- [x] BD-303 Volledig automatische DB deploys
+- [x] BD-303 Volledig automatische DB deploys: Onze CI/CD pipeline start automatisch de applicatie, waarbij de database-migraties worden uitgevoerd zonder handmatige tussenkomst. Dit garandeert dat alle schema-updates en databasewijzigingen consistent worden doorgevoerd bij elke deployment.
 
 ### Expert
 
