@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: diymanagementapi
+    version: "1.0"
+  name: diymanagementapi
+  namespace: pitstop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: diymanagementapi
+      version: "1.0"
+  template:
+    metadata:
+      labels:
+        app: diymanagementapi
+        version: "1.0"
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/metrics"
+        prometheus.io/port: "5300"
+    spec:
+      containers:
+      - env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Production
+        image: pitstop/diymanagementapi:1.0
+        imagePullPolicy: IfNotPresent
+        name: diymanagementapi
+        ports:
+        - containerPort: 5300
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "200Mi"
+          limits:
+            cpu: "200m"
+            memory: "400Mi"
+      restartPolicy: Always
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: diymanagementapi
+  name: diymanagementapi
+  namespace: pitstop
+spec:
+  type: NodePort
+  ports:
+  - name: "http-5300"
+    port: 5300
+    targetPort: 5300
+    nodePort: 30008
+  selector:
+    app: diymanagementapi
+
+---
+
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: diymanagementapi
+  namespace: pitstop
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: diymanagementapi
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 50

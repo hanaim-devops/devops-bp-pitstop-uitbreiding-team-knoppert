@@ -5,7 +5,8 @@
 param (
     [switch]$nomesh = $false,
     [switch]$istio = $false,
-    [switch]$linkerd = $false
+    [switch]$linkerd = $false,
+    [switch]$chaoskube = $false
 )
 
 if (-not $nomesh -and -not $istio -and -not $linkerd)
@@ -41,8 +42,22 @@ else
     echo "Starting Pitstop without service mesh."
 }
 
+kubectl apply -f ../pitstop-namespace$meshPostfix.yaml
+
+kubectl apply -f ../monitoring-namespace.yaml
+kubectl apply -f ../monitoring/prometheus-configmap.yaml
+kubectl apply -f ../monitoring/thanos-objstore-config.yaml
+kubectl apply -f ../monitoring/minio-deployment.yaml
+kubectl apply -f ../monitoring/prometheus-deployment.yaml
+kubectl apply -f ../monitoring/prometheus-service.yaml
+kubectl apply -f ../monitoring/thanos-sidecar-service.yaml
+kubectl apply -f ../monitoring/thanos-store-deployment.yaml
+kubectl apply -f ../monitoring/thanos-store-service.yaml
+kubectl apply -f ../monitoring/thanos-query-deployment.yaml
+kubectl apply -f ../monitoring/thanos-query-service.yaml
+
 kubectl apply `
-    -f ../pitstop-namespace$meshPostfix.yaml `
+    -f ../metrics-server.yaml `
     -f ../rabbitmq.yaml `
     -f ../logserver.yaml `
     -f ../sqlserver$meshPostfix.yaml `
@@ -57,4 +72,16 @@ kubectl apply `
     -f ../vehiclemanagementapi$meshPostfix.yaml `
     -f ../workshopmanagementapi$meshPostfix.yaml `
     -f ../webapp$meshPostfix.yaml `
-    -f ../hpa/hpa.yaml
+    -f ../diymanagementapi$meshPostfix.yaml 
+
+if ($chaoskube)
+{
+    echo "Starting Chaoskube."
+    
+    kubectl create serviceaccount chaoskube-sa -n pitstop
+
+    kubectl apply -f ../chaoskube/chaoskube-role.yaml
+    kubectl apply -f ../chaoskube/chaoskube-rolebinding.yaml
+
+    kubectl apply -f ../chaoskube/chaoskube.yaml
+}
