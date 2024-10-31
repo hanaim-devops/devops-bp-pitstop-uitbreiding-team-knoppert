@@ -9,7 +9,11 @@ Je begin hier onder het hoofdkopje met een samenvatting van je bijdrage zoals je
 
 ## 1. Code/platform bijdrage
 
-Deze week heb ik gewerkt aan de flow van werk in github, ik er voor gezorgd dat er een aantal extra rules zijn bij het mergen van een pull-request, zoals het gebruik van 1 manier en het standaard verwijderen van een branch na het mergen. Voor de standaard manier hebben ik na overleg gekozen voor squash merging, deze keuze heb ik gemaakt omdat meer mensen wisten hoe mergen werkte ten opzichte van rebase. Ook heb ik een [ruleset](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/settings/rules) aangemaakt die controleert of de pull-request is gereviewd.  
+Ik heb in dit project de Dev rol op me genomen. Ik heb gewerkt aan de volgende onderdelen:
+- Cancellen van Diy avond. [pull req1](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/44), [pull req2](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/68).
+- [Details van de eerst volgende Diy avond in overzicht](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/80).
+- [Start van het testplan en een aantal testen geschreven](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/58).
+
 
 Competenties: *DevOps-1 Continuous Delivery*
 
@@ -17,11 +21,20 @@ Beschrijf hier kort je bijdrage vanuit je rol, developer (Dev) of infrastructure
  
 ## 2. Bijdrage app configuratie/containers/kubernetes
 
+Ik heb gewerkt aan de configuratie van keycloak, dit heb ik jammer genoeg niet kunnen toevoegen aan het project. 
+- Ik heb voor deze configuratie een script geschreven die een [realm configureert](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/blob/9-register-with-keycloak/src/k8s/scripts/create-realm.ps1).
+- Ook heb ik voor keycloak de laaste versie van keycloak toegevoegd aan het [start script](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/blob/9-register-with-keycloak/src/k8s/scripts/start-all.ps1). Ik heb gekozen dat altijd de laatste versie van keycloak wordt gebruikt, omdat dit de meest veilige versie is.
+
 Competenties: *DevOps-2 Orchestration, Containerization*
  
 Beschrijf en geef hier links naar je minimaal 2 en maximaal 4 grootste bijdragen qua configuratie, of bijdrage qua 12factor app of container Dockerfiles en/of .yml bestanden of vergelijkbare config (rondom containerization en orchestration).
 
 ## 3. Bijdrage versiebeheer, CI/CD pipeline en/of monitoring
+
+Deze week heb ik gewerkt aan de flow van werk in github, ik er voor gezorgd dat er een aantal extra rules zijn bij het mergen van een pull-request, zoals het gebruik van 1 manier en het standaard verwijderen van een branch na het mergen. Voor de standaard manier hebben ik na overleg gekozen voor squash merging, deze keuze heb ik gemaakt omdat meer mensen wisten hoe mergen werkte ten opzichte van rebase. Ook heb ik een ruleset aangemaakt die controleert of de pull-request is gereviewd.
+
+- [Merging rules](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/settings)
+- [Review rules](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/settings/rules)
 
 Competenties: *DevOps-1 - Continuous Delivery*, *DevOps-3 GitOps*, *DevOps-5 - SlackOps*
 
@@ -62,11 +75,19 @@ Beschrijf hier en geef links naar de minimaal 2 en maximaal 4 grootste *review a
  
 ## 6. Bijdrage documentatie
 
+Ik heb gewerkt aan het container diagram in c4. Ook heb ik gewerkt aan het testplan en aan een ADR over keycloak.
+
+- [C4 diagram]()
+- [Testplan](C:\documenten\Minor-DevOps\devops-bp-pitstop-uitbreiding-team-knoppert\docs\testplan.md), ik heb hier gewerkt aan testen voor annuleren van een DIY avond en de details van de eerst volgende DIY avond.
+- [ADR keycloak](C:\documenten\Minor-DevOps\devops-bp-pitstop-uitbreiding-team-knoppert\docs\adr\adr-001-gebruik-van-keycloak-voor-authenticatie-en-autorisatie.md)
+
 Competenties: *DevOps-6 Onderzoek*
 
 Zet hier een links naar en geef beschrijving van je C4 diagram of diagrammen, README of andere markdown bestanden, ADR's of andere documentatie. Bij andere markdown bestanden of doumentatie kun je denken aan eigen proces documentatie, zoals code standaarden, commit- of branchingconventies. Tot slot ook user stories en acceptatiecriteria (hopelijk verwerkt in gitlab issues en vertaalt naar `.feature` files) en evt. noemen en verwijzen naar handmatige test scripts/documenten.
  
 ## 7. Bijdrage Agile werken, groepsproces, communicatie opdrachtgever en soft skills
+
+We hebben deze weken een aantal scrum serimonies gehad. Tijdens het inplannen van de userstories heb ik geholpen met het uitdenken van de planning van de week, ook heb ik geholpen met de acceptatiecriteria van de userstories. 
 
 Competenties: *DevOps-1 - Continuous Delivery*, *Agile*
 
