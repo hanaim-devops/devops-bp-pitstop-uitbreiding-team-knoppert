@@ -158,10 +158,16 @@ public class DIYManagementController : Controller
         return await _resiliencyHelper.ExecuteResilient(async () =>
         {
             var DIYEvening = await _DIYManagamentAPI.GetFutureDIYEvenings();
+            var DIYRegistrations = new List<DIYRegistration>();
+            if (DIYEvening.Count != 0)
+            {
+                DIYRegistrations = await _DIYManagamentAPI.GetRegistrationsForDIYEvening(DIYEvening[0].Id.ToString());
+            }
+            //check if there are any evenings otherwise return empty model
             var model = new DIYManagementCustomerOverviewViewModel
             {
                 DIYEvening = DIYEvening,
-                DIYRegistrations = await _DIYManagamentAPI.GetRegistrationsForDIYEvening(DIYEvening[0].Id.ToString())
+                DIYRegistrations = DIYRegistrations
             };
 
             return View(model);
