@@ -123,6 +123,13 @@ namespace DIYManagementAPI.Controllers
             return StatusCode(StatusCodes.Status201Created, null);
         }
 
+        [HttpGet("customerhistory/{name}")]
+        public async Task<ActionResult<IEnumerable<DIYCustomerHistoryDTO>>> GetCustomerHistory(string name)
+        {
+            var result = await _service.GetCustomerHistory(name);
+            return Ok(result);
+        }
+        
         [HttpGet("getfeedback/{diyEveningId}")]
         public async Task<ActionResult<IEnumerable<DIYFeedback>>> GetFeedback(int diyEveningId)
         {
