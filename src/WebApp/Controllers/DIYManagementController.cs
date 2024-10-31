@@ -174,7 +174,6 @@ public class DIYManagementController : Controller
             {
                 DIYRegistrations = await _DIYManagamentAPI.GetRegistrationsForDIYEvening(DIYEvening[0].Id.ToString());
             }
-            //check if there are any evenings otherwise return empty model
             var model = new DIYManagementCustomerOverviewViewModel
             {
                 DIYEvening = DIYEvening,
