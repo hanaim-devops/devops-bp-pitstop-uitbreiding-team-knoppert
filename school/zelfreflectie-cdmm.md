@@ -134,16 +134,16 @@
 
 - [x] TV-401 Verifieer verwachte bedrijfswaarde
 
-## Informatie & Rapporteren : Mitchel
+## Informatie & Rapporteren
 
 ### Basis
 
-- [x] IR-001 Basis procesmetrics
+- [x] IR-001 Basis procesmetrics: We maken gebruik van Prometheus, deze verzamelt procesmetrucs. We hebben hiervoor [custom metrics gedefinieerd](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/69/files).
 - [ ] IR-002 Handmatige rapportages
 
 ### Beginner
 
-- [x] IR-101 Meet het proces
+- [x] IR-101 Meet het proces: Prometheus verzamelt gegevens zoals CPU gebruik.
 - [ ] IR-102 Statische code analyse
 - [ ] IR-103 Periodieke automatisch kwaliteitsrapportage
 
@@ -155,11 +155,13 @@
 
 ### Gevorderd
 
-- [x] IR-301 Graphing-as-a-service
+- [x] IR-301 Graphing-as-a-service: We voldoen hier lichtelijk aan door het gebruik van Prometheus. Prometheus verzamelt real-time data en maakt de data inzichtelijk in een grafiek waar je op kan filteren en inzoomen. Het bied alleen geen optie om een andere soort grafiek te gebruiken wat typisch wel in een GaaS kan.
 - [ ] IR-302 Dynamic test coverage analysis
 - [ ] IR-303 Report trend analysis
 
 ### Expert
 
-- [x] IR-401 Dynamische grafieken en dashboards
+- [x] IR-401 Dynamische grafieken en dashboards: Prometheus biedt dynamische grafieken (zie afbeelding 1).
+![Prometheus grafiek](./plaatjes/prometheus-grafiek.png)
+Afbeelding 1
 - [ ] IR-402 Cross silo analysis
