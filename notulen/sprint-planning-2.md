@@ -1,9 +1,13 @@
 # Notule sprint planning 2
 
 Datum: 28-10-2024
+
 Aanwezigen: iedereen (Jelmer, Jelle, Jorian, Dirk, Mitchel)
+
 Notulist: Jelmer
+
 Voorzitter: Mitchel
+
 Sprintdoel:
 
 - Afronden van gekozen userstorys

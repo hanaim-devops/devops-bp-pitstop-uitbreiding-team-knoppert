@@ -1,6 +1,7 @@
 # RETROSPECTIVE
 
 voorzitter: Jelmer
+
 notulist: Jorian
 
 ## Waarmee doorgaan
