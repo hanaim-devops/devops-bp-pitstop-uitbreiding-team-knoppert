@@ -7,12 +7,15 @@
 **Auteur**: Dirk van Bruxvoort
 
 ## Context
+
 Met de mogelijke groei van pitstop en de toenemende vraag naar schaalbaarheid, willen we de mogelijkheid implementeren om automatisch het aantal pods te schalen op basis van de belasting. Het gebruik van de Horizontal Pod Autoscaler (HPA) in Kubernetes biedt ons de flexibiliteit om de resources efficiënt te beheren en de beschikbaarheid van de applicatie te waarborgen, zelfs tijdens piekbelastingen.
 
 ## Besluit
+
 We hebben besloten om de Horizontal Pod Autoscaler (HPA) in onze Kubernetes-cluster te implementeren. Dit stelt ons in staat om automatisch het aantal actieve pods aan te passen op basis van realtime metrics, wij gebruiken CPU-gebruik.
 
 ## Argumenten
+
 Schaalbaarheid: HPA maakt het mogelijk om de applicatie automatisch te schalen, wat essentieel is voor het beheren van fluctuaties in de vraag. Dit zorgt ervoor dat we altijd voldoende capaciteit hebben zonder onnodige resources te verspillen.
 
 Kostenbesparing: Door automatisch te schalen, kunnen we kosten besparen op infrastructuur door alleen de benodigde resources te gebruiken, afhankelijk van de belasting.
