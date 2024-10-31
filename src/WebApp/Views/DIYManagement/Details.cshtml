@@ -50,7 +50,8 @@
                 <td>
                     @if (!Model.DIYEvening.IsStarted)
                     {
-                        <form asp-action="CancelRegistration" asp-controller="DIYManagement" method="post" style="display:inline;">
+                        <form asp-action="CancelRegistration" asp-controller="DIYManagement" method="post"
+                            style="display:inline;">
                             <input type="hidden" name="diyRegistrationId" value="@diyRegistration.Id" />
                             <button type="submit" class="btn btn-danger">Cancel</button>
                         </form>
@@ -66,8 +67,11 @@
 </table>
 
 <div class="d-flex align-items-center">
-    <a id="RegisterCustomerButton" asp-action="NewRegistration" asp-route-DIYEveningId="@Model.DIYEvening.Id"
-       asp-controller="DIYManagement" class="btn btn-default me-2">Register customer</a>
+    @if (!Model.DIYEvening.IsStarted && !Model.DIYEvening.Cancelled)
+    {
+        <a id="RegisterCustomerButton" asp-action="NewRegistration" asp-route-DIYEveningId="@Model.DIYEvening.Id"
+            asp-controller="DIYManagement" class="btn btn-default me-2">Register customer</a>
+    }
 
     <a id="CancelButton" asp-action="Index" asp-controller="DIYManagement" class="btn btn-default me-2">Cancel</a>
 
@@ -100,5 +104,6 @@
         </tbody>
     </table>
 
-    <a id="RegisterDIYFeedbackButton" asp-action="NewFeedback" asp-route-diyEveningId="@Model.DIYEvening.Id" asp-controller="DIYManagement" class="btn btn-default">Give feedback</a>
+    <a id="RegisterDIYFeedbackButton" asp-action="NewFeedback" asp-route-diyEveningId="@Model.DIYEvening.Id"
+        asp-controller="DIYManagement" class="btn btn-default">Give feedback</a>
 }
