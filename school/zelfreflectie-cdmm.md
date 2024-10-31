@@ -37,31 +37,31 @@
 - [ ] CO-401 Cross functional team (=CO-201++)
 - [x] CO-402 No rollbacks (always roll forward)
 
-## Ontwerp & Architectuur : Dirk
+## Ontwerp & Architectuur :
 
 ### Basis
 
-- [x] OA-001 Geconsolideerd platform & en technologie
+- [x] OA-001 Geconsolideerd platform & en technologie: Wij hebben gewerkt met kubernetes.
 
 ### Beginner
 
-- [x] OA-101 Systeem opsplitsen in modules
-- [x] OA-102 API-gestuurde aanpak
+- [x] OA-101 Systeem opsplitsen in modules: Wij hebben een module toevoegd genaamd DIY Management.
+- [x] OA-102 API-gestuurde aanpak: Wij zijn steeds begonnen met het ontwikkelen van de API.
 - [ ] OA-103 (3rd party) Library management
 
 ### Gemiddeld
 
-- [x] OA-201 Geen of minimale branching
+- [x] OA-201 Geen of minimale branching: Wij hebben kleine taken en minimale branching gedaan.
 - [ ] OA-202 Branch by abstraction
-- [x] OA-203 Configuratie als Code (CaC; Config -> Cac)
+- [x] OA-203 Configuratie als Code (CaC; Config -> Cac): Wij hebben geconfigureerd met .yaml files.
 - [ ] OA-204 Feature toggle
 - [ ] OA-205 Modules omzetten naar componenten
-- [x] OA-206 Trunk based development
+- [x] OA-206 Trunk based development: Wij hebben allemaal gewerkt met soms kleine branching vanuit main.
 
 ### Gevorderd
 
 - [ ] OA-301 Volledige component gebaseerde architectuur
-- [x] OA-302 Graph business metrics uit applicatie
+- [x] OA-302 Graph business metrics uit applicatie: Wij hebben prometheus als graph.
 
 ### Expert
 
