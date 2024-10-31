@@ -75,9 +75,9 @@ Beschrijf hier en geef links naar de minimaal 2 en maximaal 4 grootste *review a
  
 ## 6. Bijdrage documentatie
 
-Ik heb gewerkt aan het container diagram in c4. Ook heb ik gewerkt aan het testplan en aan een ADR over keycloak.
+Ik heb samen met mitchel gewerkt aan het container diagram in c4. Ook heb ik gewerkt aan het testplan en aan een ADR over keycloak.
 
-- [C4 diagram]()
+- [C4 diagram](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/97)
 - [Testplan](C:\documenten\Minor-DevOps\devops-bp-pitstop-uitbreiding-team-knoppert\docs\testplan.md), ik heb hier gewerkt aan testen voor annuleren van een DIY avond en de details van de eerst volgende DIY avond.
 - [ADR keycloak](C:\documenten\Minor-DevOps\devops-bp-pitstop-uitbreiding-team-knoppert\docs\adr\adr-001-gebruik-van-keycloak-voor-authenticatie-en-autorisatie.md)
 
