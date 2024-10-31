@@ -18,26 +18,26 @@
 
 ### Gemiddeld
 
-- [x] CO-201 Multidiscpl. team (betrekken DBA, CM): We hebben een team wat van meerdere software afkomsten komt, we hebben een aantal webdevelopers, een aantal software developers.
+- [x] CO-201 Multidiscpl. team (betrekken DBA, CM): We hebben een team wat van meerdere software achtergronden komt, we hebben een aantal webdevelopers, een aantal software developers.
 - [x] CO-202 Component eigenaarschap: We hebben allemaal gewerkt aan een eigen component. Hier ook de testen voor geschreven en bugs opgelost.
 - [ ] CO-203 Handelen op metrics
 - [x] CO-204 Ops & Dev samen: We hebben met ze allen gewerkt aan zowel de development als de operations.
 - [x] CO-205 Vast proces voor wijzigingen (DB/CM/Docs/Code/Artefacts): We hebben een vast proces voor wijzigingen, dit hebben we gedaan door gebruik te maken van Git en GitHub, waarbij we gebruik hebben gemaakt van branches en pull requests. Ook hebben we gebruik gemaakt van de GitHub Actions om de code te testen en te deployen.
-- [x] CO-206 Decentrale besluitvorming: De gene die verstand heeft van een bepaald onderwerp heeft de taken van dat onderwerp op zich genomen, en de keuzes daarin gemaakt.
+- [x] CO-206 Decentrale besluitvorming: Degene die verstand heeft van een bepaald onderwerp heeft de taken van dat onderwerp op zich genomen, en de keuzes daarin gemaakt.
 
 ### Gevorderd
 
 - [ ] CO-301 Dedicated tools team
-- [x] CO-302 Team verantwoordelijk tot productie: We hebben gezorgt dat het product productie klaar is, vervolgens hebben we het online gezet.
+- [x] CO-302 Team verantwoordelijk tot productie: We hebben gezorgd dat het product productie klaar is, vervolgens hebben we het online gezet.
 - [ ] CO-303 Deploy losgekoppeld van release
-- [x] CO-345 Continuous improvement (Kaizen): We hebben doormiddel van sprints gewerkt en daardoor continue verbeteringen doorgevoerd.
+- [x] CO-345 Continuous improvement (Kaizen): We hebben d.m.v. sprints gewerkt en daardoor continue verbeteringen doorgevoerd.
 
 ### Expert
 
 - [ ] CO-401 Cross functional team (=CO-201++)
 - [x] CO-402 No rollbacks (always roll forward): We hebben updates gedaan en als er een fout was hebben we deze gefixt en een nieuwe update gedaan.
 
-## Ontwerp & Architectuur :
+## Ontwerp & Architectuur
 
 ### Basis
 
@@ -45,7 +45,7 @@
 
 ### Beginner
 
-- [x] OA-101 Systeem opsplitsen in modules: Wij hebben een module toevoegd genaamd DIY Management.
+- [x] OA-101 Systeem opsplitsen in modules: Wij hebben een module toegevoegd genaamd DIY Management.
 - [x] OA-102 API-gestuurde aanpak: Wij zijn steeds begonnen met het ontwikkelen van de API.
 - [ ] OA-103 (3rd party) Library management
 
@@ -61,7 +61,7 @@
 ### Gevorderd
 
 - [ ] OA-301 Volledige component gebaseerde architectuur
-- [x] OA-302 Graph business metrics uit applicatie: Wij hebben prometheus als graph.
+- [x] OA-302 Graph business metrics uit applicatie: Wij gebruiken Prometheus om business metrics uit de applicatie te verzamelen en te visualiseren. In Prometheus kunnen de standaard metrics zoals CPU en RAM worden uitgelezen, maar ook custom metrics kunnen worden toegevoegd. Dit hebben we gedaan door in onze [controle custom metrics](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/blob/3cd851dbfb83911d38ae485e087644c4dd9f8024/src/DIYManagementAPI/Controllers/DIYController.cs#L14) te maken.  
 
 ### Expert
 
@@ -138,7 +138,7 @@
 
 ### Basis
 
-- [x] IR-001 Basis procesmetrics: We maken gebruik van Prometheus, deze verzamelt procesmetrucs. We hebben hiervoor [custom metrics gedefinieerd](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/69/files).
+- [x] IR-001 Basis procesmetrics: We maken gebruik van Prometheus, deze verzamelt procesmetrics. We hebben hiervoor [custom metrics gedefinieerd](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/69/files).
 - [ ] IR-002 Handmatige rapportages
 
 ### Beginner
@@ -155,7 +155,7 @@
 
 ### Gevorderd
 
-- [x] IR-301 Graphing-as-a-service: We voldoen hier lichtelijk aan door het gebruik van Prometheus. Prometheus verzamelt real-time data en maakt de data inzichtelijk in een grafiek waar je op kan filteren en inzoomen. Het bied alleen geen optie om een andere soort grafiek te gebruiken wat typisch wel in een GaaS kan.
+- [x] IR-301 Graphing-as-a-service: We voldoen hier lichtelijk aan door het gebruik van Prometheus. Prometheus verzamelt real-time data en maakt de data inzichtelijk in een grafiek waar je op kan filteren en inzoomen. Het biedt alleen geen optie om een andere soort grafiek te gebruiken wat typisch wel in een GaaS kan.
 - [ ] IR-302 Dynamic test coverage analysis
 - [ ] IR-303 Report trend analysis
 
