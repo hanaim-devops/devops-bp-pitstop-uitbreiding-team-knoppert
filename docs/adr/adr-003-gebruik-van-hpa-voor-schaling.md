@@ -25,6 +25,7 @@ Betere gebruikerservaring: Met HPA kunnen we de prestaties van de applicatie waa
 Eenvoudige implementatie: De configuratie van HPA is relatief eenvoudig en kan eenvoudig worden aangepast aan de specifieke behoeften van onze applicatie door gebruik te maken van Kubernetes-configuratiebestanden.
 
 ## Gevolgen
+
 De implementatie van HPA stelt ons in staat om de resourceallocatie dynamisch aan te passen, wat leidt tot een efficiënter gebruik van onze Kubernetes-cluster.
 
 We zullen continu de prestaties van de HPA monitoren en de parameters indien nodig aanpassen om te zorgen voor optimale werking en schaalbaarheid.
