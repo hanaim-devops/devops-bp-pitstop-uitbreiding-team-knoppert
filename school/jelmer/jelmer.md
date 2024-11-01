@@ -1,5 +1,9 @@
 # Eigen bijdrage Jelmer Noppert
-'samenvatting'
+Ik heb de frontend-structuur opgezet voor de 'Doe het Zelf Avond' en een pipeline ontwikkeld die de applicatie bouwt, 
+test en deployt naar Rancher. 
+Thanos heb ik geïmplementeerd voor geavanceerde monitoring met MinIO voor dataopslag. 
+Daarnaast heb ik actief code reviews uitgevoerd op merge requests en documentatie geschreven,
+waaronder handmatige E2E-tests en twee ADR's. Binnen het team heb ik stand-ups geleid, notulen gemaakt en bijgedragen aan effectieve communicatie.
 
 ## 1. Code/platform bijdrage
 
@@ -54,7 +58,7 @@ Ik heb sinds de blog geleerd hoe ik zo'n automatische bucket generatie kan maken
 
 ## 5. Bijdrage code review/kwaliteit anderen en security
 
-Tijdens dit project heb ik wel meer dan 15 MR requests nagekeken. Omdat ik die niet allemaal kan benomen ligt er ik enkele uit. Ik heb de kwaliteit van de code beoordeeld en feedback gegeven. Ik heb ook gekeken of de code voldoet aan de standaarden en of de code veilig is.
+Tijdens dit project heb ik verschillende MR requests nagekeken. Omdat ik die niet allemaal kan benomen ligt er ik enkele uit. Ik heb de kwaliteit van de code beoordeeld en feedback gegeven. Ik heb ook gekeken of de code voldoet aan de standaarden en of de code veilig is.
 
 Dit is de eerste merge request die ik heb nagekeken: [eerste merge request](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/22). Bij deze heb ik naar de structuur van het project gekeken, aanzien dit een setup is waar wij ook in zouden werken.
 De tweede review die ik heb uitgevoerd is op de functionaliteit van het annuleren van een doe het zelf avond: [annuleren doe het zelf avond](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/44#pullrequestreview-2378189436). Ik ben begonnen met het doornemen van de wijzigingen. Ik heb feedback gegeven op enkele punten zoals commentaar dat weg moet, mogelijke verbetering in de UI en enkele kleine code kwaliteit verbeteringen in de API.
