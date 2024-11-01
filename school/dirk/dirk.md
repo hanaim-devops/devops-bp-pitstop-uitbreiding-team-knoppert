@@ -36,7 +36,6 @@ Ik ben Dev omdat ik veel ontwikkel taken gedaan heb. Onderstaand waar ik aan gew
 
 - [Testplan: Ik heb 2 usecases toegevoegd aan het testplan. Dit testplan is essentieel voor het waarborgen van de functionaliteit van de applicatie.]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/70 )
 - [Notulen: Ik was notulist tijdens de tweede vergadering. Deze notulen zijn belangrijk voor het bijhouden van de voortgang en beslissingen.]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/59 )
-- [C4 model: Ik heb het context diagram gemaakt en overal architecture diagram aangepast. Dit helpt om een duidelijk beeld te krijgen van de architectuur en structuur van de applicatie.]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/72 )
 - [Adr: Ik heb een adr toegevoegd voor HPA. Dit documenteert belangrijke architectuurbeslissingen met betrekking tot HPA.]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/82 )
 
 ## 7. Bijdrage Agile werken, groepsproces, communicatie opdrachtgever en soft skills
