@@ -1,8 +1,8 @@
 # MinIO
 
-Als je voor de eerste keer de applicatie gaat starten moet je in MinIO een bucket voor de applicatie maken. Als je dit al reeds hebt gedaan, negeer dan dit!
+Als je voor de eerste keer de applicatie gaat starten moet je mogelijk een MinIO een bucket voor de applicatie maken. Als je de applicatie opstart met k8s hoor je zou je deze stap over te kunnen slaan (alleen als er iets fout gaat). Als je de de applicatie opstart met Docker compose moet dit wel eenmalig.
 
-Helaas maakt MinIO niet automatisch een bucket aan als deze niet bestaat. Dat resultaat tot errors in de Thanos Sidecar. 
+Met Docker compose maakt helas MinIO niet automatisch een bucket aan als deze niet bestaat. Dat resultaat tot errors in de Thanos Sidecar. 
 
 - Voor Docker, ga naar:
 
