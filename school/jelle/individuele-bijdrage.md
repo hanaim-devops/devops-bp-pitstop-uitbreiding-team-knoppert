@@ -1,6 +1,6 @@
 # Eigen bijdrage Jelle
 
-Tijdens dit project heb ik mij bij het implementeren van features bezig gehouden met het aanmelden van klanten voor een doe het zelf avond en het inzien van aangemelde klanten. Daarnaast heb ik ook de technologie uit mijn blog (ChaosKube) geïmplementeerd. Verder heb ik ook een ADR gemaakt voor het gebruik van ChaosKube. Mijn grootste bijdrage qua code was het aanmelden van klanten voor een doe het zelf avond. Hierbij heb ik ook een testplan gemaakt. Ik heb ook een aantal reviews gedaan en feedback gegeven op de opzet van de pipeline, het geven van feedback op de DIY avond en de historie van de aanmelding van de DIY avond. Daarnaast heb ik ook een PR van dependabot gereviewed om bezig te zijn geweest met een stukje security. (verder uitwerken...)
+Tijdens dit project heb ik mij bij het implementeren van features bezig gehouden met het aanmelden van klanten voor een doe het zelf avond en het inzien van aangemelde klanten. Daarnaast heb ik ook de technologie uit mijn blog (ChaosKube) geïmplementeerd. Verder heb ik ook een ADR gemaakt voor het gebruik van ChaosKube. Mijn grootste bijdrage qua code was het aanmelden van klanten voor een doe het zelf avond. Hierbij heb ik ook een testplan gemaakt. Ik heb ook een aantal reviews gedaan en feedback gegeven op de opzet van de pipeline, het geven van feedback op de DIY avond en de historie van de aanmelding van de DIY avond. Daarnaast heb ik ook een PR van dependabot gereviewed om bezig te zijn geweest met een stukje security. Naast het testplan en het ADR ben ik voor documentatie ook bezig geweest met het uitwerken van een C4 component diagram voor de functionaliteit die wij hebben toegevoegd aan Pitstop.
 
 ## 1. Code/platform bijdrage
 
@@ -69,6 +69,8 @@ ADR gemaakt voor het gebruik van ChaosKube voor Chaos Engineering. Hierin wordt 
 
 Competenties: *DevOps-1 - Continuous Delivery*, *Agile*
 
+- Notulist geweest bij de Tech Review in de tweede week (Vrijdag 1 november).
+
 Beschrijf hier minimaal 2 en maximaal 4 situaties van je inbreng en rol tijdens Scrum ceremonies. Beschrijf ook feedback of interventies tijdens Scrum meetings, zoals sprint planning of retrospective die je aan groespgenoten hebt gegeven.
 
 Beschrijf tijdens het project onder dit kopje ook evt. verdere activiteiten rondom communicatie met de opdrachtgever of domein experts, of andere meer 'professional skills' of 'soft skilss' achtige zaken.
@@ -79,18 +81,18 @@ Competenties: *DevOps-7 - Attitude*
 
 **Tops**:
 
-- Vragen stellen aan groepsgenoten
-- (top2)
+- Vragen stellen aan teamgenoten als iets niet duidelijk is
+- Werk wat ik heb opgepakt altijd netjes afgemaakt
 
 **Tips**:
 
-- (tip1)
-- (tip2)
+- Communiceren over werk wat ik doe, zodat er geen dubbel werk wordt gedaan
+- Actiever aanwezig zijn als er beslissingen worden genomen
 
 ## 9. Conclusie & feedback
 
 Competenties: *DevOps-7 - Attitude*
 
-**Conclusie**: (vul hier in)
+**Conclusie**:
 
 **Feedback**: Ik vind het altijd leuk om in teamverband aan een project te kunnen werken en dat beviel nu ook weer goed. De opdracht is leuk alleen is de periode waarin we het project uit moeten voeren nogal kort. Je wil uiteindelijk toch wat meer kunnen doen dan dat binnen de 2 weken mogelijk is. De opgedane kennis over infrastructuur binnen je software omgeving is iets wat ik meeneem voor de toekomst.
