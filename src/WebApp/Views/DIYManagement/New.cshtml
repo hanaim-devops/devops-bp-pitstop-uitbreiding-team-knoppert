@@ -1,6 +1,9 @@
 ﻿@model Pitstop.WebApp.ViewModels.DIYNewViewModel
 @{
     ViewData["Title"] = "DIY";
+
+    var amsterdamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
+    var amsterdamNow = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, amsterdamTimeZone);
 }
 
 @section Scripts {
@@ -25,7 +28,7 @@
     <div class="form-group">
         <label asp-for="DIYEvening.StartDate"></label>
         <input asp-for="DIYEvening.StartDate" type="datetime-local"
-                min="@DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm");"
+               min="@amsterdamNow.ToString("yyyy-MM-ddTHH:mm")"
                class="form-control" />
         <span asp-validation-for="DIYEvening.StartDate" class="text-danger"></span>
     </div>
@@ -33,10 +36,11 @@
     <div class="form-group">
         <label asp-for="DIYEvening.EndDate"></label>
         <input asp-for="DIYEvening.EndDate" type="datetime-local"
-               min="@DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm");"
+               min="@amsterdamNow.ToString("yyyy-MM-ddTHH:mm")"
                class="form-control" />
         <span asp-validation-for="DIYEvening.EndDate" class="text-danger"></span>
     </div>
+
     <div class="form-group">
         <label asp-for="DIYEvening.Mechanic"></label>
         <input asp-for="DIYEvening.Mechanic" tyDIYNEvening class="form-control" />
