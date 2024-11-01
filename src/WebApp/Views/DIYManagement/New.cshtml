@@ -25,7 +25,7 @@
     <div class="form-group">
         <label asp-for="DIYEvening.StartDate"></label>
         <input asp-for="DIYEvening.StartDate" type="datetime-local"
-               min="@DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(1)).ToString("yyyy-MM-ddTHH:mm")"
+                min="@DateTimeOffset.UtcNow.ToLocalTime().ToString("yyyy-MM-ddTHH:mm");"
                class="form-control" />
         <span asp-validation-for="DIYEvening.StartDate" class="text-danger"></span>
     </div>
@@ -33,7 +33,7 @@
     <div class="form-group">
         <label asp-for="DIYEvening.EndDate"></label>
         <input asp-for="DIYEvening.EndDate" type="datetime-local"
-               min="@DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(1)).ToString("yyyy-MM-ddTHH:mm")"
+               min="@DateTimeOffset.UtcNow.ToLocalTime().ToString("yyyy-MM-ddTHH:mm");"
                class="form-control" />
         <span asp-validation-for="DIYEvening.EndDate" class="text-danger"></span>
     </div>
