@@ -34,7 +34,7 @@ Ik heb dit succesvol geïmplementeerd in de Pitstop applicatie. Ik heb de benodi
 
 Daarnaast heb ik een nieuwe configuratie toegevoegd in de k8s-omgeving waardoor er automatisch een bucket wordt aangemaakt voor onze omgeving: [bucket generatie](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/61/commits/3ec8cb940ff1db2543882b2028076b8d01b3aa73)
 
-Het resultaat is hier te vinden: [thanos](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/61/files). 
+Het resultaat is hier te vinden: [thanos](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/61/files).
 
 Ik heb sinds de blog geleerd hoe ik zo'n automatische bucketgeneratie kan maken.
 
