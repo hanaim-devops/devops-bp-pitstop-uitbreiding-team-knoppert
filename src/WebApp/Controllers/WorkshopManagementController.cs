@@ -20,7 +20,7 @@
         {
             if (planningDate == null)
             {
-                planningDate = DateTime.Now.Date;
+                planningDate = DateTime.UtcNow.Date;
             }
 
             var model = new WorkshopManagementViewModel
@@ -29,8 +29,7 @@
                 MaintenanceJobs = new List<MaintenanceJob>()
             };
 
-                // get planning
-                string dateStr = planningDate.Value.ToString("yyyy-MM-dd");
+            string dateStr = planningDate.Value.ToString("yyyy-MM-dd");
             WorkshopPlanning planning = await _workshopManagementAPI.GetWorkshopPlanning(dateStr);
             if (planning?.Jobs?.Count > 0)
             {

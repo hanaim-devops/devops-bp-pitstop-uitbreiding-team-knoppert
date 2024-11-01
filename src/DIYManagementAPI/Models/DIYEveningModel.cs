@@ -25,6 +25,6 @@ namespace DIYManagementAPI.Models
 
         public bool Cancelled { get; set; } = false;
 
-        public bool IsStarted => TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.Utc, TimeZoneInfo.FindSystemTimeZoneById("W. Europe Standard Time")) >= StartDate;
+        public bool IsStarted => DateTime.UtcNow >= StartDate;
     }
 }
