@@ -109,6 +109,9 @@ Terwijl ik bezig was met Rancher gaf Jorian mij de tip om mijn besteden tijd bij
 
 ## 9. Conclusie & feedback
 
+Dit project heeft me veel DevOps-ervaring gebracht, zoals de ontwikkeling van DIY-avonden, Thanos monitoring, en een verbeterde CI/CD-pipeline. 
+Ik ben trots op mijn inzet en actieve betrokkenheid, maar zie verbeterpunten, zoals efficiënter omgaan met uitdagingen en beter bewaken van mijn werktijden.
 
+Feedback voor docenten: duidelijke richtlijnen voor automatisering en meer ondersteuning bij complexe tools zoals Rancher zouden het proces stroomlijnen. Aangezien veel groepen problemen met Rancher hadden.
 
-!! taal nog controleren!
+Voor de volgende opdrachten neem ik mee: kennis van monitoring, Kubernetes, en CI/CD, evenals kleine verbetering van soft skills en communicatievaardigheden.
