@@ -29,7 +29,6 @@
                 MaintenanceJobs = new List<MaintenanceJob>()
             };
 
-            // get planning
             string dateStr = planningDate.Value.ToString("yyyy-MM-dd");
             WorkshopPlanning planning = await _workshopManagementAPI.GetWorkshopPlanning(dateStr);
             if (planning?.Jobs?.Count > 0)

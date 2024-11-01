@@ -22,6 +22,10 @@
         <input asp-for="DIYEvening.ExtraInfo" type="text" class="form-control" />
         <span asp-validation-for="DIYEvening.ExtraInfo" class="text-danger"></span>
     </div>
+
+    <p>De tijd waarin de avond wordt opgeslagen is in UTC. Dit is de huidige UTC tijd:</p>
+    <p>@DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm")</p>
+
     <div class="form-group">
         <label asp-for="DIYEvening.StartDate"></label>
         <input asp-for="DIYEvening.StartDate" type="datetime-local"
