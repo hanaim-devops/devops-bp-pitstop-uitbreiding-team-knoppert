@@ -4,20 +4,14 @@ Tijdens dit project heb ik mij bij het implementeren van features bezig gehouden
 
 ## 1. Code/platform bijdrage
 
-Competenties: *DevOps-1 Continuous Delivery*
-
 - [Code: inzien aangemelde klanten](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/35): Code geschreven om te zorgen dat aangemelde klanten voor een doe het zelf avond ingezien kunnen worden op de detailpagina.
-- [Code: aanmelden DIY avond](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/34): Code geschreven om klanten aan te kunnen melden voor een doe het zelf avond. Bovenstaande code was hier best wel van afhankelijk, dus heb ik ook deze story opgepakt.
+- [Code: aanmelden DIY avond](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/34): Code geschreven om klanten aan te kunnen melden voor een doe het zelf avond. Bovenstaande code voor het inzien van aangemelde klanten was hier best wel van afhankelijk, dus heb ik ook deze story opgepakt.
 
 ## 2. Bijdrage app configuratie/containers/kubernetes
-
-Competenties: *DevOps-2 Orchestration, Containerization*
 
 Beschrijf en geef hier links naar je minimaal 2 en maximaal 4 grootste bijdragen qua configuratie, of bijdrage qua 12factor app of container Dockerfiles en/of .yml bestanden of vergelijkbare config (rondom containerization en orchestration).
 
 ## 3. Bijdrage versiebeheer, CI/CD pipeline en/of monitoring
-
-Competenties: *DevOps-1 - Continuous Delivery*, *DevOps-3 GitOps*, *DevOps-5 - SlackOps*
 
 Beschrijf hier en geef links naar je bijdragen aan het opzetten en verder automatiseren van delivery pipeline, GitOps toepassing en/of het opzetten van monitoring, toevoegen van metrics en custom metrics en rapportages.
 
@@ -25,16 +19,12 @@ NB Het gebruik van *versiebeheer* ((e.g. git)) hoort bij je standaardtaken en de
 
 ## 4. Onderzoek
 
-Competenties: *Nieuwsgierige houding*
-
 - [Blog over ChaosKube](https://github.com/hanaim-devops/devops-blog-JelleSchrans)
 - [Config ChaosKube](../../src/k8s/chaoskube/chaoskube.yaml)
 
 **Conclusie**: Nadat Kubernetes in eerste instantie niet helemaal leek te werken, is het in de tweede week wel gelukt om ChaosKube te implementeren. Dit bleek uiteindelijk niet heel moeilijk te zijn, dus is er niet onnodig veel tijd aan verloren gegaan.
 
 ## 5. Bijdrage code review/kwaliteit anderen en security
-
-Competenties: *DevOps-7 - Attitude*, *DevOps-4 DevSecOps*
 
 ### Reviews
 
@@ -55,8 +45,6 @@ Bij beide vulnerabilities wordt gesproken van 'Prototype Pollution'. Hierbij wor
 
 ## 6. Bijdrage documentatie
 
-Competenties: *DevOps-6 Onderzoek*
-
 [ADR ChaosKube](../../docs/adr/adr-002-chaoskube-voor-chaos-engineering.md)
 
 ADR gemaakt voor het gebruik van ChaosKube voor Chaos Engineering. Hierin wordt beschreven wat ChaosKube is, waarom we het willen gebruiken en hoe we het willen gebruiken. Toegelicht dat het in de eerste week niet werkte, later gelukkig wel.
@@ -65,19 +53,16 @@ ADR gemaakt voor het gebruik van ChaosKube voor Chaos Engineering. Hierin wordt 
 
 (zie kopje 'Registren klant voor doe het zelf avond') Testplan gemaakt voor het registreren van klanten voor een doe het zelf avond. Naast de happy flow 2 edge cases gevonden die getest konden worden.
 
+[C4 Component diagram](../../c4/plaatjes/c4-pitstop-component-diagram.png)
+
+Component diagram gemaakt voor de functionaliteit die wij hebben toegevoegd aan Pitstop. Hierin wordt weergegeven hoe de gemaakte componenten met elkaar communiceren.
+
 ## 7. Bijdrage Agile werken, groepsproces, communicatie opdrachtgever en soft skills
 
-Competenties: *DevOps-1 - Continuous Delivery*, *Agile*
-
 - Notulist geweest bij de Tech Review in de tweede week (Vrijdag 1 november).
-
-Beschrijf hier minimaal 2 en maximaal 4 situaties van je inbreng en rol tijdens Scrum ceremonies. Beschrijf ook feedback of interventies tijdens Scrum meetings, zoals sprint planning of retrospective die je aan groespgenoten hebt gegeven.
-
-Beschrijf tijdens het project onder dit kopje ook evt. verdere activiteiten rondom communicatie met de opdrachtgever of domein experts, of andere meer 'professional skills' of 'soft skilss' achtige zaken.
+- Tijdens retrospective benoemd dat we tijdens de sprint planningen als team duidelijk hebben welk werk we op willen gaan pakken.
   
 ## 8. Leerervaringen
-
-Competenties: *DevOps-7 - Attitude*
 
 **Tops**:
 
