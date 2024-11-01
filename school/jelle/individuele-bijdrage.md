@@ -1,80 +1,84 @@
 # Eigen bijdrage Jelle
 
-Je schrapt verder deze tekst en vervangt alle andere template zaken, zodat alleen de kopjes over blijven. **NB: Aanwezigheid van template teksten na inleveren ziet de beoordelaar als een teken dat je documentatie nog niet af is, en hij/zij deze dus niet kan of hoeft te beoordelen**.
-
-Je begin hier onder het hoofdkopje met een samenvatting van je bijdrage zoals je die hieronder uitwerkt. Best aan het einde schrijven. Zorg voor een soft landing van de beoordelaar, maar dat deze ook direct een beeld krijgt. Je hoeft geen heel verslag te schrijven. De kopjes kunnen dan wat korter met wat bullet lijst met links voor 2 tot 4 zaken en 1 of 2 inleidende zinnen erboven. Een iets uitgebreidere eind conclusie schrijf je onder het laatste kopje.
+Tijdens dit project heb ik mij bij het implementeren van features bezig gehouden met het aanmelden van klanten voor een doe het zelf avond en het inzien van aangemelde klanten. Daarnaast heb ik ook de technologie uit mijn blog (ChaosKube) geïmplementeerd. Verder heb ik ook een ADR gemaakt voor het gebruik van ChaosKube. Mijn grootste bijdrage qua code was het aanmelden van klanten voor een doe het zelf avond. Hierbij heb ik ook een testplan gemaakt. Ik heb ook een aantal reviews gedaan en feedback gegeven op de opzet van de pipeline, het geven van feedback op de DIY avond en de historie van de aanmelding van de DIY avond. Daarnaast heb ik ook een PR van dependabot gereviewed om bezig te zijn geweest met een stukje security. Naast het testplan en het ADR ben ik voor documentatie ook bezig geweest met het uitwerken van een C4 component diagram voor de functionaliteit die wij hebben toegevoegd aan Pitstop.
 
 ## 1. Code/platform bijdrage
 
-Competenties: *DevOps-1 Continuous Delivery*
-
-- [Code: inzien aangemelde klanten](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/35)
-- [Code: aanmelden DIY avond](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/34)
-
-Beschrijf hier kort je bijdrage vanuit je rol, developer (Dev) of infrastructure specialist (Ops). Als Developer beschrijf en geef je links van minimaal 2 en maximaal 4 grootste bijdrages qua code functionaliteiten of non-functionele requirements. Idealiter werk je TDD (dus ook commit van tests en bijbehorende code tegelijk), maar je kunt ook linken naar geschreven automatische tests (unit tests, acceptance tests (BDD), integratie tests, end to end tests, performance/load tests, etc.). Als Opser geef je je minimaal 2 maximaal 4 belangrijkste bijdragen aan het opzetten van het Kubernetes platform, achterliggende netwerk infrastructuur of configuration management (MT) buiten Kubernetes (en punt 2).
+- [Code: inzien aangemelde klanten](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/35): Code geschreven om te zorgen dat aangemelde klanten voor een doe het zelf avond ingezien kunnen worden op de detailpagina.
+- [Code: aanmelden DIY avond](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/34): Code geschreven om klanten aan te kunnen melden voor een doe het zelf avond. Bovenstaande code voor het inzien van aangemelde klanten was hier best wel van afhankelijk, dus heb ik ook deze story opgepakt.
 
 ## 2. Bijdrage app configuratie/containers/kubernetes
 
-Competenties: *DevOps-2 Orchestration, Containerization*
-
-Beschrijf en geef hier links naar je minimaal 2 en maximaal 4 grootste bijdragen qua configuratie, of bijdrage qua 12factor app of container Dockerfiles en/of .yml bestanden of vergelijkbare config (rondom containerization en orchestration).
+- [Config ChaosKube](../../src/k8s/chaoskube/chaoskube.yaml) ChaosKube geïmplementeerd in de Kubernetes configuratie. ChaosKube is een tool die chaos engineering toepast op je Kubernetes cluster. Het zorgt ervoor dat er random pods worden verwijderd om te kijken hoe je applicatie zich gedraagt als er iets mis gaat. In dit bestand kun je onder `args` parameters meegeven die ChaosKube gebruikt om te bepalen wat de interval is en welke pods hij moet verwijderen.
+- [ChaosKube Role](../../src/k8s/chaoskube/chaoskube-role.yaml)
+- [ChaosKube RoleBinding](../../src/k8s/chaoskube/chaoskube-rolebinding.yaml)
 
 ## 3. Bijdrage versiebeheer, CI/CD pipeline en/of monitoring
 
-Competenties: *DevOps-1 - Continuous Delivery*, *DevOps-3 GitOps*, *DevOps-5 - SlackOps*
-
-Beschrijf hier en geef links naar je bijdragen aan het opzetten en verder automatiseren van delivery pipeline, GitOps toepassing en/of het opzetten van monitoring, toevoegen van metrics en custom metrics en rapportages.
-
-NB Het gebruik van *versiebeheer* ((e.g. git)) hoort bij je standaardtaken en deze hoef je onder dit punt NIET te beschrijven, het gaat hier vooral om documenteren van processtandaarden, zoals toepassen van een pull model.
+Niet toegekomen aan het opzetten van de pipeline, wel een [review](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/21) gedaan voor een opzet van de pipeline die de code build en de unit-tests runt. Voor ChaosKube had ik metrics kunnen implementeren, maar ivm tijdgebrek niet aan toegekomen.
 
 ## 4. Onderzoek
 
-Competenties: *Nieuwsgierige houding*
-
 - [Blog over ChaosKube](https://github.com/hanaim-devops/devops-blog-JelleSchrans)
-- Conclusie: Het is nog niet gelukt om ChaosKube te implementeren, omdat ik zelf problemen had met het lokaal draaien van de Pitstop applicatie in Kubernetes. Ik heb hierdoor niet kunnen testen of ChaosKube daadwerkelijk werkt in Pitstop.
+
+**Conclusie**: Nadat Kubernetes in eerste instantie niet helemaal leek te werken, is het in de tweede week wel gelukt om ChaosKube te implementeren. Dit bleek uiteindelijk niet heel moeilijk te zijn, dus is er niet onnodig veel tijd aan verloren gegaan.
 
 ## 5. Bijdrage code review/kwaliteit anderen en security
 
-Competenties: *DevOps-7 - Attitude*, *DevOps-4 DevSecOps*
+### Reviews
 
 - [Review opzet pipeline](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/21)
 - [Review feedback geven DIY avond](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/46)
+- [Review historie aanmelding DIY avond](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/76)
+
+### Security
+
+[Dependabot: Bump set-value and union-value](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/27/files)
+
+Onderstaande PR is aangemaakt door dependabot, waar wat packages worden geupdate en er ook 1 wordt verwijderd. Dependabot had namelijk 2 security vulnerabilities gevonden in de packages (1 high, 1 critical). Dit waren onderstaande vulnerabilities:
+
+- [High severity vulnerability](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/security/dependabot/21)
+- [Critical severity vulnerability](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/security/dependabot/14)
+
+Bij beide vulnerabilities wordt gesproken van 'Prototype Pollution'. Hierbij wordt er waarden in het prototype van een object aangepast, deze waarden kunnen vervolgens worden gebruikt door objecten die van dit prototype zijn afgeleid.
 
 ## 6. Bijdrage documentatie
 
-Competenties: *DevOps-6 Onderzoek*
+[ADR ChaosKube](../../docs/adr/adr-002-chaoskube-voor-chaos-engineering.md)
 
-Zet hier een links naar en geef beschrijving van je C4 diagram of diagrammen, README of andere markdown bestanden, ADR's of andere documentatie. Bij andere markdown bestanden of doumentatie kun je denken aan eigen proces documentatie, zoals code standaarden, commit- of branchingconventies. Tot slot ook user stories en acceptatiecriteria (hopelijk verwerkt in gitlab issues en vertaalt naar `.feature` files) en evt. noemen en verwijzen naar handmatige test scripts/documenten.
+ADR gemaakt voor het gebruik van ChaosKube voor Chaos Engineering. Hierin wordt beschreven wat ChaosKube is, waarom we het willen gebruiken en hoe we het willen gebruiken. Toegelicht dat het in de eerste week niet werkte, later gelukkig wel.
+
+[Testplan registreren klant voor DIY avond](../../docs/testplan)
+
+(zie kopje 'Registren klant voor doe het zelf avond') Testplan gemaakt voor het registreren van klanten voor een doe het zelf avond. Naast de happy flow 2 edge cases gevonden die getest konden worden.
+
+[C4 Component diagram](../../c4/plaatjes/c4-pitstop-component-diagram.png)
+
+Component diagram gemaakt voor de functionaliteit die wij hebben toegevoegd aan Pitstop. Hierin wordt weergegeven hoe de gemaakte componenten met elkaar communiceren.
 
 ## 7. Bijdrage Agile werken, groepsproces, communicatie opdrachtgever en soft skills
 
-Competenties: *DevOps-1 - Continuous Delivery*, *Agile*
-
-Beschrijf hier minimaal 2 en maximaal 4 situaties van je inbreng en rol tijdens Scrum ceremonies. Beschrijf ook feedback of interventies tijdens Scrum meetings, zoals sprint planning of retrospective die je aan groespgenoten hebt gegeven.
-
-Beschrijf tijdens het project onder dit kopje ook evt. verdere activiteiten rondom communicatie met de opdrachtgever of domein experts, of andere meer 'professional skills' of 'soft skilss' achtige zaken.
+- Notulist geweest bij de Sprint Review in de tweede week (Vrijdag 1 november).
+- Tijdens retrospective benoemd dat we tijdens de sprint planningen als team duidelijk hebben welk werk we op willen gaan pakken.
   
 ## 8. Leerervaringen
 
-Competenties: *DevOps-7 - Attitude*
-
 **Tops**:
 
-- Vragen stellen aan groepsgenoten
-- (top2)
+- Vragen stellen aan teamgenoten als iets niet duidelijk is
+- Werk wat ik heb opgepakt altijd netjes afgemaakt
 
 **Tips**:
 
-- (tip1)
-- (tip2)
-
-Geef tot slot hier voor jezelf minimaal 2 en maximaal **4 tops** en 2 dito (2 tot 4) **tips** á la professional skills die je kunt meenemen in je verdere loopbaan. Beschrijf ook de voor jezelf er het meest uitspringende hulp of feedback van groepsgenoten die je (tot dusver) hebt gehad tijdens het project.
+- Communiceren over werk wat ik doe, zodat er geen dubbel werk wordt gedaan
+- Actiever aanwezig zijn als er beslissingen worden genomen
 
 ## 9. Conclusie & feedback
 
 Competenties: *DevOps-7 - Attitude*
 
-Conclusie: (nog uitwerken)
+**Conclusie**: Ik ben tevreden met de bijdrage die ik heb geleverd aan het project. Ik heb mij bezig gehouden met het aanmelden van klanten voor een doe het zelf avond en het inzien van aangemelde klanten bij het implementeren van functionaliteiten. Daarnaast heb ik ook de technologie uit mijn blog (ChaosKube) geïmplementeerd. Verder heb ik ook een ADR gemaakt voor het gebruik van ChaosKube. Mijn grootste bijdrage qua code was het aanmelden van klanten voor een doe het zelf avond. Hierbij heb ik ook een testplan gemaakt. Ik heb ook een aantal reviews gedaan en feedback gegeven op de opzet van de pipeline, het geven van feedback op de DIY avond en de historie van de aanmelding van de DIY avond. Daarnaast heb ik ook een PR van dependabot gereviewed om bezig te zijn geweest met een stukje security. Naast het testplan en het ADR ben ik voor documentatie ook bezig geweest met het uitwerken van een C4 component diagram voor de functionaliteit die wij hebben toegevoegd aan Pitstop. Ik heb alleen niets aan de pipeline kunnen doen, omdat er uiteindelijk 2 mensen waren die hier al mee bezig waren.
 
-Feedback: Ik vind het altijd leuk om in teamverband aan een project te kunnen werken en dat beviel nu ook weer goed. De opdracht is leuk alleen is de periode waarin we het project uit moeten voeren nogal kort. Je wil uiteindelijk toch wat meer kunnen doen dan dat binnen de 2 weken mogelijk is. De opgedane kennis over infrastructuur binnen je software omgeving is iets wat ik meeneem voor de toekomst.
+**Feedback**: Ik vind het altijd leuk om in teamverband aan een project te kunnen werken en dat beviel nu ook weer goed. De opdracht is leuk alleen is de periode waarin we het project uit moeten voeren nogal kort. Je wil uiteindelijk toch wat meer kunnen doen dan dat binnen de 2 weken mogelijk is. Ik had zelf wat problemen met Kubernetes in de eerste week, waardoor ik niet verder kon met ChaosKube. Dit is uiteindelijk wel gelukt, maar het was wel jammer dat ik hierdoor niet verder kon met de metrics vanwege de tijd.
+
+De opgedane kennis over infrastructuur binnen je software omgeving is iets wat ik meeneem voor de toekomst. Ook is het inzetten van een chaos engineering tool (e.g ChaosKube) iets wat ik in de toekomst zeker nog eens wil doen. Het is een leuke manier om te kijken hoe je applicatie zich gedraagt als er iets mis gaat.
