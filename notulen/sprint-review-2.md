@@ -19,8 +19,6 @@ if-statement uit de deploy pipeline halen, is overbodig
 
 Niet gedocumenteerd waarom we 2 pipelines hebben
 
-Niet nagedacht over samenvoegen tot 1 pipeline
-
 Github Actions -> BD-302 Meerdere Build machines (?)
 
 Tijdens project 1 taal kiezen om in te programmeren (Nederlands of Engels), je hebt ook te maken met domein gerelateerde termen
