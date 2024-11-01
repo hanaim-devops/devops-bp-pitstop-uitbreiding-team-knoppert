@@ -15,9 +15,7 @@ Tijdens dit project heb ik mij bij het implementeren van features bezig gehouden
 
 ## 3. Bijdrage versiebeheer, CI/CD pipeline en/of monitoring
 
-Beschrijf hier en geef links naar je bijdragen aan het opzetten en verder automatiseren van delivery pipeline, GitOps toepassing en/of het opzetten van monitoring, toevoegen van metrics en custom metrics en rapportages.
-
-NB Het gebruik van *versiebeheer* ((e.g. git)) hoort bij je standaardtaken en deze hoef je onder dit punt NIET te beschrijven, het gaat hier vooral om documenteren van processtandaarden, zoals toepassen van een pull model.
+Niet toegekomen aan het opzetten van de pipeline, wel [review](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/21) gedaan voor een opzet van de pipeline die de code build en de unit-tests runt. Voor ChaosKube had ik metrics kunnen implementeren, maar ivm tijdgebrek niet aan toegekomen.
 
 ## 4. Onderzoek
 
@@ -60,7 +58,7 @@ Component diagram gemaakt voor de functionaliteit die wij hebben toegevoegd aan 
 
 ## 7. Bijdrage Agile werken, groepsproces, communicatie opdrachtgever en soft skills
 
-- Notulist geweest bij de Tech Review in de tweede week (Vrijdag 1 november).
+- Notulist geweest bij de Sprint Review in de tweede week (Vrijdag 1 november).
 - Tijdens retrospective benoemd dat we tijdens de sprint planningen als team duidelijk hebben welk werk we op willen gaan pakken.
   
 ## 8. Leerervaringen
