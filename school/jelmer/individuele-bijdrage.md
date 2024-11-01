@@ -1,5 +1,5 @@
 # Eigen bijdrage Jelmer Noppert
-
+'samenvatting'
 
 ## 1. Code/platform bijdrage - klaar!
 
@@ -41,10 +41,10 @@ Ik heb voor de blog onderzoek gedaan naar Thanos. Thanos is een extensie op Prom
 
 Ik heb dit heb dit succesvol geimplementeerd in de Pitstop applicatie. 
 Ik heb de benodigde services en deployments gemaakt en de configuratie van Prometheus aangepast. 
-Vervolgens heb ik onderzocht hoe ik MinIO kon gebruiken om de data van Thanos op te slaan. Normaal gezien raad Thanos namelijk aan om dit online te doen zoals bij Azure of AWS.
+Vervolgens heb ik onderzocht hoe ik MinIO kon gebruiken om de data van Thanos op te slaan. 
+Normaal gezien raad Thanos namelijk aan om dit online te doen zoals bij Azure of AWS.
 Ik onderzoek gedaan naar hoe ik dit lokaal kan doen en dit gedaan d.m.v. [MinIO](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/61/files#diff-e19124e993b85be0fd8ec64927a1ab3029c154d6b466359600cae42ccffe1f2e). 
 Ik heb ervoor gezorgd dat Thanos connectie heeft met een MinIO instance en dat de data wordt opgeslagen in een Bucket. 
-
 
 Daarnaast heb ik een nieuwe configuratie toegevoegd in de k8s omgeving waardoor er automatisch een bucket wordt aangemaakt voor onze omgeving: 
 [bucket generatie](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/61/commits/3ec8cb940ff1db2543882b2028076b8d01b3aa73)
@@ -86,11 +86,26 @@ Ik heb dit aan alle teamgenoten gevraagd en bewaakt dat iedereen aan het woord k
 Vervolgens heb ik de planning van de dag besproken en de teamgenoten gevraagd wat ze gingen doen. 
 Ik heb de stand-up afgesloten met een vraag of er nog problemen waren en of iemand hulp nodig had.
 
-Vervolgens heb ik onze [sprint planning 2](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/blob/main/notulen/sprint-planning-2.md) genotuleerd. Ik heb daarna de retrospective geleid. De notulen van die retrospective is hier te vinden: [retro](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/blob/main/notulen/retrospective.md) 
+Vervolgens heb ik onze [sprint planning 2](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/blob/main/notulen/sprint-planning-2.md) genotuleerd. 
+Ik heb daarna de retrospective geleid. Tijdens de retro heb ik ideeen proberen te geven en zorgend at alle teamgenoten hun eigen stukje kunnen zeggen.
+De notulen van die retrospective is hier te vinden: [retro](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/blob/main/notulen/retrospective.md) 
 
 ## 8. Leerervaringen
 
+### Tips
 
+- Soms minder direct zijn in de communicatie. Mijn directheid kan soms overkomen als onvriendelijk.
+- Beter houden aan de afgesproken werktijden. Ik maak graag dingen af en werk vaak langer door dan afgesproken. Niet dat dit direct negatieve gevolgen heeft, maar het is wel belangrijk om een goede balans te houden.
+- Sneller accepteren wanneer iets niet lukt; bijvoorbeeld minder tijd besteden aan het oplossen van Rancher-issues. Dit heeft lang geduurt maar is wel gelukt. Alleen was het mogelijk niet de meest efficiente manier.
+
+### Tops
+
+- Hard gewerkt en altijd inzet getoond.
+- Actieve communicatie binnen de groep en duidelijke bijdragen geleverd.
+- Initiatief genomen, zoals het opzetten van de frontend-structuur voor het DIY-systeem en het ondersteunen van groepsleden.
+- Oog voor detail bij het reviewen van merge requests; regelmatig issues opgemerkt die anderen hadden gemist.
+
+Terwijl ik bezig was met Rancher gaf Jorian mij de tip om mijn besteden tijd bij te houden zodat ik niet te lang aan een probleem blijf hangen. Dit was een goede tip en heeft mij geholpen om sneller te accepteren wanneer iets niet lukt.
 
 ## 9. Conclusie & feedback
 
