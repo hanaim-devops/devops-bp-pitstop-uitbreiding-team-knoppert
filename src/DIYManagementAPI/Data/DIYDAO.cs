@@ -32,7 +32,7 @@ namespace DIYManagementAPI.Data
 
         public async Task<IEnumerable<DIYEveningModel>> GetFutureDIYEvenings()
         {
-            var now = DateTime.Now;
+            var now = DateTime.UtcNow;
             return await _context.DIYEvening
                         .Where(x => x.EndDate.Date > now.Date ||
                               (x.EndDate.Date == now.Date && x.EndDate.TimeOfDay > now.TimeOfDay))
@@ -95,7 +95,7 @@ namespace DIYManagementAPI.Data
 
         public async Task<IEnumerable<DIYCustomerHistoryDTO>> GetCustomerHistory(string customerName)
         {
-            var now = DateTime.Now;
+            var now = DateTime.UtcNow;
 
             return await _context.DIYEvening
                 .Join(_context.DIYRegistrations,
