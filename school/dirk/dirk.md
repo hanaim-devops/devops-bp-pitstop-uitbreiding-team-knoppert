@@ -23,7 +23,7 @@ Ik ben Dev omdat ik veel ontwikkel taken gedaan heb. Onderstaand waar ik aan gew
 ## 4. Onderzoek
 
 - [Mijn blog over HPA. In deze blog deel ik mijn bevindingen en ervaringen met het implementeren van HPA.]( https://github.com/hanaim-devops/devops-blog-DirkvanBruxvoort )
-- Conclusie: Het is gelukt om HPA te implementeren. In het begin werkte het soms niet, maar het is wel gelukt om het uiteindelijk goed werkend te krijgen.
+- Conclusie: Het is gelukt om HPA te implementeren in Pitstop. In het begin werkte het niet altijd zoals verwacht, vooral omdat de metrics server niet altijd goed functioneerde. Deze server is essentieel voor HPA, omdat hij de benodigde data levert om de schaling van de pods te bepalen. Bij het opzetten van de metrics server kwamen er verschillende problemen naar voren, zoals inconsistenties in de data en verbindingsproblemen. Door gedegen monitoring en bijstelling van de configuratie heb ik het uiteindelijk goed werkend gekregen. Ik ben van plan om HPA voor de hele applicatie in te zetten in het project, zodat we optimaal gebruik kunnen maken van schaalbaarheid en resourcebeheer. Deze ervaring heeft me waardevolle inzichten gegeven in het belang van een robuuste en efficiënte infrastructuur. Het implementeren van HPA in alle componenten van de applicatie zal de prestaties en efficiëntie aanzienlijk verbeteren.
 
 ## 5. Bijdrage code review/kwaliteit anderen en security
 
