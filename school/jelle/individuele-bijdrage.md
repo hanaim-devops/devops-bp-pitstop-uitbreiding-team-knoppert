@@ -9,7 +9,9 @@ Tijdens dit project heb ik mij bij het implementeren van features bezig gehouden
 
 ## 2. Bijdrage app configuratie/containers/kubernetes
 
-Beschrijf en geef hier links naar je minimaal 2 en maximaal 4 grootste bijdragen qua configuratie, of bijdrage qua 12factor app of container Dockerfiles en/of .yml bestanden of vergelijkbare config (rondom containerization en orchestration).
+- [Config ChaosKube](../../src/k8s/chaoskube/chaoskube.yaml)
+- [ChaosKube Role](../../src/k8s/chaoskube/chaoskube-role.yaml)
+- [ChaosKube RoleBinding](../../src/k8s/chaoskube/chaoskube-rolebinding.yaml)
 
 ## 3. Bijdrage versiebeheer, CI/CD pipeline en/of monitoring
 
@@ -20,7 +22,6 @@ NB Het gebruik van *versiebeheer* ((e.g. git)) hoort bij je standaardtaken en de
 ## 4. Onderzoek
 
 - [Blog over ChaosKube](https://github.com/hanaim-devops/devops-blog-JelleSchrans)
-- [Config ChaosKube](../../src/k8s/chaoskube/chaoskube.yaml)
 
 **Conclusie**: Nadat Kubernetes in eerste instantie niet helemaal leek te werken, is het in de tweede week wel gelukt om ChaosKube te implementeren. Dit bleek uiteindelijk niet heel moeilijk te zijn, dus is er niet onnodig veel tijd aan verloren gegaan.
 
@@ -41,7 +42,7 @@ Onderstaande PR is aangemaakt door dependabot, waar wat packages worden geupdate
 - [High severity vulnerability](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/security/dependabot/21)
 - [Critical severity vulnerability](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/security/dependabot/14)
 
-Bij beide vulnerabilities wordt gesproken van 'Prototype Pollution'. Hierbij wordt er een prototype object aangepast, wat kan leiden tot ongewenst gedrag. Dit kan bijvoorbeeld leiden tot het uitvoeren van ongewenste code.
+Bij beide vulnerabilities wordt gesproken van 'Prototype Pollution'. Hierbij wordt er waarden in het prototype van een object aangepast, deze waarden kunnen vervolgens worden gebruikt door objecten die van dit prototype zijn afgeleid.
 
 ## 6. Bijdrage documentatie
 
@@ -78,6 +79,6 @@ Component diagram gemaakt voor de functionaliteit die wij hebben toegevoegd aan 
 
 Competenties: *DevOps-7 - Attitude*
 
-**Conclusie**:
+**Conclusie**: Ik ben tevreden met de bijdrage die ik heb geleverd aan het project. Ik heb mij vooral bezig gehouden met het aanmelden van klanten voor een doe het zelf avond en het inzien van aangemelde klanten. Daarnaast heb ik ook de technologie uit mijn blog (ChaosKube) geïmplementeerd. Verder heb ik ook een ADR gemaakt voor het gebruik van ChaosKube. Mijn grootste bijdrage qua code was het aanmelden van klanten voor een doe het zelf avond. Hierbij heb ik ook een testplan gemaakt. Ik heb ook een aantal reviews gedaan en feedback gegeven op de opzet van de pipeline, het geven van feedback op de DIY avond en de historie van de aanmelding van de DIY avond. Daarnaast heb ik ook een PR van dependabot gereviewed om bezig te zijn geweest met een stukje security. Naast het testplan en het ADR ben ik voor documentatie ook bezig geweest met het uitwerken van een C4 component diagram voor de functionaliteit die wij hebben toegevoegd aan Pitstop. Ik heb alleen niets aan de pipeline kunnen doen, omdat er uiteindelijk 2 mensen waren die hier al mee bezig waren.
 
 **Feedback**: Ik vind het altijd leuk om in teamverband aan een project te kunnen werken en dat beviel nu ook weer goed. De opdracht is leuk alleen is de periode waarin we het project uit moeten voeren nogal kort. Je wil uiteindelijk toch wat meer kunnen doen dan dat binnen de 2 weken mogelijk is. De opgedane kennis over infrastructuur binnen je software omgeving is iets wat ik meeneem voor de toekomst.
