@@ -9,13 +9,13 @@ Tijdens dit project heb ik mij bij het implementeren van features bezig gehouden
 
 ## 2. Bijdrage app configuratie/containers/kubernetes
 
-- [Config ChaosKube](../../src/k8s/chaoskube/chaoskube.yaml)
+- [Config ChaosKube](../../src/k8s/chaoskube/chaoskube.yaml) ChaosKube geïmplementeerd in de Kubernetes configuratie. ChaosKube is een tool die chaos engineering toepast op je Kubernetes cluster. Het zorgt ervoor dat er random pods worden verwijderd om te kijken hoe je applicatie zich gedraagt als er iets mis gaat. In dit bestand kun je onder `args` parameters meegeven die ChaosKube gebruikt om te bepalen wat de interval is en welke pods hij moet verwijderen.
 - [ChaosKube Role](../../src/k8s/chaoskube/chaoskube-role.yaml)
 - [ChaosKube RoleBinding](../../src/k8s/chaoskube/chaoskube-rolebinding.yaml)
 
 ## 3. Bijdrage versiebeheer, CI/CD pipeline en/of monitoring
 
-Niet toegekomen aan het opzetten van de pipeline, wel [review](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/21) gedaan voor een opzet van de pipeline die de code build en de unit-tests runt. Voor ChaosKube had ik metrics kunnen implementeren, maar ivm tijdgebrek niet aan toegekomen.
+Niet toegekomen aan het opzetten van de pipeline, wel een [review](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/21) gedaan voor een opzet van de pipeline die de code build en de unit-tests runt. Voor ChaosKube had ik metrics kunnen implementeren, maar ivm tijdgebrek niet aan toegekomen.
 
 ## 4. Onderzoek
 
@@ -77,6 +77,8 @@ Component diagram gemaakt voor de functionaliteit die wij hebben toegevoegd aan 
 
 Competenties: *DevOps-7 - Attitude*
 
-**Conclusie**: Ik ben tevreden met de bijdrage die ik heb geleverd aan het project. Ik heb mij vooral bezig gehouden met het aanmelden van klanten voor een doe het zelf avond en het inzien van aangemelde klanten. Daarnaast heb ik ook de technologie uit mijn blog (ChaosKube) geïmplementeerd. Verder heb ik ook een ADR gemaakt voor het gebruik van ChaosKube. Mijn grootste bijdrage qua code was het aanmelden van klanten voor een doe het zelf avond. Hierbij heb ik ook een testplan gemaakt. Ik heb ook een aantal reviews gedaan en feedback gegeven op de opzet van de pipeline, het geven van feedback op de DIY avond en de historie van de aanmelding van de DIY avond. Daarnaast heb ik ook een PR van dependabot gereviewed om bezig te zijn geweest met een stukje security. Naast het testplan en het ADR ben ik voor documentatie ook bezig geweest met het uitwerken van een C4 component diagram voor de functionaliteit die wij hebben toegevoegd aan Pitstop. Ik heb alleen niets aan de pipeline kunnen doen, omdat er uiteindelijk 2 mensen waren die hier al mee bezig waren.
+**Conclusie**: Ik ben tevreden met de bijdrage die ik heb geleverd aan het project. Ik heb mij bezig gehouden met het aanmelden van klanten voor een doe het zelf avond en het inzien van aangemelde klanten bij het implementeren van functionaliteiten. Daarnaast heb ik ook de technologie uit mijn blog (ChaosKube) geïmplementeerd. Verder heb ik ook een ADR gemaakt voor het gebruik van ChaosKube. Mijn grootste bijdrage qua code was het aanmelden van klanten voor een doe het zelf avond. Hierbij heb ik ook een testplan gemaakt. Ik heb ook een aantal reviews gedaan en feedback gegeven op de opzet van de pipeline, het geven van feedback op de DIY avond en de historie van de aanmelding van de DIY avond. Daarnaast heb ik ook een PR van dependabot gereviewed om bezig te zijn geweest met een stukje security. Naast het testplan en het ADR ben ik voor documentatie ook bezig geweest met het uitwerken van een C4 component diagram voor de functionaliteit die wij hebben toegevoegd aan Pitstop. Ik heb alleen niets aan de pipeline kunnen doen, omdat er uiteindelijk 2 mensen waren die hier al mee bezig waren.
 
-**Feedback**: Ik vind het altijd leuk om in teamverband aan een project te kunnen werken en dat beviel nu ook weer goed. De opdracht is leuk alleen is de periode waarin we het project uit moeten voeren nogal kort. Je wil uiteindelijk toch wat meer kunnen doen dan dat binnen de 2 weken mogelijk is. De opgedane kennis over infrastructuur binnen je software omgeving is iets wat ik meeneem voor de toekomst.
+**Feedback**: Ik vind het altijd leuk om in teamverband aan een project te kunnen werken en dat beviel nu ook weer goed. De opdracht is leuk alleen is de periode waarin we het project uit moeten voeren nogal kort. Je wil uiteindelijk toch wat meer kunnen doen dan dat binnen de 2 weken mogelijk is. Ik had zelf wat problemen met Kubernetes in de eerste week, waardoor ik niet verder kon met ChaosKube. Dit is uiteindelijk wel gelukt, maar het was wel jammer dat ik hierdoor niet verder kon met de metrics vanwege de tijd.
+
+De opgedane kennis over infrastructuur binnen je software omgeving is iets wat ik meeneem voor de toekomst. Ook is het inzetten van een chaos engineering tool (e.g ChaosKube) iets wat ik in de toekomst zeker nog eens wil doen. Het is een leuke manier om te kijken hoe je applicatie zich gedraagt als er iets mis gaat.
