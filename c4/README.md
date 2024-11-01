@@ -9,3 +9,7 @@ Het C4 model voor de toegevoegde functionaliteit van de Pitstop applicatie tijde
 ## Container
 
 ![container-diagram](./plaatjes/c4-pitstop-c4-container-diagram.drawio.png)
+
+## Component
+
+![component-diagram](./plaatjes/c4-pitstop-component-diagram.png)
