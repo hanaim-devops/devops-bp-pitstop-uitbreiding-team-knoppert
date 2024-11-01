@@ -2,7 +2,7 @@
 
 ## 1. Code/platform bijdrage
 
-Ik ben Infrastructure specialist omdat ik de taak heb om HPA te implementeren. Onderstaand waar ik aan gewerkt heb:
+Ik ben Dev omdat ik veel ontwikkel taken gedaan heb. Onderstaand waar ik aan gewerkt heb:
 
 - [Functionaliteit: Add Feedback.]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/55 )
 - [Functionaliteit: Cancel registration.]( https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/56 )
@@ -47,10 +47,17 @@ Ik ben Infrastructure specialist omdat ik de taak heb om HPA te implementeren. O
 
 ## 8. Leerervaringen
 
+### Tops
+
 - Doorzetten: Ik geef niet direct op als het niet lukt.
-- Creativiteit: IK vind creative oplossingen voor problemen.
+- Creativiteit: Ik vind creative oplossingen voor problemen.
+
+### Tips
+
 - Beter communiceren: Er was een miscommunicatie ontstaan rondom een issue.
 - Om hulp vragen: Ik wil dingen vaak zelf oplossen, maar soms is het beter om hulp te vragen van anderen.
+
+<br>
 
 Ik heb de feedback gehad om meer te communiceren, had een draft taak opgepakt zonder te overleggen. En ik was het hier wel mee eens.
 
