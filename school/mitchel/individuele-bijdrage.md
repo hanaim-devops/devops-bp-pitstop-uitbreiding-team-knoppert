@@ -1,5 +1,7 @@
 # Eigen bijdrage Mitchel Fleury
 
+In dit document verantwoord ik mijn eigen bijdrage voor het beroepsproduct tijdens de minor DevOps. Ik behandel alle competenties en lever bewijs voor mijn bijdrage. In paragraaf 8 blik ik terug op de afgelopen twee weken en stel ik mijn tips en tops. Daarna concludeer ik mijn bijdrage in het beroepsproduct, geef ik feedback op het beroepsproduct en vertel ik wat ik meeneem naar het grote project.
+
 ## 1. Code/platform bijdrage
 
 Competenties: *DevOps-1 Continuous Delivery*
@@ -63,7 +65,19 @@ Competenties: *DevOps-7 - Attitude*
 - Een top voor mezelf is dat ik zelfstandiger heb gewerkt. In eerdere projecten op school merkte ik dat ik vaak te snel om hulp vroeg. Ik heb tijdens dit beroepsproduct er op gelet dat ik eerst de tijd nam om het zelf uit te zoeken.
 
 - Een tip voor mezelf is dat ik van te voren en tijdens het werken aan een taak goed moet kijken naar de acceptatiecriteria. Ik doe dit niet altijd en dan wanneer ik denk dat ik klaar ben met een taak blijkt het dat ik toch nog iets mis of dat ik iets heb gemaakt dat niet binnen mijn taak hoort. Dit zou ik in het grote project willen verbeteren, zodat ik niet extra tijd besteed aan een taak.
+- Een tip voor mezelf is dat ik snel afgeleid raak. Ik wil voor een volgend project hier iets op vinden door bijvoorbeeld voor bepaalde delen van de dag even apart te zitten van de groep.
 
 ## 9. Conclusie & feedback
 
 Competenties: *DevOps-7 - Attitude*
+
+
+Conclusie
+
+Ik kijk positief terug op mijn bijdrage aan het project en de diverse DevOps-competenties die ik heb kunnen inzetten en ontwikkelen. Mijn werk aan de microservice-architectuur, het opzetten van Docker- en Kubernetes-configuraties, en de integratie van Prometheus monitoring hebben ervoor gezorgd dat het team een stabiele en schaalbare infrastructuur kon bouwen. Ook in de CI/CD-processen en GitOps heb ik mijn steentje bijgedragen. Door het uitvoeren van code reviews en het signaleren van security-issues heb ik de kwaliteit en veiligheid van onze codebase verbeterd.
+
+Daarnaast heb ik mezelf kunnen ontwikkelen in soft skills en groepsprocessen. Het leiden van de DSU en sprint planningen, en het notuleren tijdens sprint reviews hebben me geholpen om beter te communiceren en mijn Agile-vaardigheden te versterken. Hierdoor was ik in staat om een positieve bijdrage te leveren aan de samenwerking binnen ons team en onze gezamenlijke doelen.
+
+Als ik terug kijk op afgelopen twee weken ben ik tevreden over mezelf. Zowel in de soft skills als de functionaliteit die ik heb gemaakt. Ik vond de twee weken wel erg kort voor alle scrum sessies (sprint planning/review en retrospective). We hadden na de retrospecitive nog maar 2,5 dag om onszelf te verbeteren, dit is wel erg kort om verbetering te kunnen zien. Natuurlijk kunnen de punten die hieruit zijn gekomen wel worden meegenomen naar het grote project.
+
+Ik neem mijn opgedane kennis mee naar het volgende project. Zoals de afspraken die we hebben gemaakt over het samenwerken in GitHub. Ik zou de afspraken wel wat willen aanscherpen, bijvoorbeeld de namen die we geven aan branches. Daarnaast neem ik natuurlijk ook de tips mee die ik voor mezelf heb opgesteld.
