@@ -61,6 +61,7 @@ Als de tijdens course onderzochte technologie wel toepasbaar is kun je dit uiter
  
 ## 5. Bijdrage code review/kwaliteit anderen en security
 
+Ik heb een heel aantal code reviews gedaan, hieronder een aantal van de belangrijkste.
 16-10-2024
 [Code review](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/17)
 gekeken naar de code over HPA, opmerking gegeven over het feit dat elke service een eigen stuk heeft. Dit kon niet gecombineerd worden, dus de code is goedgekeurd.
@@ -104,11 +105,25 @@ Beschrijf tijdens het project onder dit kopje ook evt. verdere activiteiten rond
   
 ## 8. Leerervaringen
 
+### Tips
+
+- Ik moet het volgende project meenemen dat ik niet te lang moet blijven hangen in een probleem. Als ik er niet uitkom moet ik hulp vragen of het laten liggen en later weer oppakken als er meer tijd beschikbaar is.
+- Ik moet me meer focussen op 1 taak tegelijk, ik heb nu vaak meerdere taken tegelijk gedaan en dat werkt niet altijd even goed.
+
+### Tops
+
+- Ik heb veel geleerd over gebruik van automatisering van het proces doormiddel van github actions.
+
+- Ik heb geleerd om beslisser te zijn, ik heb nu een aantal keer beslissingen genomen die ik eerst niet durfde te nemen. B.V. het kiezen van de merge strategie, het opzetten van het testplan.
+
 <!-- Competenties: *DevOps-7 - Attitude*
 
 Geef tot slot hier voor jezelf minimaal 2 en maximaal **4 tops** en 2 dito (2 tot 4) **tips** á la professional skills die je kunt meenemen in je verdere loopbaan. Beschrijf ook de voor jezelf er het meest uitspringende hulp of feedback van groepsgenoten die je (tot dusver) hebt gehad tijdens het project. -->
 
 ## 9. Conclusie & feedback
+
+Ik heb dit project veel geleerd, wel is het veel ste kort. Dit zorgt ervoor dat het lastig is om elk aspect van DevOps toe te passen. Wel heb ik een heel aantal dingen die bij DevOps horen toegepast, zoals het configuren van apps en git en het gebruik van reviews en documentatie.
+Ik neem het maken van simpele documentatie mee naar mijn afstudeeropdracht.
 
 <!-- Competenties: *DevOps-7 - Attitude*
 
