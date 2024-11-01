@@ -1,7 +1,7 @@
 # Eigen bijdrage Jelmer Noppert
 'samenvatting'
 
-## 1. Code/platform bijdrage - klaar!
+## 1. Code/platform bijdrage
 
 Ik ben gestart met het opzetten van onze benodigde structuur in de frontend (webApp).
 Ik heb voor de Doe het zelf avond (ook wel in het Engels: Do it yourself evening, DIYEvening) alle benodigde componenten en logica gemaakt volgens de MVC structuur die er al staat.
@@ -14,7 +14,7 @@ Ik heb helaas geen automatische testen geschreven. Ik heb wel handmatige E2E tes
 
 Ik heb een pipeline gemaakt waarbij de applicatie wordt gebuild en getest en gedeployed naar Rancher. De pipeline is hier te vinden: [pipeline](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/39/files#diff-a9fcf81f55b16d4db9d62258b46a56b196b1e20741c9f5fc61728a3578064b98)
 
-## 2. Bijdrage app configuratie/containers/kubernetes - Klaar!!
+## 2. Bijdrage app configuratie/containers/kubernetes
 
 Ik heb kort een teamgenoot geholpen met het een probleem. Het probleem was dat de backend service container steeds werdt afgesloten. Ik heb dit opgelost: https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/33/commits/d962971291ac93bd42b2b8009c093b8aec6af549
 
@@ -25,7 +25,7 @@ Vervolgens heb ik dit in de kubernetes ook verwerkt.
 Ik heb een map voor de monitoring gemaakt en daar de benodigde namespace, services en deployments in gezet.  Ik heb de verschillende components van Thanos uitgewerkt, gezorgd dat deze worden opgeslagen in MinIO en enkele bestaande Prometheus configuraties aangepast.
 Alle wijzingen die ik heb toegevoegd zijn hier te vinden: [thanos k8s](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/61)
 
-## 3. Bijdrage versiebeheer, CI/CD pipeline en/of monitoring - Klaar!!
+## 3. Bijdrage versiebeheer, CI/CD pipeline en/of monitoring
 
 Bij deze competentie heb ik twee grootte dingen aan gewerkt. Ik heb als eerst monitoring toegevoegd in de vorm van Thanos. 
 Thanos is een uitbreiding van Prometheus.
@@ -35,7 +35,7 @@ Ik heb dit gedaan in de kubernetes configuratie. Al mijn Thanos toevoegingen kun
 Vervolgens heb ik ook gewerkt aan de CI/CD pipeline. Ik heb een nieuwe workflow gemaakt waarbij de hele applicatie wordt gebuild en getest, gepublished en gedeployed. Ik heb dat gedaan door een nieuwe workflow aan te maken in de .github/workflows map. Deze workflow bouwt eerst de applicatie (de pitstop applicatie ook wel de solution) en test deze. Vervolgens worden de images gebouwd en gepublished naar de publieke Docker Registry. 
 Als laatste wordt via Minikube de applicatie gedeployed op onze Rancher cluster. De hele workflow en benodigde wijzigingen zijn hier te vinden: [CI/CD pipeline](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/39/files)
 
-## 4. Onderzoek !! klaar
+## 4. Onderzoek
 
 Ik heb voor de blog onderzoek gedaan naar Thanos. Thanos is een extensie op Prometheus. De blog zelf is hier te vinden: [Thanos blog](https://github.com/hanaim-devops/devops-blog-pietknoppert/blob/main/src/dev-blog-thanos-metrics-endgame/README.md)
 
@@ -52,7 +52,7 @@ Daarnaast heb ik een nieuwe configuratie toegevoegd in de k8s omgeving waardoor 
 Het resultaat is hier te vinden: [thanos](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/61/files)
 Ik heb sinds de blog geleerd hoe ik zo'n automatische bucket generatie kan maken.
 
-## 5. Bijdrage code review/kwaliteit anderen en security !! klaar
+## 5. Bijdrage code review/kwaliteit anderen en security
 
 Tijdens dit project heb ik wel meer dan 15 MR requests nagekeken. Omdat ik die niet allemaal kan benomen ligt er ik enkele uit. Ik heb de kwaliteit van de code beoordeeld en feedback gegeven. Ik heb ook gekeken of de code voldoet aan de standaarden en of de code veilig is.
 
@@ -64,7 +64,7 @@ De laatste MR die ik toon is de functionaliteit van het annuleren van een doe he
 Naast MR ben ik ook kort bezig geweest met security. Ik heb voor de pipeline om naar Rancher te deployen de belangrijkste gegevens zoals logins en wachtwoorden in secrets gezet. Dit is hier te vinden: [pipeline GitHub secret](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/blob/9c619281355ddd9126bf0755fd2ee004a5b7bcd1/.github/workflows/pipeline.yaml#L54)
 Daarnaast heb ik ook de [Rancher login yaml als base64 geencodeerd](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/blob/9c619281355ddd9126bf0755fd2ee004a5b7bcd1/.github/workflows/pipeline.yaml#L75)
 
-## 6. Bijdrage documentatie !! klaar
+## 6. Bijdrage documentatie
 
 Zoals eerder aangehaald heb ik een handmatige E2E test geschreven. De [test gaat over het aanmaken van een avond](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/81/files?short_path=4b74009#diff-4b74009979ef413f625da303968da579b9e10e743d22d9f14196b8050406b4e9)
 
@@ -78,7 +78,7 @@ De tweede ADR gaat over het [niet schrijven van automatische testen](https://git
 
 Daarnaast heb ik natuurlijk ook aan de userstory documentatie gewerkt. Ik heb hier een bijdrage aan geleverd door tijdens de gezamelijke groepsbespreking de userstorys te bespreken en te verduidelijken. 
 
-## 7. Bijdrage Agile werken, groepsproces, communicatie opdrachtgever en soft skills !! klaar
+## 7. Bijdrage Agile werken, groepsproces, communicatie opdrachtgever en soft skills
 
 Ik heb in de eerste sprint op dinsdag een daily stand-up geleid. 
 Ik ben begonnen met het vragen van de progressie, results en problemen van de vorige dag aan de eerste teamgenoot. 
