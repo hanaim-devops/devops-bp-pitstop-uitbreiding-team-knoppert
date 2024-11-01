@@ -54,10 +54,15 @@ Competenties: *DevOps-1 - Continuous Delivery*, *Agile*
 - Ik heb een keer de DSU geleid. Ik nam de leiding en gaf iedereen om de beurt de mogelijkheid om te zeggen wat ze de dag ervoor hadden gedaan en wat ze die dag zouden gaan doen. Als laatst heb ik mezelf de beurt gegeven. Ik moest een keer ingrijpen, omdat we in details gingen over een taak en dit is niet de bedoeling tijdens de DSU.
 - Ik heb tijdens de eerste sprint review genotuleerd. Ik heb dit eerst voor mezelf [snel opgeschreven](https://minor-devops-2024.slack.com/archives/C07QFQ7ATSQ/p1729244846816539) en dit vervolgens netjes uitgewerkt en in [GitHub](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/43/files#diff-021b1de5034fa544897bc7fb1aa9ab61ba189e5457d808be7ffbb2992ee7d793) gezet, zodat mijn groepsgenoten deze notulen kunnen teruglezen.
 - Ik de tweede [sprint planning](https://github.com/hanaim-devops/devops-bp-pitstop-uitbreiding-team-knoppert/pull/54/files) geleid. Ik heb een agenda opgesteld en deze als eerste laten zien in de meeting. Vervolgens heb ik alle punten op de agenda behandeld.
-  
+
 ## 8. Leerervaringen
 
 Competenties: *DevOps-7 - Attitude*
+
+- Een top voor mezelf is dat ik mijn taken goed hebben bijgehouden op het sprintbord. In vorige projecten en op stage merkte ik dat ik dit vaak vergat. Het gevolg hiervan was dat het voor mijn groepsgenoten niet duidelijk was wat de status van mijn taak is. Ik heb tijdens het beroepsproduct er op gelet dat ik de status van mijn taak bijhoudt.
+- Een top voor mezelf is dat ik zelfstandiger heb gewerkt. In eerdere projecten op school merkte ik dat ik vaak te snel om hulp vroeg. Ik heb tijdens dit beroepsproduct er op gelet dat ik eerst de tijd nam om het zelf uit te zoeken.
+
+- Een tip voor mezelf is dat ik van te voren en tijdens het werken aan een taak goed moet kijken naar de acceptatiecriteria. Ik doe dit niet altijd en dan wanneer ik denk dat ik klaar ben met een taak blijkt het dat ik toch nog iets mis of dat ik iets heb gemaakt dat niet binnen mijn taak hoort. Dit zou ik in het grote project willen verbeteren, zodat ik niet extra tijd besteed aan een taak.
 
 ## 9. Conclusie & feedback
 
