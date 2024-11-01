@@ -116,6 +116,10 @@ Beschrijf tijdens het project onder dit kopje ook evt. verdere activiteiten rond
 
 - Ik heb geleerd om beslisser te zijn, ik heb nu een aantal keer beslissingen genomen die ik eerst niet durfde te nemen. B.V. het kiezen van de merge strategie, het opzetten van het testplan.
 
+### Feedback
+
+Tijdens het werken aan keycloak heb ik de feedback gekregen dat ik beter er mee kon stoppen en een ADR schrijven over keycloak. Dit heb ik gedaan en dit heeft mij veel tijd bespaard.
+
 <!-- Competenties: *DevOps-7 - Attitude*
 
 Geef tot slot hier voor jezelf minimaal 2 en maximaal **4 tops** en 2 dito (2 tot 4) **tips** á la professional skills die je kunt meenemen in je verdere loopbaan. Beschrijf ook de voor jezelf er het meest uitspringende hulp of feedback van groepsgenoten die je (tot dusver) hebt gehad tijdens het project. -->
@@ -124,6 +128,12 @@ Geef tot slot hier voor jezelf minimaal 2 en maximaal **4 tops** en 2 dito (2 to
 
 Ik heb dit project veel geleerd, wel is het veel ste kort. Dit zorgt ervoor dat het lastig is om elk aspect van DevOps toe te passen. Wel heb ik een heel aantal dingen die bij DevOps horen toegepast, zoals het configuren van apps en git en het gebruik van reviews en documentatie.
 Ik neem het maken van simpele documentatie mee naar mijn afstudeeropdracht.
+
+### Feedback Docent
+
+De volgende onderdelen van het project kunnen beter:
+
+- Het project is te kort, hierdoor is het lastig om alle aspecten van DevOps toe te passen.
 
 <!-- Competenties: *DevOps-7 - Attitude*
 
