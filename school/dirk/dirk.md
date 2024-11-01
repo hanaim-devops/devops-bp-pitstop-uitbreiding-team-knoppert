@@ -63,4 +63,4 @@ Ik heb de feedback gehad om meer te communiceren, had een draft taak opgepakt zo
 
 ## 9. Conclusie & feedback
 
-- De tijd is vrij kort, eigenlijk te kort om alles goed te doen. Verder was het een leerzaam project en heb ik het naar mijn zin gehad. Ik neem het opzetten van infrastructuur mee naar mijn afstuderen.
+- De beschikbare tijd voor dit project was relatief kort, waardoor het moeilijk was om alles grondig aan te pakken. Ondanks deze beperking was het een zeer leerzaam traject. Ik heb niet alleen nieuwe vaardigheden opgedaan, maar ook mijn probleemoplossend vermogen kunnen ontwikkelen. Het was een uitdagende, maar plezierige ervaring. De kennis die ik heb opgedaan over het opzetten van infrastructuur zal ik zeker meenemen naar mijn afstuderen, waar ik het in toekomstige projecten kan toepassen.
